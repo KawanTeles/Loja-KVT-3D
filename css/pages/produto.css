@@ -1,0 +1,13 @@
+/* Estilos específicos para a página de Produto */
+
+.product-details-main {
+    padding-top: 15rem;
+}
+
+.product-details-main h1 {
+    margin-bottom: 2rem;
+}
+
+.product-details-main p {
+    color: var(--text-gray);
+}

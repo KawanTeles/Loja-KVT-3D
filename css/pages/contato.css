@@ -1,0 +1,33 @@
+/* Estilos específicos para a página de Contato */
+
+.contact-main {
+    padding-top: 15rem;
+}
+
+.contact-main h1 {
+    margin-bottom: 2rem;
+}
+
+.contact-main p {
+    color: var(--text-gray);
+    margin-bottom: 4rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    display: grid;
+    gap: 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-form textarea {
+    height: 150px;
+}

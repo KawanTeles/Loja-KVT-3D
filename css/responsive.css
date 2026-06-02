@@ -1,0 +1,141 @@
+/* 
+   RESPONSIVE CSS - E-commerce Premium 3D
+   Foco: Media queries e ajustes para dispositivos móveis.
+*/
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-title {
+    font-size: 4.8rem;
+  }
+
+  .category-header h1 {
+    font-size: 3.6rem;
+  }
+
+  .cat-title {
+    font-size: 1.8rem;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 80px;
+    position: relative;
+}
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  section {
+    padding: 5rem 0;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    transform: none; /* Reset desktop centralization */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .hero {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../img/banners/imagem-mbile.png");
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 colunas no mobile para cards premium */
+    gap: 1.5rem;
+  }
+
+  .product-info {
+    padding: 1.5rem;
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-price {
+    font-size: 1.6rem;
+  }
+
+  .product-card .btn-primary {
+    flex: 1;
+    padding: 1rem 5rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .category-filters {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Very Small Devices */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card .btn-primary {
+    flex: 1;
+    padding: 1rem 9rem;
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+/* Menu Mobile Ativo */
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  transform: none; /* Reset desktop centralization */
+  background: #0f0f0f;
+  padding: 3rem;
+  border-bottom: 1px solid rgba(131, 51, 227, 0.2);
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 1001;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,93 @@
+/* Estilos específicos para a página de Categoria */
+
+.category-main {
+    padding-top: 120px;
+}
+
+.category-header .breadcrumb {
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+    font-size: 1.4rem;
+}
+
+#breadcrumb-current {
+    color: var(--primary);
+}
+
+#category-title {
+    font-size: 4.8rem;
+    margin-bottom: 1rem;
+}
+
+#category-desc {
+    color: var(--text-gray);
+    font-size: 1.8rem;
+    max-width: 700px;
+    margin-bottom: 4rem;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.05);
+    margin-bottom: 5rem;
+}
+
+#product-count {
+    color: var(--text-gray);
+}
+
+.sort-wrapper label {
+    margin-right: 1rem;
+    color: var(--text-gray);
+}
+
+#sort-products {
+    background: #121212;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 8rem;
+}
+
+.pagination .btn-outline {
+    padding: 1rem 1.5rem;
+}
+
+.pagination .btn-inactive {
+    opacity: 0.5;
+}
+
+/* Ajustes no footer para páginas internas */
+.footer-internal {
+    margin-top: 10rem;
+}
+
+.footer-internal .footer-about .logo {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.footer-internal .footer-about p {
+    color: var(--text-gray);
+}
+
+.footer-bottom-internal {
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--text-gray);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 4rem;
+}
