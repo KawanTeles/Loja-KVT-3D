@@ -220,7 +220,7 @@ function buyOnWhatsApp(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
 
-    const fone = "55829983439617";
+    const fone = "5582998343617";
     const msg = encodeURIComponent(`Olá! Tenho interesse no produto:
 *${p.nome}* (Cód: #${p.id})
 
@@ -256,7 +256,7 @@ function initFormularioContato() {
         const email = document.getElementById('contato-email').value;
         const projeto = document.getElementById('contato-projeto').value;
 
-        const fone = "55829983439617";
+        const fone = "5582998343617";
         const msg = encodeURIComponent(`*Novo Orçamento de Projeto * 🚀
 
 *Nome:* ${nome}
