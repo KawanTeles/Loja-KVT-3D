@@ -1,5 +1,5 @@
-/* 
-   SCRIPT JS - E-commerce Premium 3D
+﻿/* 
+   SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
 
@@ -11,7 +11,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoAtacado: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro articulado impresso em 3D with alta precisão.",
+        descricao: "Chaveiro articulado impresso em with alta precisão.",
         imagem: "img/produtos-chaveiro/chaveirolargato.jpeg",
         data: "2026-05-01"
     },
@@ -117,7 +117,7 @@ const PRODUTOS = [
         precoUnidade: 31.00,
         precoAtacado: 27.00,
         categoria: "arganeis",
-        descricao: "Argnel de gato impresso em 3D.",
+        descricao: "Argnel de gato impresso em.",
         imagem: "img/arganel/arganel-gato.jpeg",
         data: "2026-04-20"
     }
@@ -257,7 +257,7 @@ function initFormularioContato() {
         const projeto = document.getElementById('contato-projeto').value;
 
         const fone = "55829983439617";
-        const msg = encodeURIComponent(`*Novo Orçamento de Projeto 3D* 🚀
+        const msg = encodeURIComponent(`*Novo Orçamento de Projeto * 🚀
 
 *Nome:* ${nome}
 *E-mail:* ${email}
