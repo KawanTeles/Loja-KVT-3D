@@ -137,7 +137,7 @@ header.scrolled {
 /* Category Cards (Home) */
 .cat-card {
   background: var(--bg-card);
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   border-radius: var(--radius);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -196,7 +196,7 @@ header.scrolled {
 }
 
 .product-info {
-  padding: 2.5rem;
+  padding: 1rem;
 }
 
 .product-cat {
@@ -263,10 +263,9 @@ header.scrolled {
 }
 
 .product-card .btn-primary {
-  flex: 1;
-  padding: 1rem 10rem;
-  align-items: center;
-  /* margin-left: 2.5rem; */
+  width: 100%;
+  padding: 1.2rem;
+  text-align: center;
 }
 
 /* Animations */
