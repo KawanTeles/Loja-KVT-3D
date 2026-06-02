@@ -34,7 +34,7 @@
 /* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   section {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
   .nav-menu {
