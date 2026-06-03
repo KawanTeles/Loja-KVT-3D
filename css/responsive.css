@@ -119,25 +119,14 @@
   /* Grid de Produtos - Inteligente */
   .products-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas para aproveitar espaço */
-    gap: 1.5rem;
-    padding: 0 1rem;
+  
   }
 
   .product-img-wrapper {
     aspect-ratio: 1 / 1; 
-    background: #121212;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+
   }
 
-  .product-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Alterado para contain para garantir que o produto apareça inteiro */
-    padding: 10px; /* Pequeno respiro para a imagem não tocar as bordas */
-  }
 
   .product-info {
     padding: 1.5rem 1rem;
@@ -149,9 +138,9 @@
   }
 
   .product-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     height: auto; 
-    min-height: 4.2rem;
+    min-height: 4.5rem;
     margin-bottom: 1.2rem;
     line-height: 1.3;
     overflow: hidden;
