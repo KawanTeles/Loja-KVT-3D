@@ -365,11 +365,22 @@ function buyOnWhatsApp(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
 
+    let precoMsg = `• Unidade: R$ ${formatPrice(p.precoUnidade)}`;
+
+    if (p.precoUnidade5) {
+        precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
+    }
+
+    if (p.precoUnidade50) {
+        precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
+    }
+
     const fone = "5582998343617";
     const msg = encodeURIComponent(`Olá! Tenho interesse no produto:
 *${p.nome}* (Cód: #${p.id})
 
-Valor: R$ ${formatPrice(p.precoUnidade)}
+*Preços disponíveis:*
+${precoMsg}
 
 Poderia me informar a disponibilidade de cores e o prazo de entrega?`);
 
