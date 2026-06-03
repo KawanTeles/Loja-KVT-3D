@@ -110,11 +110,11 @@
   /* Grid de Produtos - Ajuste de Respiro */
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .product-info {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   .product-title {
@@ -161,8 +161,8 @@
   }
 }
 
-/* Smartphones Pequenos e Médios (max-width: 600px) */
-@media (max-width: 600px) {
+/* Smartphones Pequenos e Médios (max-width: 599px) */
+@media (max-width: 599px) {
   .hero-content .hero-title {
     font-size: 3rem;
   }
@@ -171,18 +171,26 @@
     font-size: 2.6rem;
   }
 
+  .container {
+    padding: 0 1.2rem;
+  }
+
   .products-grid {
-    grid-template-columns: 1fr; 
-    gap: var(--space-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .product-info {
-    padding: var(--space-md);
+    padding: 1rem;
   }
 
   .product-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     min-height: auto;
+  }
+
+  .price-value {
+    font-size: 1.5rem;
   }
 
   .category-filter-list {
