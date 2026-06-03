@@ -110,11 +110,11 @@
   /* Grid de Produtos - Ajuste de Respiro */
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    gap: 2rem;
   }
 
   .product-info {
-    padding: var(--space-sm);
+    padding: 1.5rem;
   }
 
   .product-title {

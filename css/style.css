@@ -154,8 +154,8 @@ header.scrolled {
 /* Product Cards */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 3rem;
 }
 
 .product-card {
@@ -166,6 +166,7 @@ header.scrolled {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .product-card:hover {
