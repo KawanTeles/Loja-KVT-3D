@@ -3,53 +3,54 @@
    Foco: Media queries e ajustes para dispositivos móveis.
 */
 
-/* Grande Desktop (1200px+) */
-@media (min-width: 1200px) {
-  html {
-    font-size: 56.25%; /* Garante os 90% de zoom em telas grandes */
-  }
+/* Grande Desktop (1440px+) */
+@media (min-width: 1440px) {
   .container {
-    max-width: 1200px;
+    max-width: 1400px;
   }
 }
 
 /* Laptops e Tablets Paisagem (max-width: 1024px) */
 @media (max-width: 1024px) {
-  html {
-    font-size: 50%; /* Reduzido de 55% para melhor escala global */
+  :root {
+    --section-padding: 8rem;
   }
 
-  .nav-menu {
-    gap: 2rem;
+  html {
+    font-size: 53.125%; /* ~8.5px base */
+  }
+
+  .nav-list {
+    gap: var(--space-lg);
   }
   
   .hero-content .hero-title {
-    font-size: 4.8rem; /* Reduzido de 5.2rem */
+    font-size: 5.2rem;
   }
 }
 
 /* Tablets Retrato (max-width: 992px) */
 @media (max-width: 992px) {
-  section {
-    padding: 5rem 0; /* Reduzido de 6rem */
+  :root {
+    --section-padding: 7rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: var(--space-xl);
   }
 
   .hero-title {
-    font-size: 4.2rem; /* Reduzido de 4.8rem */
+    font-size: 4.8rem;
   }
 
   .hero-content p {
     font-size: 1.8rem;
-    margin-bottom: 3rem;
+    max-width: 100%;
   }
 
   .category-header h1 {
-    font-size: 3.2rem;
+    font-size: 3.6rem;
   }
 
   .header-content {
@@ -59,34 +60,30 @@
 
 /* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
-  section {
-    padding: 4rem 0;
+  :root {
+    --section-padding: 6rem;
+    --space-xl: 3.2rem;
   }
 
-  .header-content {
-    justify-content: space-between;
-  }
-  
   .logo {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .nav-menu {
-    display: none; /* Esconde menu desktop */
+    display: none; 
   }
 
   .menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: white;
+    width: 44px;
+    height: 44px;
     z-index: 1002;
   }
 
   .hero {
-    padding: 12rem 0 8rem; /* Compactado */
+    padding: 14rem 0 8rem;
     text-align: center;
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
@@ -94,73 +91,45 @@
   }
 
   .hero-content .hero-title {
-    font-size: 3.4rem; /* Mais equilibrado */
-    margin: 0 auto 1.5rem;
+    font-size: 3.6rem;
     line-height: 1.2;
   }
 
   .hero-content p {
-    font-size: 1.6rem; /* Mais legível */
-    margin: 0 auto 2.5rem;
+    font-size: 1.7rem;
+    margin-bottom: 3.2rem;
   }
 
   .hero-btns {
-    justify-content: center;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
-  .btn {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.4rem;
-  }
-
-  /* Grid de Produtos - Inteligente */
+  /* Grid de Produtos - Ajuste de Respiro */
   .products-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para aproveitar espaço */
-  
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
-
-  .product-img-wrapper {
-    aspect-ratio: 1 / 1; 
-
-  }
-
 
   .product-info {
-    padding: 1.5rem 1rem;
-  }
-
-  .product-cat {
-    font-size: 1.1rem; 
-    margin-bottom: 0.6rem;
+    padding: var(--space-sm);
   }
 
   .product-title {
-    font-size: 1.7rem;
-    height: auto; 
-    min-height: 4.5rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.3;
-    overflow: hidden;
-    display: -webkit-box;
-    line-clamp: 2;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    font-size: 1.6rem;
+    min-height: 4.2rem;
+    margin-bottom: var(--space-sm);
   }
 
   .product-pricing {
-    padding: 1.2rem 1rem;
-    margin-bottom: 1.8rem;
+    padding: 1rem;
+    margin-bottom: var(--space-md);
   }
 
   .price-value {
-    font-size: 1.8rem;
-  }
-
-  .price-label {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
   }
 
   .product-card .btn-primary {
@@ -169,51 +138,46 @@
   }
 
   .category-filters {
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1rem;
-  }
-
-  .filter-btn {
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
+    padding: 1.5rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: var(--space-xl);
   }
 
   .footer-newsletter form {
     flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .whatsapp-float {
-    width: 45px;
-    height: 45px;
-    bottom: 15px;
-    right: 15px;
+    width: 54px;
+    height: 54px;
+    bottom: 20px;
+    right: 20px;
   }
 }
 
 /* Smartphones Pequenos (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-content .hero-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .featured-products h2 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
 
   .products-grid {
-    grid-template-columns: 1fr; /* Retornando para 1 coluna para visualização detalhada */
-    gap: 2.5rem;
+    grid-template-columns: 1fr; 
+    gap: var(--space-xl);
   }
 
-  .product-img-wrapper {
-    aspect-ratio: 4 / 3; /* Proporção mais equilibrada para 1 coluna */
+  .product-info {
+    padding: var(--space-md);
   }
 
   .product-title {
@@ -221,13 +185,13 @@
     min-height: auto;
   }
 
-  .product-card .btn-primary {
-    padding: 1.4rem;
-    font-size: 1.5rem;
+  .category-filter-list {
+    justify-content: flex-start;
+    padding-left: var(--space-md);
   }
 }
 
-/* Menu Mobile Ativo - Estilo Profissional Overlay */
+/* Menu Mobile Ativo - Overlay Polido */
 .nav-menu.active {
   display: flex;
   flex-direction: column;
@@ -239,29 +203,28 @@
   width: 100%;
   height: 100vh;
   background: rgba(15, 15, 15, 0.98);
-  backdrop-filter: blur(15px);
-  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-xl);
   z-index: 1001;
-  animation: fadeInOverlay 0.4s ease forwards;
-  
-  /* Reset de propriedades do desktop que causam corte visual */
+  animation: fadeInOverlay 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   transform: none; 
-  margin: 0;
 }
 
 .nav-menu.active .nav-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 3.2rem;
 }
 
 .nav-menu.active .nav-link {
   font-size: 2.4rem;
+  font-weight: 600;
   color: white;
 }
 
 @keyframes fadeInOverlay {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

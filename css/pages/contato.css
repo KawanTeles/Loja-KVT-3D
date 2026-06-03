@@ -1,33 +1,68 @@
 /* Estilos específicos para a página de Contato */
 
 .contact-main {
-    padding-top: 15rem;
+    padding-top: 160px;
 }
 
 .contact-main h1 {
-    margin-bottom: 2rem;
+    font-size: 4.2rem;
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
 }
 
 .contact-main p {
     color: var(--text-gray);
-    margin-bottom: 4rem;
+    font-size: 1.8rem;
+    max-width: 600px;
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
 }
 
 .contact-form {
     max-width: 600px;
     display: grid;
-    gap: 2rem;
+    gap: var(--space-md);
+    background: var(--bg-card);
+    padding: var(--space-xl);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .contact-form input,
 .contact-form textarea {
-    background: var(--bg-card);
-    padding: 1.5rem;
+    background: #121212;
+    padding: 1.6rem;
     border-radius: 8px;
     color: white;
-    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.5rem;
+    border: 1.5px solid rgba(255,255,255,0.08);
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    background: rgba(131, 51, 227, 0.03);
 }
 
 .contact-form textarea {
-    height: 150px;
+    height: 180px;
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .contact-main {
+        padding-top: 120px;
+        text-align: center;
+    }
+
+    .contact-main p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form {
+        padding: var(--space-lg);
+    }
 }

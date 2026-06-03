@@ -1,13 +1,14 @@
 /* Estilos específicos para a página de Categoria */
 
 .category-main {
-    padding-top: 120px;
+    padding-top: 140px;
 }
 
 .category-header .breadcrumb {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-md);
     color: var(--text-gray);
     font-size: 1.4rem;
+    font-weight: 500;
 }
 
 #breadcrumb-current {
@@ -16,72 +17,81 @@
 
 #category-title {
     font-size: 4.8rem;
-    margin-bottom: 1rem;
+    font-weight: 800;
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.02em;
 }
 
 #category-desc {
     color: var(--text-gray);
     font-size: 1.8rem;
     max-width: 700px;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
 }
 
 .category-filters {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: var(--space-md);
     background: var(--bg-card);
     border-radius: var(--radius);
     border: 1px solid rgba(255,255,255,0.05);
-    margin-bottom: 5rem;
+    margin-bottom: var(--space-xl);
 }
 
 #product-count {
     color: var(--text-gray);
+    font-weight: 500;
+}
+
+.sort-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .sort-wrapper label {
-    margin-right: 1rem;
     color: var(--text-gray);
+    font-size: 1.4rem;
 }
 
 #sort-products {
     background: #121212;
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 1.6rem;
     border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+#sort-products:focus {
+    border-color: var(--primary);
 }
 
 .pagination {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 8rem;
+    gap: 1.2rem;
+    margin-top: var(--section-padding);
 }
 
 .pagination .btn-outline {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 2rem;
 }
 
 .pagination .btn-inactive {
-    opacity: 0.5;
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* Ajustes no footer para páginas internas */
 .footer-internal {
-    margin-top: 10rem;
-}
-
-.footer-internal .footer-about .logo {
-    margin-bottom: 2rem;
-    display: block;
-}
-
-.footer-internal .footer-about p {
-    color: var(--text-gray);
+    margin-top: var(--section-padding);
 }
 
 .footer-bottom-internal {
@@ -90,4 +100,20 @@
     color: var(--text-gray);
     border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .category-main {
+        padding-top: 110px;
+    }
+
+    #category-title {
+        font-size: 3.4rem;
+    }
+
+    .category-filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
 }

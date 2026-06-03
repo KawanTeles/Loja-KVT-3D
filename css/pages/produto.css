@@ -1,13 +1,29 @@
 /* Estilos específicos para a página de Produto */
 
 .product-details-main {
-    padding-top: 15rem;
+    padding-top: 160px;
 }
 
 .product-details-main h1 {
-    margin-bottom: 2rem;
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
 }
 
 .product-details-main p {
     color: var(--text-gray);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .product-details-main {
+        padding-top: 120px;
+    }
+
+    .product-details-main h1 {
+        font-size: 3.4rem;
+    }
 }

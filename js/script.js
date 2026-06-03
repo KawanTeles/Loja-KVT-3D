@@ -1,4 +1,4 @@
-﻿/* 
+/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -237,11 +237,16 @@ function displayProducts(products, container) {
 
         return `
             <article class="product-card fade-in">
-                <div class="product-img-wrapper"><img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy"></div>
+                <div class="product-img-wrapper">
+                    <img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy">
+                </div>
+                <div class="product-info">
                     <span class="product-cat">${p.categoria}</span>
                     <h3 class="product-title">${displayTitle}</h3>
                     <div class="product-pricing">${pricingHTML}</div>
-                    <div class="product-actions"><button onclick="buyOnWhatsApp('${p.id}')" class="btn btn-primary">Comprar</button></div>
+                    <div class="product-actions">
+                        <button onclick="buyOnWhatsApp('${p.id}')" class="btn btn-primary">Comprar</button>
+                    </div>
                 </div>
             </article>
         `;
