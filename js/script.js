@@ -9,7 +9,7 @@ const PRODUTOS = [
         id: "KF001",
         nome: "Chaveiro Largato articulado Multicolor",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro articulado impresso em with alta precisão.",
         imagem: "img/produtos-chaveiro/chaveirolargato.jpeg",
@@ -19,7 +19,7 @@ const PRODUTOS = [
         id: "KF002",
         nome: "Chaveiro Marcha de Câmbio",
         precoUnidade: 12.00,
-        precoAtacado: 9.50,
+        precoUnidade5: 9.50,
         categoria: "chaveiros",
         descricao: "Miniatura funcional de marcha de câmbio.",
         imagem: "img/produtos-chaveiro/chaveiromarcha.jpeg",
@@ -29,7 +29,7 @@ const PRODUTOS = [
         id: "KF003",
         nome: "Chaveiro Pokebola",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro Pokebola clássico em cores vibrantes.",
         imagem: "img/produtos-chaveiro/chaveiropokebola.jpeg",
@@ -39,7 +39,7 @@ const PRODUTOS = [
         id: "KF004",
         nome: "Chaveiro Suporte para Celular",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Suporte prático e resistente para seu smartphone.",
         imagem: "img/produtos-chaveiro/chaveirocelular.jpeg",
@@ -49,7 +49,7 @@ const PRODUTOS = [
         id: "KF006",
         nome: "Chaveiro do Flamengo",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
         imagem: "img/produtos-chaveiro/chaveiro-flamengo.jpg",
@@ -60,7 +60,8 @@ const PRODUTOS = [
         id: "KF007",
         nome: "Chaveiro NT",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
+        precoUnidade50: 8.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
         imagem: "img/produtos-chaveiro/chaveiro-nt.jpg",
@@ -71,7 +72,7 @@ const PRODUTOS = [
         id: "KF008",
         nome: "Chaveiro Potinho Porta Comprimidos",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
         imagem: "img/produtos-chaveiro/chaveiro-potinho.jpg",
@@ -79,9 +80,9 @@ const PRODUTOS = [
     },
     {
         id: "KF009",
-        nome: "Chaveiro Meu Lugar no Mundo",
+        nome: "Chaveiro Povo Articulado",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
         imagem: "img/produtos-chaveiro/chaveiro-povo.jpg",
@@ -92,7 +93,7 @@ const PRODUTOS = [
         id: "KF010",
         nome: "Chaveiro Meu Lugar no Mundo",
         precoUnidade: 13.00,
-        precoAtacado: 10.00,
+        precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
         imagem: "img/produtos-chaveiro/chaveiromlm.jpeg",
@@ -111,7 +112,7 @@ const PRODUTOS = [
         id: "KF012",
         nome: "Tabuada de Vezes",
         precoUnidade: 65.00,
-        precoAtacado: 55.00,
+        precoUnidade5: 55.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Brinquedo sensorial em formato de tabuada.",
         imagem: "img/brinquedos-sensoriais/tabuada.jpeg",
@@ -121,6 +122,8 @@ const PRODUTOS = [
         id: "KF013",
         nome: "Ovo Sensorial",
         precoUnidade: 31.00,
+        precoUnidade5: 27.00,
+        precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Brinquedo sensorial em formato de ovo.",
         imagem: "img/brinquedos-sensoriais/brinquedosesorial.png",
@@ -130,6 +133,8 @@ const PRODUTOS = [
         id: "KF014",
         nome: "Vareta Sensorial",
         precoUnidade: 31.00,
+        precoUnidade5: 26.00,
+        precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Brinquedo sensorial em formato de vareta.",
         imagem: "img/brinquedos-sensoriais/brinquedo-sensorial.jpeg",
@@ -139,6 +144,8 @@ const PRODUTOS = [
         id: "KF015",
         nome: "Cubo Sensorial",
         precoUnidade: 19.00,
+        precoUnidade5: 16.00,
+        precoUnidade50: 14.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Cubo with texturas vibrantes.",
         imagem: "img/brinquedos-sensoriais/cubo.jpeg",
@@ -148,7 +155,7 @@ const PRODUTOS = [
         id: "KF016",
         nome: "Giroscópios",
         precoUnidade: 20.00,
-        precoAtacado: 18.00,
+        precoUnidade5: 18.00,
         categoria: "brinquedos",
         descricao: "Brinquedo with movimento giroscópico.",
         imagem: "img/brinquedos/giroscopios.jpeg",
@@ -158,7 +165,7 @@ const PRODUTOS = [
         id: "KF017",
         nome: "Arganel de Gato",
         precoUnidade: 31.00,
-        precoAtacado: 27.00,
+        precoUnidade5: 27.00,
         categoria: "personalizados",
         descricao: "Argnel de gato impresso em.",
         imagem: "img/arganel/arganel-gato.jpeg",
@@ -268,8 +275,11 @@ function displayProducts(products, container) {
 
     container.innerHTML = products.map(p => {
         let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
-        if (p.precoAtacado) {
-            pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoAtacado)}</span></div>`;
+        if (p.precoUnidade5) {
+            pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+        }
+        if (p.precoUnidade50) {
+            pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
         }
 
         const displayTitle = p.nome.includes("Multicolor") 
