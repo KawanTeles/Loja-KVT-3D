@@ -1,4 +1,4 @@
-﻿/* 
+/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -233,9 +233,11 @@ function displayProducts(products, container) {
             ? p.nome.replace("Multicolor", '<span class="rgb-effect">Multicolor</span>')
             : p.nome;
 
+        const imgClass = (p.nome === "Ovo Sensorial" || p.nome === "Arganel de Gato") ? "product-img-wrapper img-small" : "product-img-wrapper";
+
         return `
             <article class="product-card fade-in">
-                <div class="product-img-wrapper"><img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy"></div>
+                <div class="${imgClass}"><img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy"></div>
                 <div class="product-info">
                     <span class="product-cat">${p.categoria}</span>
                     <h3 class="product-title">${displayTitle}</h3>

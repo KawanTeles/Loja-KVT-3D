@@ -119,11 +119,24 @@
   /* Grid de Produtos - Inteligente */
   .products-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas para aproveitar espaço */
-    gap: 1.2rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   .product-img-wrapper {
-    aspect-ratio: 3 / 2; /* Imagens ainda mais compactas para priorizar o texto */
+    aspect-ratio: 1 / 1; 
+    background: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Alterado para contain para garantir que o produto apareça inteiro */
+    padding: 10px; /* Pequeno respiro para a imagem não tocar as bordas */
   }
 
   .product-info {
@@ -136,14 +149,14 @@
   }
 
   .product-title {
-    font-size: 1.7rem; /* Aumentado significativamente para leitura imediata */
+    font-size: 1.6rem;
     height: auto; 
-    min-height: 4.5rem;
+    min-height: 4.2rem;
     margin-bottom: 1.2rem;
     line-height: 1.3;
     overflow: hidden;
-    line-clamp: 2; 
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -154,7 +167,7 @@
   }
 
   .price-value {
-    font-size: 1.8rem; /* Preço com maior destaque */
+    font-size: 1.8rem;
   }
 
   .price-label {
@@ -173,8 +186,8 @@
   }
 
   .filter-btn {
-    padding: 1rem 2rem; /* Aumentado proporcionalmente para mobile */
-    font-size: 1.4rem; /* Aumentado de 1.2rem */
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
   }
 
   .footer-grid {
@@ -206,18 +219,22 @@
   }
 
   .products-grid {
-    grid-template-columns: 1fr; /* 1 coluna para produtos ficarem grandes */
-    gap: 2rem;
+    grid-template-columns: 1fr; /* Retornando para 1 coluna para visualização detalhada */
+    gap: 2.5rem;
+  }
+
+  .product-img-wrapper {
+    aspect-ratio: 4 / 3; /* Proporção mais equilibrada para 1 coluna */
   }
 
   .product-title {
-    height: auto;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    min-height: auto;
   }
 
   .product-card .btn-primary {
-    padding: 1.2rem;
-    font-size: 1.4rem;
+    padding: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 
