@@ -1,4 +1,4 @@
-/* 
+﻿/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -46,7 +46,50 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF005",
+        id: "KF006",
+        nome: "Chaveiro do Flamengo",
+        precoUnidade: 13.00,
+        precoAtacado: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
+        imagem: "img/produtos-chaveiro/chaveiro-flamengo.jpg",
+        data: "2026-04-20"
+    },
+
+    {
+        id: "KF007",
+        nome: "Chaveiro NT",
+        precoUnidade: 13.00,
+        precoAtacado: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
+        imagem: "img/produtos-chaveiro/chaveiro-nt.jpg",
+        data: "2026-04-20"
+    },
+
+    {
+        id: "KF008",
+        nome: "Chaveiro Potinho Porta Comprimidos",
+        precoUnidade: 13.00,
+        precoAtacado: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
+        imagem: "img/produtos-chaveiro/chaveiro-potinho.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF009",
+        nome: "Chaveiro Meu Lugar no Mundo",
+        precoUnidade: 13.00,
+        precoAtacado: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
+        imagem: "img/produtos-chaveiro/chaveiro-povo.jpg",
+        data: "2026-04-20"
+    },
+
+    {
+        id: "KF010",
         nome: "Chaveiro Meu Lugar no Mundo",
         precoUnidade: 13.00,
         precoAtacado: 10.00,
@@ -56,7 +99,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF006",
+        id: "KF011",
         nome: "Chocalho Sensorial",
         precoUnidade: 35.00,
         categoria: "brinquedos-sensoriais",
@@ -65,7 +108,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF007",
+        id: "KF012",
         nome: "Tabuada de Vezes",
         precoUnidade: 65.00,
         precoAtacado: 55.00,
@@ -75,7 +118,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF008",
+        id: "KF013",
         nome: "Ovo Sensorial",
         precoUnidade: 31.00,
         categoria: "brinquedos-sensoriais",
@@ -84,7 +127,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF009",
+        id: "KF014",
         nome: "Vareta Sensorial",
         precoUnidade: 31.00,
         categoria: "brinquedos-sensoriais",
@@ -93,7 +136,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF010",
+        id: "KF015",
         nome: "Cubo Sensorial",
         precoUnidade: 19.00,
         categoria: "brinquedos-sensoriais",
@@ -102,7 +145,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF011",
+        id: "KF016",
         nome: "Giroscópios",
         precoUnidade: 20.00,
         precoAtacado: 18.00,
@@ -112,7 +155,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF012",
+        id: "KF017",
         nome: "Arganel de Gato",
         precoUnidade: 31.00,
         precoAtacado: 27.00,
