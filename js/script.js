@@ -12,7 +12,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro articulado impresso em with alta precisão.",
-        imagem: "img/produtos-chaveiro/chaveirolargato.jpeg",
+        imagem: "img/chaveiros/chaveirolargato.jpeg",
         data: "2026-05-01"
     },
     {
@@ -22,7 +22,7 @@ const PRODUTOS = [
         precoUnidade5: 9.50,
         categoria: "chaveiros",
         descricao: "Miniatura funcional de marcha de câmbio.",
-        imagem: "img/produtos-chaveiro/chaveiromarcha.jpeg",
+        imagem: "img/chaveiros/chaveiromarcha.jpeg",
         data: "2026-05-19"
     },
     {
@@ -32,7 +32,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro Pokebola clássico em cores vibrantes.",
-        imagem: "img/produtos-chaveiro/chaveiropokebola.jpeg",
+        imagem: "img/chaveiros/chaveiropokebola.jpeg",
         data: "2026-05-10"
     },
     {
@@ -42,17 +42,17 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Suporte prático e resistente para seu smartphone.",
-        imagem: "img/produtos-chaveiro/chaveirocelular.jpeg",
+        imagem: "img/chaveiros/chaveirocelular.jpeg",
         data: "2026-04-20"
     },
     {
         id: "KF006",
-        nome: "Chaveiro do Flamengo",
+        nome: "Chaveiro do Flamengo CRF",
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
-        imagem: "img/produtos-chaveiro/chaveiro-flamengo.jpg",
+        descricao: "Chaveiro do Flamengo CRF em cores vibrantes.",
+        imagem: "img/chaveiros/chaveiro-flamengo.jpg",
         data: "2026-04-20"
     },
 
@@ -63,8 +63,8 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         precoUnidade50: 8.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
-        imagem: "img/produtos-chaveiro/chaveiro-nt.jpg",
+        descricao: "Chaveiro NT.",
+        imagem: "img/chaveiros/chaveiro-nt.jpg",
         data: "2026-04-20"
     },
 
@@ -74,8 +74,8 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
-        imagem: "img/produtos-chaveiro/chaveiro-potinho.jpg",
+        descricao: "Chaveiro potinho porta comprimidos.",
+        imagem: "img/chaveiros/chaveiro-potinho.jpg",
         data: "2026-04-20"
     },
     {
@@ -84,8 +84,8 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
-        imagem: "img/produtos-chaveiro/chaveiro-povo.jpg",
+        descricao: "Chaveiro povo articulado em cores vibrantes.",
+        imagem: "img/chaveiros/chaveiro-povo.jpg",
         data: "2026-04-20"
     },
 
@@ -96,11 +96,31 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
-        imagem: "img/produtos-chaveiro/chaveiromlm.jpeg",
+        imagem: "img/chaveiros/chaveiromlm.jpeg",
         data: "2026-04-20"
     },
     {
         id: "KF011",
+        nome: "Chaveiro Fúria da Luz",
+        precoUnidade: 13.00,
+        precoUnidade5: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro furia da luz",
+        imagem: "img/chaveiros/chaveiro-furialuz.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF012",
+        nome: "Chaveiro Garrafinha",
+        precoUnidade: 13.00,
+        precoUnidade5: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro garrafinha",
+        imagem: "img/chaveiros/chaveiro-garrafinha.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF013",
         nome: "Chocalho Sensorial",
         precoUnidade: 35.00,
         categoria: "brinquedos-sensoriais",
@@ -109,7 +129,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF012",
+        id: "KF014",
         nome: "Tabuada de Vezes",
         precoUnidade: 65.00,
         precoUnidade5: 55.00,
@@ -119,7 +139,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF013",
+        id: "KF015",
         nome: "Ovo Sensorial",
         precoUnidade: 31.00,
         precoUnidade5: 27.00,
@@ -130,7 +150,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF014",
+        id: "KF016",
         nome: "Vareta Sensorial",
         precoUnidade: 31.00,
         precoUnidade5: 26.00,
@@ -141,7 +161,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF015",
+        id: "KF017",
         nome: "Cubo Sensorial",
         precoUnidade: 19.00,
         precoUnidade5: 16.00,
@@ -152,7 +172,7 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF016",
+        id: "KF018",
         nome: "Giroscópios",
         precoUnidade: 20.00,
         precoUnidade5: 18.00,
@@ -162,15 +182,45 @@ const PRODUTOS = [
         data: "2026-04-20"
     },
     {
-        id: "KF017",
+        id: "KF019",
         nome: "Arganel de Gato",
         precoUnidade: 31.00,
         precoUnidade5: 27.00,
         categoria: "personalizados",
         descricao: "Argnel de gato impresso em.",
-        imagem: "img/arganel/arganel-gato.jpeg",
+        imagem: "img/personalizados/arganel-gato.jpeg",
         data: "2026-04-20"
-    }
+    },
+    {
+        id: "KF020",
+        nome: "Arganel de Lontra",
+        precoUnidade: 28.00,
+        precoUnidade5: 25.00,
+        categoria: "personalizados",
+        descricao: "Argnel de lontra impresso em.",
+        imagem: "img/personalizados/arganel-lontra.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF021",
+        nome: "Articulado do Flamengo CRF",
+        precoUnidade: 28.00,
+        precoUnidade5: 25.00,
+        categoria: "personalizados",
+        descricao: "Articulado do Flamengo CRF impresso em.",
+        imagem: "img/personalizados/articulado-flamengo.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF022",
+        nome: "Suporte para Celular",
+        precoUnidade: 25.00,
+        precoUnidade5: 23.00,
+        categoria: "personalizados",
+        descricao: "Suporte para celular com carregador.",
+        imagem: "img/personalizados/suporte-celular-carregador.jpg",
+        data: "2026-04-20"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
