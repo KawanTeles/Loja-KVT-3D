@@ -33,7 +33,6 @@
             <nav class="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#categorias" class="nav-link">Categorias</a></li>
                     <li><a href="#produtos" class="nav-link">Produtos</a></li>
                     <li><a href="#como-funciona" class="nav-link span">Como Funciona</a></li>
                     <li><a href="pages/contato.html" class="nav-link">Contato</a></li>
@@ -64,40 +63,6 @@
             </div>
         </section>
 
-        <!-- Categorias Rápidas -->
-        <section id="categorias" class="categories" aria-labelledby="cat-heading">
-            <div class="container">
-                <h2 id="cat-heading">Explore Categorias</h2>
-                <div class="category-grid">
-                    <a href="pages/categoria.html?categoria=chaveiros" class="cat-card-link">
-                        <div class="cat-card">
-                            <span class="cat-icon" aria-hidden="true">🔑</span>
-                            <h3>Chaveiros</h3>
-                        </div>
-                    </a>
-
-                    <a href="pages/categoria.html?categoria=brinquedos" class="cat-card-link">
-                        <div class="cat-card">
-                            <span class="cat-icon" aria-hidden="true">👾</span>
-                            <h3>Brinquedos</h3>
-                        </div>
-                    </a>
-                    <a href="pages/categoria.html?categoria=brinquedos-sensoriais" class="cat-card-link">
-                        <div class="cat-card">
-                            <span class="cat-icon" aria-hidden="true">👾</span>
-                            <h3 class="cat-title">Brinquedos sensoriais</h3>
-                        </div>
-                    </a>
-                    <a href="pages/categoria.html?categoria=arganeis" class="cat-card-link">
-                        <div class="cat-card">
-                            <span class="cat-icon" aria-hidden="true">💍</span>
-                            <h3>Arganéis</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- Produtos em Destaque -->
         <section id="produtos" class="featured-products" aria-labelledby="prod-heading">
             <div class="container">
@@ -109,7 +74,18 @@
                     <a href="pages/categoria.html" class="btn btn-outline" aria-label="Ver todos os produtos">Ver Todos</a>
                 </div>
 
-                <div class="products-grid">
+                <!-- Barra de Filtro de Categorias -->
+                <div class="category-filter-container">
+                    <ul class="category-filter-list">
+                        <li><button class="filter-btn active" data-category="todos">Todos</button></li>
+                        <li><button class="filter-btn" data-category="chaveiros">Chaveiros</button></li>
+                        <li><button class="filter-btn" data-category="brinquedos">Brinquedos</button></li>
+                        <li><button class="filter-btn" data-category="brinquedos-sensoriais">B. Sensoriais</button></li>
+                        <li><button class="filter-btn" data-category="personalizados">Personalizados</button></li>
+                    </ul>
+                </div>
+
+                <div class="products-grid" id="featured-products-grid">
                     <!-- Produto 1 -->
                     <article class="product-card">
                         <div class="product-img-wrapper">

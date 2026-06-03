@@ -116,7 +116,7 @@ const PRODUTOS = [
         nome: "Arganel de Gato",
         precoUnidade: 31.00,
         precoAtacado: 27.00,
-        categoria: "arganeis",
+        categoria: "personalizados",
         descricao: "Argnel de gato impresso em.",
         imagem: "img/arganel/arganel-gato.jpeg",
         data: "2026-04-20"
@@ -133,9 +133,42 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPaginaCategoria();
     }
 
+    if (document.getElementById('featured-products-grid')) {
+        initCategoryFilter();
+    }
+
     initFormularioContato();
     initMulticolorAnimation();
 });
+
+// 2.5 FILTRO DE CATEGORIAS (HOME)
+function initCategoryFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productsGrid = document.getElementById('featured-products-grid');
+
+    if (!filterButtons.length || !productsGrid) return;
+
+    // Renderização inicial
+    displayProducts(PRODUTOS.slice(0, 12), productsGrid);
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.dataset.category;
+            const filtered = category === 'todos' 
+                ? PRODUTOS.slice(0, 12) 
+                : PRODUTOS.filter(p => p.categoria === category);
+
+            displayProducts(filtered, productsGrid);
+
+            if (filtered.length === 0) {
+                productsGrid.innerHTML = '<p class="no-products">Nenhum produto encontrado nesta categoria no momento.</p>';
+            }
+        });
+    });
+}
 
 // 3. MENU MOBILE
 function initMenuMobile() {

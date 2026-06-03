@@ -132,14 +132,10 @@
 
   .product-card .btn-primary {
     padding: 1rem;
-    font-size: 1.3rem;
-  }
+    font-size: 1.5rem;
+    }
 
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .category-filters {
+    .category-filters {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem;
