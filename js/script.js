@@ -248,8 +248,8 @@ function initCategoryFilter() {
 
     if (!filterButtons.length || !productsGrid) return;
 
-    // Renderização inicial
-    displayProducts(PRODUTOS.slice(0, 12), productsGrid);
+    // Renderização inicial - Mostra todos os produtos por padrão
+    displayProducts(PRODUTOS, productsGrid);
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -257,8 +257,8 @@ function initCategoryFilter() {
             btn.classList.add('active');
 
             const category = btn.dataset.category;
-            const filtered = category === 'todos' 
-                ? PRODUTOS.slice(0, 12) 
+            const filtered = (category === 'todos' || !category)
+                ? PRODUTOS 
                 : PRODUTOS.filter(p => p.categoria === category);
 
             displayProducts(filtered, productsGrid);
@@ -310,7 +310,10 @@ function renderPaginaCategoria() {
     const container = document.getElementById('products-grid-dynamic');
     if (!container) return;
 
-    let produtosFiltrados = catSlug ? PRODUTOS.filter(p => p.categoria === catSlug) : PRODUTOS;
+    // Se catSlug for 'todos' ou null, mostra tudo. Caso contrário, filtra pela categoria.
+    let produtosFiltrados = (catSlug && catSlug !== 'todos') 
+        ? PRODUTOS.filter(p => p.categoria === catSlug) 
+        : PRODUTOS;
 
     displayProducts(produtosFiltrados, container);
 }

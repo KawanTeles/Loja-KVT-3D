@@ -161,8 +161,8 @@
   }
 }
 
-/* Smartphones Pequenos (max-width: 480px) */
-@media (max-width: 480px) {
+/* Smartphones Pequenos e Médios (max-width: 600px) */
+@media (max-width: 600px) {
   .hero-content .hero-title {
     font-size: 3rem;
   }
