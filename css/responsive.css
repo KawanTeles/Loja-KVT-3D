@@ -5,6 +5,9 @@
 
 /* Grande Desktop (1200px+) */
 @media (min-width: 1200px) {
+  html {
+    font-size: 56.25%; /* Garante os 90% de zoom em telas grandes */
+  }
   .container {
     max-width: 1200px;
   }
@@ -13,7 +16,7 @@
 /* Laptops e Tablets Paisagem (max-width: 1024px) */
 @media (max-width: 1024px) {
   html {
-    font-size: 55%; /* Reduz base de rem levemente */
+    font-size: 50%; /* Reduzido de 55% para melhor escala global */
   }
 
   .nav-menu {
@@ -21,14 +24,14 @@
   }
   
   .hero-content .hero-title {
-    font-size: 5.2rem;
+    font-size: 4.8rem; /* Reduzido de 5.2rem */
   }
 }
 
 /* Tablets Retrato (max-width: 992px) */
 @media (max-width: 992px) {
   section {
-    padding: 6rem 0;
+    padding: 5rem 0; /* Reduzido de 6rem */
   }
 
   .footer-grid {
@@ -37,11 +40,16 @@
   }
 
   .hero-title {
-    font-size: 4.8rem;
+    font-size: 4.2rem; /* Reduzido de 4.8rem */
+  }
+
+  .hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
   }
 
   .category-header h1 {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
 
   .header-content {
@@ -52,11 +60,15 @@
 /* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   section {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
   .header-content {
     justify-content: space-between;
+  }
+  
+  .logo {
+    font-size: 2rem;
   }
 
   .nav-menu {
@@ -74,7 +86,7 @@
   }
 
   .hero {
-    padding: 15rem 0 10rem;
+    padding: 12rem 0 8rem; /* Compactado */
     text-align: center;
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
@@ -82,39 +94,41 @@
   }
 
   .hero-content .hero-title {
-    font-size: 4rem;
-    margin: 0 auto 2rem;
+    font-size: 3.4rem; /* Mais equilibrado */
+    margin: 0 auto 1.5rem;
+    line-height: 1.2;
   }
 
   .hero-content p {
-    font-size: 1.8rem;
-    margin: 0 auto 3rem;
+    font-size: 1.6rem; /* Mais legível */
+    margin: 0 auto 2.5rem;
   }
 
   .hero-btns {
     justify-content: center;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .btn {
     width: 100%;
-    padding: 1.4rem;
+    padding: 1.2rem;
+    font-size: 1.4rem;
   }
 
   /* Grid de Produtos - Inteligente */
   .products-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas para aproveitar espaço */
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .product-info {
-    padding: 1.2rem;
+    padding: 1rem;
   }
 
   .product-title {
-    font-size: 1.4rem;
-    height: 3.6rem; /* Altura fixa para alinhar botões */
+    font-size: 1.3rem;
+    height: 3.2rem; 
     overflow: hidden;
     line-clamp: 2; 
     display: -webkit-box;
@@ -123,28 +137,33 @@
   }
 
   .price-value {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .price-label {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .product-card .btn-primary {
-    padding: 1rem;
-    font-size: 1.5rem;
-    }
+    padding: 0.8rem;
+    font-size: 1.2rem;
+  }
 
-    .category-filters {
+  .category-filters {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+
+  .filter-btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.2rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 4rem;
+    gap: 3rem;
   }
 
   .footer-newsletter form {
@@ -152,17 +171,21 @@
   }
 
   .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    bottom: 20px;
-    right: 20px;
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
   }
 }
 
 /* Smartphones Pequenos (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-content .hero-title {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
+  }
+  
+  .featured-products h2 {
+    font-size: 2.4rem;
   }
 
   .products-grid {
@@ -172,11 +195,12 @@
 
   .product-title {
     height: auto;
+    font-size: 1.5rem;
   }
 
   .product-card .btn-primary {
     padding: 1.2rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }
 

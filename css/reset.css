@@ -12,7 +12,7 @@
 }
 
 :root {
-    font-size: 62.5%; /* 1rem = 10px para facilitar cálculos */
+    font-size: 56.25%; /* Ajustado de 62.5% para simular 90% de zoom (9px base) */
 }
 
 body {

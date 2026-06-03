@@ -261,10 +261,17 @@ header.scrolled {
 
 .category-filter-list {
   display: flex;
+  justify-content: center;
   gap: 1.2rem;
   list-style: none;
-  padding: 0;
+  padding: 0 2rem; /* Adicionado padding para não encostar nas bordas no scroll */
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .category-filter-list {
+    justify-content: flex-start; /* Essencial para o scroll funcionar no mobile */
+  }
 }
 
 .filter-btn {
