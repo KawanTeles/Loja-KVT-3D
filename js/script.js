@@ -162,12 +162,12 @@ const PRODUTOS = [
     },
     {
         id: "KF017",
-        nome: "Cubo Sensorial",
+        nome: "Cubo Infinito Sensorial",
         precoUnidade: 19.00,
         precoUnidade5: 16.00,
         precoUnidade50: 14.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Cubo with texturas vibrantes.",
+        descricao: "Cubo infinito with texturas vibrantes.",
         imagem: "img/brinquedos-sensoriais/cubo.jpeg",
         data: "2026-04-20"
     },
