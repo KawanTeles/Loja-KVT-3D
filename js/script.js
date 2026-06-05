@@ -179,7 +179,7 @@ const PRODUTOS = [
         categoria: "brinquedos",
         descricao: "Brinquedo with movimento giroscópico.",
         imagem: "img/brinquedos/giroscopios.jpeg",
-        data: "2026-04-20"
+        data: "2026-05-23"
     },
     {
         id: "KF019",
@@ -189,7 +189,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Argnel de gato impresso em.",
         imagem: "img/personalizados/arganel-gato.jpeg",
-        data: "2026-04-20"
+        data: "2026-05-29"
     },
     {
         id: "KF020",
@@ -199,7 +199,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Argnel de lontra impresso em.",
         imagem: "img/personalizados/arganel-lontra.jpg",
-        data: "2026-04-20"
+        data: "2026-05-20"
     },
     {
         id: "KF021",
@@ -209,7 +209,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Articulado do Flamengo CRF impresso em.",
         imagem: "img/personalizados/articulado-flamengo.jpg",
-        data: "2026-04-20"
+        data: "2026-06-01"
     },
     {
         id: "KF022",
@@ -219,7 +219,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Suporte para celular com carregador.",
         imagem: "img/personalizados/suporte-celular-carregador.jpg",
-        data: "2026-04-20"
+        data: "2026-05-20"
     },
     {
         id: "KF023",
@@ -230,7 +230,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Caneca para Latão",
         imagem: "img/personalizados/caneca-latao.jpg",
-        data: "2026-04-20"
+        data: "2026-06-05"
     },
     {
         id: "KF024",
@@ -240,7 +240,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Argnel de clube personalizado.",
         imagem: "img/personalizados/arganel-clube.jpg",
-        data: "2026-04-20"
+        data: "2026-06-05"
     },
 ];
 
@@ -336,7 +336,48 @@ function renderPaginaCategoria() {
         ? PRODUTOS.filter(p => p.categoria === catSlug) 
         : PRODUTOS;
 
+    // Mantemos uma referência da ordem original para a opção "Relevância"
+    const ordemOriginal = [...produtosFiltrados];
+
     displayProducts(produtosFiltrados, container);
+    initSorting(produtosFiltrados, ordemOriginal, container);
+}
+
+// 5.5 FUNCIONALIDADE DE ORDENAÇÃO
+function initSorting(produtos, ordemOriginal, container) {
+    const sortSelect = document.getElementById('sort-products');
+    if (!sortSelect) return;
+
+    // Remove event listener anterior se houver (para evitar duplicatas)
+    sortSelect.replaceWith(sortSelect.cloneNode(true));
+    const newSortSelect = document.getElementById('sort-products');
+
+    newSortSelect.addEventListener('change', (e) => {
+        const criterio = e.target.value;
+        let produtosOrdenados = [...produtos];
+
+        switch (criterio) {
+            case 'recent':
+                // Ordena por data (mais recente primeiro)
+                produtosOrdenados.sort((a, b) => new Date(b.data) - new Date(a.data));
+                break;
+            case 'price-low':
+                // Ordena por Menor Preço (baseado no precoUnidade)
+                produtosOrdenados.sort((a, b) => a.precoUnidade - b.precoUnidade);
+                break;
+            case 'price-high':
+                // Ordena por Maior Preço (baseado no precoUnidade)
+                produtosOrdenados.sort((a, b) => b.precoUnidade - a.precoUnidade);
+                break;
+            case 'default':
+            default:
+                // Retorna à ordem original (Relevância)
+                produtosOrdenados = [...ordemOriginal];
+                break;
+        }
+
+        displayProducts(produtosOrdenados, container);
+    });
 }
 
 // 6. EXIBIÇÃO DE PRODUTOS
