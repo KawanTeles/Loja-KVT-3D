@@ -221,6 +221,27 @@ const PRODUTOS = [
         imagem: "img/personalizados/suporte-celular-carregador.jpg",
         data: "2026-04-20"
     },
+    {
+        id: "KF023",
+        nome: "Caneca para Latão personalizado",
+        precoUnidade: 50.00,
+        precoUnidade5: 45.00,
+        precoUnidade50: 42.00,
+        categoria: "personalizados",
+        descricao: "Caneca para Latão",
+        imagem: "img/personalizados/caneca-latao.jpg",
+        data: "2026-04-20"
+    },
+    {
+        id: "KF024",
+        nome: "Arganel de Clube Personalizado",
+        precoUnidade: 24.00,
+        precoUnidade5: 21.00,
+        categoria: "personalizados",
+        descricao: "Argnel de clube personalizado.",
+        imagem: "img/personalizados/arganel-clube.jpg",
+        data: "2026-04-20"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
