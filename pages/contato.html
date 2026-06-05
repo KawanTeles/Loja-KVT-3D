@@ -1,6 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BC1K1WMMCG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-BC1K1WMMCG');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | KVT | Loja Oficial</title>
@@ -9,6 +19,7 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/pages/contato.css">
 </head>
+
 <body>
     <header>
         <div class="container header-content">
@@ -23,11 +34,12 @@
         <div class="container">
             <h1>Entre em Contato</h1>
             <p>Mande seu projeto personalizado!</p>
-            
+
             <form class="contact-form" id="orcamento-form">
                 <input type="text" id="contato-nome" placeholder="Seu Nome" required>
                 <input type="email" id="contato-email" placeholder="Seu E-mail" required>
-                <textarea id="contato-projeto" placeholder="Descreva seu projeto  (tamanho, cor, finalidade)..." required></textarea>
+                <textarea id="contato-projeto" placeholder="Descreva seu projeto  (tamanho, cor, finalidade)..."
+                    required></textarea>
                 <button type="submit" class="btn btn-primary">Enviar via WhatsApp</button>
             </form>
         </div>
@@ -35,4 +47,5 @@
 
     <script src="../js/script.js"></script>
 </body>
+
 </html>
