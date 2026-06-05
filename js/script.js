@@ -242,6 +242,16 @@ const PRODUTOS = [
         imagem: "img/personalizados/arganel-clube.jpg",
         data: "2026-06-05"
     },
+      {
+        id: "KF025",
+        nome: "Expositor de Cartas Pókemon",
+        precoUnidade: 29.00,
+        precoUnidade5: 25.00,
+        categoria: "personalizados",
+        descricao: "Expositor de Cartas Pókemon.",
+        imagem: "img/personalizados/expositor-carta.jpg",
+        data: "2026-06-05"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
