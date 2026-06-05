@@ -76,6 +76,7 @@ header.scrolled {
 .nav-menu {
   display: flex;
   align-items: center;
+  gap: 3rem;
 }
 
 .nav-list {
