@@ -234,9 +234,9 @@ const PRODUTOS = [
     },
     {
         id: "KF024",
-        nome: "Arganel de Clube Personalizado",
-        precoUnidade: 24.00,
-        precoUnidade5: 21.00,
+        nome: "Arganel de Clube Personalizado - Preço a ser definido",
+        precoUnidade: 0.00,
+        precoUnidade5: 0.00,
         categoria: "personalizados",
         descricao: "Argnel de clube personalizado.",
         imagem: "img/personalizados/arganel-clube.jpg",
