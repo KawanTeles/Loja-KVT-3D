@@ -53,7 +53,7 @@ const PRODUTOS = [
         categoria: "chaveiros",
         descricao: "Chaveiro do Flamengo CRF em cores vibrantes.",
         imagem: "img/chaveiros/chaveiro-flamengo.jpg",
-        data: "2026-04-20"
+        data: "2026-06-01"
     },
 
     {
@@ -251,6 +251,26 @@ const PRODUTOS = [
         descricao: "Expositor de Cartas Pókemon.",
         imagem: "img/personalizados/expositor-carta.jpg",
         data: "2026-06-05"
+    },
+     {
+        id: "KF026",
+        nome: "Chaveiro do Flamengo Escudo",
+        precoUnidade: 13.00,
+        precoUnidade5: 10.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro do Flamengo Escudo.",
+        imagem: "img/chaveiros/flamengo-escudo.jpg",
+        data: "2026-06-07"
+    },
+     {
+        id: "KF027",
+        nome: "Suporte de Papel Higiênico ",
+        precoUnidade: 39.00,
+        precoUnidade5: 35.00,
+        categoria: "personalizados",
+        descricao: "Suporte de Papel Higiênico .",
+        imagem: "img/personalizados/suporte-ph.jpg",
+        data: "2026-06-07"
     },
 ];
 
