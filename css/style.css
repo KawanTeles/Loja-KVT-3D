@@ -260,6 +260,7 @@ header.scrolled {
 
 .product-actions {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-top: auto;
 }
@@ -361,6 +362,116 @@ header.scrolled {
 
 .whatsapp-float:hover {
   transform: scale(1.1) rotate(10deg);
+}
+
+/* Modal de Detalhes do Produto */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: var(--space-md);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-container {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(131, 51, 227, 0.3);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--primary);
+  transform: rotate(90deg);
+}
+
+.modal-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #121212;
+}
+
+.modal-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-content {
+  padding: var(--space-lg);
+}
+
+.modal-cat {
+  font-size: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.modal-title {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-white);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.modal-description {
+  font-size: 1.45rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.modal-pricing {
+  margin-bottom: 2.5rem;
+}
+
+.product-card {
+  cursor: pointer;
 }
 
 /* Hero Section */

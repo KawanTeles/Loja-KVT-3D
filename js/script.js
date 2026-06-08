@@ -11,7 +11,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro articulado impresso em with alta precisão.",
+        descricao: "Chaveiro articulado com design exótico, produzido em impressão 3D com cores vibrantes e movimento fluido, perfeito para quem busca um acessório único e divertido.",
         imagem: "img/chaveiros/chaveirolargato.jpeg",
         data: "2026-05-01"
     },
@@ -21,7 +21,7 @@ const PRODUTOS = [
         precoUnidade: 12.00,
         precoUnidade5: 9.50,
         categoria: "chaveiros",
-        descricao: "Miniatura funcional de marcha de câmbio.",
+        descricao: "Miniatura funcional e interativa de uma marcha de câmbio, ideal para entusiastas automotivos que desejam um acessório detalhado e resistente.",
         imagem: "img/chaveiros/chaveiromarcha.jpeg",
         data: "2026-05-19"
     },
@@ -31,7 +31,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro Pokebola clássico em cores vibrantes.",
+        descricao: "Chaveiro temático inspirado na clássica Pokébola, produzido com impressão 3D de alta precisão e acabamento pensado para colecionadores e fãs da franquia.",
         imagem: "img/chaveiros/chaveiropokebola.jpeg",
         data: "2026-05-10"
     },
@@ -41,7 +41,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Suporte prático e resistente para seu smartphone.",
+        descricao: "Acessório 2 em 1: um chaveiro estiloso que se transforma em um suporte estável para seu smartphone, ideal para assistir vídeos em qualquer lugar.",
         imagem: "img/chaveiros/chaveirocelular.jpeg",
         data: "2026-04-20"
     },
@@ -51,7 +51,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro do Flamengo CRF em cores vibrantes.",
+        descricao: "Chaveiro personalizado com o icônico escudo CRF, produzido com acabamento premium para que o torcedor rubro-negro carregue seu orgulho com estilo.",
         imagem: "img/chaveiros/chaveiro-flamengo.jpg",
         data: "2026-06-01"
     },
@@ -63,7 +63,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         precoUnidade50: 8.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro NT.",
+        descricao: "Chaveiro exclusivo com design moderno e minimalista, fabricado com materiais de alta durabilidade para o uso cotidiano.",
         imagem: "img/chaveiros/chaveiro-nt.jpg",
         data: "2026-04-20"
     },
@@ -74,7 +74,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro potinho porta comprimidos.",
+        descricao: "Prático e funcional, este chaveiro possui um compartimento discreto para armazenar comprimidos, unindo utilidade e design compacto.",
         imagem: "img/chaveiros/chaveiro-potinho.jpg",
         data: "2026-04-20"
     },
@@ -84,7 +84,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro povo articulado em cores vibrantes.",
+        descricao: "Chaveiro de polvo com tentáculos totalmente articulados, proporcionando uma experiência sensorial tátil e visual única.",
         imagem: "img/chaveiros/chaveiro-povo.jpg",
         data: "2026-04-20"
     },
@@ -95,7 +95,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo 'Meu Lugar no Mundo'.",
+        descricao: "Chaveiro com design inspirador e acabamento refinado, ideal para presentear alguém especial ou para uso pessoal cheio de significado.",
         imagem: "img/chaveiros/chaveiromlm.jpeg",
         data: "2026-04-20"
     },
@@ -105,7 +105,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro furia da luz",
+        descricao: "Inspirado no universo fantástico, este chaveiro apresenta detalhes impressionantes da Fúria da Luz com alta fidelidade de design.",
         imagem: "img/chaveiros/chaveiro-furialuz.jpg",
         data: "2026-04-20"
     },
@@ -115,7 +115,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro garrafinha",
+        descricao: "Miniatura charmosa em formato de garrafa, produzida com precisão para ser um acessório leve, resistente e estiloso.",
         imagem: "img/chaveiros/chaveiro-garrafinha.jpg",
         data: "2026-04-20"
     },
@@ -124,7 +124,7 @@ const PRODUTOS = [
         nome: "Chocalho Sensorial",
         precoUnidade: 35.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Chocalho sensorial para estimulação tátil e visual.",
+        descricao: "Desenvolvido para estimular o desenvolvimento infantil, este chocalho combina texturas e sons suaves em um design seguro e ergonômico.",
         imagem: "img/brinquedos-sensoriais/chocalho.jpeg",
         data: "2026-04-20"
     },
@@ -134,7 +134,7 @@ const PRODUTOS = [
         precoUnidade: 65.00,
         precoUnidade5: 55.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Brinquedo sensorial em formato de tabuada.",
+        descricao: "Ferramenta educativa e divertida que auxilia no aprendizado da matemática através da interação física e visual.",
         imagem: "img/brinquedos-sensoriais/tabuada.jpeg",
         data: "2026-04-20"
     },
@@ -145,7 +145,7 @@ const PRODUTOS = [
         precoUnidade5: 27.00,
         precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Brinquedo sensorial em formato de ovo.",
+        descricao: "Brinquedo tátil com design orgânico que proporciona relaxamento e foco através de sua superfície texturizada.",
         imagem: "img/brinquedos-sensoriais/brinquedosesorial.png",
         data: "2026-04-20"
     },
@@ -156,7 +156,7 @@ const PRODUTOS = [
         precoUnidade5: 26.00,
         precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Brinquedo sensorial em formato de vareta.",
+        descricao: "Ideal para exercícios de foco e estimulação motora fina, com acabamento suave e cores relaxantes.",
         imagem: "img/brinquedos-sensoriais/brinquedo-sensorial.jpeg",
         data: "2026-04-20"
     },
@@ -167,7 +167,7 @@ const PRODUTOS = [
         precoUnidade5: 16.00,
         precoUnidade50: 14.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Cubo infinito with texturas vibrantes.",
+        descricao: "O clássico 'fidget toy' em uma versão de alta qualidade, perfeito para reduzir o estresse e manter as mãos ocupadas com movimentos infinitos.",
         imagem: "img/brinquedos-sensoriais/cubo.jpeg",
         data: "2026-04-20"
     },
@@ -177,7 +177,7 @@ const PRODUTOS = [
         precoUnidade: 20.00,
         precoUnidade5: 18.00,
         categoria: "brinquedos",
-        descricao: "Brinquedo with movimento giroscópico.",
+        descricao: "Brinquedo mecânico fascinante que demonstra princípios da física através de movimentos giroscópicos complexos e hipnotizantes.",
         imagem: "img/brinquedos/giroscopios.jpeg",
         data: "2026-05-23"
     },
@@ -187,7 +187,7 @@ const PRODUTOS = [
         precoUnidade: 31.00,
         precoUnidade5: 27.00,
         categoria: "personalizados",
-        descricao: "Argnel de gato impresso em.",
+        descricao: "Arganel decorativo com silhueta de gato, ideal para organizar acessórios com um toque de elegância e fofura.",
         imagem: "img/personalizados/arganel-gato.jpeg",
         data: "2026-05-29"
     },
@@ -197,7 +197,7 @@ const PRODUTOS = [
         precoUnidade: 28.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Argnel de lontra impresso em.",
+        descricao: "Peça personalizada de alta fidelidade representando uma lontra, perfeita para decoração ou como suporte de itens leves.",
         imagem: "img/personalizados/arganel-lontra.jpg",
         data: "2026-05-20"
     },
@@ -207,7 +207,7 @@ const PRODUTOS = [
         precoUnidade: 28.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Articulado do Flamengo CRF impresso em.",
+        descricao: "Figura articulada colecionável com as cores e o escudo do Flamengo, unindo tecnologia de impressão 3D e paixão futebolística.",
         imagem: "img/personalizados/articulado-flamengo.jpg",
         data: "2026-06-01"
     },
@@ -217,7 +217,7 @@ const PRODUTOS = [
         precoUnidade: 25.00,
         precoUnidade5: 23.00,
         categoria: "personalizados",
-        descricao: "Suporte para celular com carregador.",
+        descricao: "Suporte ergonômico projetado para acomodar seu celular com segurança, incluindo abertura para cabo de carregador, ideal para mesas de trabalho.",
         imagem: "img/personalizados/suporte-celular-carregador.jpg",
         data: "2026-05-20"
     },
@@ -228,17 +228,17 @@ const PRODUTOS = [
         precoUnidade5: 45.00,
         precoUnidade50: 42.00,
         categoria: "personalizados",
-        descricao: "Caneca para Latão",
+        descricao: "Caneca robusta e personalizada feita sob medida para latões, garantindo uma pegada firme e isolamento térmico aprimorado.",
         imagem: "img/personalizados/caneca-latao.jpg",
         data: "2026-06-05"
     },
     {
         id: "KF024",
-        nome: "Arganel de Clube Personalizado - Preço a ser definido",
+        nome: "Arganel de Clube Personalizado",
         precoUnidade: 0.00,
         precoUnidade5: 0.00,
         categoria: "personalizados",
-        descricao: "Argnel de clube personalizado.",
+        descricao: "Arganel exclusivo que pode ser personalizado com o escudo do seu clube do coração, sob consulta de design e cores.",
         imagem: "img/personalizados/arganel-clube.jpg",
         data: "2026-06-05"
     },
@@ -248,7 +248,7 @@ const PRODUTOS = [
         precoUnidade: 29.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Expositor de Cartas Pókemon.",
+        descricao: "Expositor elegante para proteger e exibir suas cartas Pokémon mais raras, com design transparente e base estável.",
         imagem: "img/personalizados/expositor-carta.jpg",
         data: "2026-06-05"
     },
@@ -258,7 +258,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro do Flamengo Escudo.",
+        descricao: "Chaveiro personalizado inspirado no escudo do Flamengo, produzido em impressão 3D com acabamento premium e ideal para torcedores que querem carregar sua paixão no dia a dia.",
         imagem: "img/chaveiros/flamengo-escudo.jpg",
         data: "2026-06-07"
     },
@@ -268,7 +268,7 @@ const PRODUTOS = [
         precoUnidade: 39.00,
         precoUnidade5: 35.00,
         categoria: "personalizados",
-        descricao: "Suporte de Papel Higiênico .",
+        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
         imagem: "img/personalizados/suporte-ph.jpg",
         data: "2026-06-07"
     },
@@ -279,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMenuMobile();
     initScrollSuave();
     initHeaderScroll();
+    initModal();
     
     if (window.location.pathname.includes('categoria.html') || document.getElementById('products-grid-dynamic')) {
         renderPaginaCategoria();
@@ -291,6 +292,81 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormularioContato();
     initMulticolorAnimation();
 });
+
+// 2.2 MODAL DE DETALHES
+function initModal() {
+    const modalHTML = `
+        <div id="product-modal" class="modal-overlay">
+            <div class="modal-container">
+                <button class="modal-close" onclick="closeProductModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="modal-img-wrapper">
+                    <img id="modal-img" src="" alt="">
+                </div>
+                <div class="modal-content">
+                    <span id="modal-cat" class="modal-cat"></span>
+                    <h2 id="modal-title" class="modal-title"></h2>
+                    <p id="modal-description" class="modal-description"></p>
+                    <div id="modal-pricing" class="product-pricing"></div>
+                    <div class="product-actions">
+                        <button id="modal-buy-btn" class="btn btn-primary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Fechar ao clicar fora
+    const modal = document.getElementById('product-modal');
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeProductModal();
+    });
+}
+
+function openProductModal(id) {
+    const p = PRODUTOS.find(prod => prod.id === id);
+    if (!p) return;
+
+    const modal = document.getElementById('product-modal');
+    const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
+    const pathPrefix = isSubpage ? '../' : '';
+
+    document.getElementById('modal-img').src = `${pathPrefix}${p.imagem}`;
+    document.getElementById('modal-img').alt = p.nome;
+    document.getElementById('modal-cat').textContent = p.categoria;
+    document.getElementById('modal-title').textContent = p.nome;
+    document.getElementById('modal-description').textContent = p.descricao;
+
+    let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
+    if (p.precoUnidade5) {
+        pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+    }
+    if (p.precoUnidade50) {
+        pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+    }
+    document.getElementById('modal-pricing').innerHTML = pricingHTML;
+
+    const buyBtn = document.getElementById('modal-buy-btn');
+    buyBtn.onclick = () => buyOnWhatsApp(p.id);
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Libera o scroll
+}
+
+// Globalizar funções
+window.openProductModal = openProductModal;
+window.closeProductModal = closeProductModal;
 
 // 2.5 FILTRO DE CATEGORIAS (HOME)
 function initCategoryFilter() {
@@ -434,7 +510,7 @@ function displayProducts(products, container) {
         const imgClass = (p.nome === "Ovo Sensorial" || p.nome === "Arganel de Gato") ? "product-img-wrapper img-small" : "product-img-wrapper";
 
         return `
-            <article class="product-card fade-in">
+            <article class="product-card fade-in" onclick="openProductModal('${p.id}')">
                 <div class="product-img-wrapper">
                     <img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy">
                 </div>
@@ -443,7 +519,7 @@ function displayProducts(products, container) {
                     <h3 class="product-title">${displayTitle}</h3>
                     <div class="product-pricing">${pricingHTML}</div>
                     <div class="product-actions">
-                        <button onclick="buyOnWhatsApp('${p.id}')" class="btn btn-primary">Comprar</button>
+                        <button onclick="event.stopPropagation(); buyOnWhatsApp('${p.id}')" class="btn btn-primary">Comprar</button>
                     </div>
                 </div>
             </article>
