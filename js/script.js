@@ -276,6 +276,7 @@ const PRODUTOS = [
 
 // 2. INICIALIZAÇÃO
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme(); // Inicializa o tema antes de tudo
     initMenuMobile();
     initScrollSuave();
     initHeaderScroll();
@@ -292,6 +293,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormularioContato();
     initMulticolorAnimation();
 });
+
+// 2.1 SISTEMA DE TEMAS (DARK/LIGHT)
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    
+    // Aplica o tema inicial
+    document.documentElement.setAttribute('data-theme', storedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+}
 
 // 2.2 MODAL DE DETALHES
 function initModal() {
