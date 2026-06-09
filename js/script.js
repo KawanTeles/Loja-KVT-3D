@@ -84,7 +84,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro de polvo com tentáculos totalmente articulados, proporcionando uma experiência sensorial tátil e visual única.",
+        descricao: "Chaveiro de polvo com tentáculos totalmente articulados, proporcionando uma experiéncia sensorial tátil e visual única.",
         imagem: "img/chaveiros/chaveiro-povo.jpg",
         data: "2026-04-20"
     },
@@ -264,7 +264,7 @@ const PRODUTOS = [
     },
      {
         id: "KF027",
-        nome: "Suporte de Papel Higiênico ",
+        nome: "Suporte de Papel Higiénico ",
         precoUnidade: 39.00,
         precoUnidade5: 35.00,
         categoria: "personalizados",
@@ -409,7 +409,7 @@ function openProductModal(id) {
         actionsDiv.appendChild(cartBtn);
     }
     cartBtn.onclick = () => {
-        addToCart(p.id);
+        handleAddToCartClick(p.id);
         closeProductModal();
     };
 
@@ -497,7 +497,7 @@ function renderPaginaCategoria() {
         ? PRODUTOS.filter(p => p.categoria === catSlug) 
         : PRODUTOS;
 
-    // Mantemos uma referência da ordem original para a opção "Relevância"
+    // Mantemos uma referéncia da ordem original para a opção "Relevância"
     const ordemOriginal = [...produtosFiltrados];
 
     displayProducts(produtosFiltrados, container);
@@ -576,7 +576,7 @@ function displayProducts(products, container) {
                     <div class="product-actions">
                         <div style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
                             <button onclick="event.stopPropagation(); buyOnWhatsApp('${p.id}')" class="btn btn-primary" style="width: 100%;">Comprar</button>
-                            <button onclick="event.stopPropagation(); addToCart('${p.id}')" class="btn btn-outline cart-btn" style="width: 100%; margin-top: 0;">Adicionar ao Carrinho</button>
+                            <button onclick="event.stopPropagation(); handleAddToCartClick('${p.id}')" class="btn btn-outline cart-btn" style="width: 100%; margin-top: 0;">Adicionar ao Carrinho</button>
                         </div>
                     </div>
                 </div>
@@ -587,59 +587,156 @@ function displayProducts(products, container) {
     initMulticolorAnimation();
 }
 
-// 7. SISTEMA DE CARRINHO (NOVO)
+// 7. SISTEMA DE CARRINHO (ATUALIZADO COM ESCOLHA DE PREÇO)
 let cart = JSON.parse(localStorage.getItem('kvt_cart')) || [];
 
 function initCart() {
-    const headerContent = document.querySelector('.header-content');
-    if (headerContent) {
-        const cartToggleHTML = `
-            <button class="cart-toggle" aria-label="Abrir carrinho" onclick="toggleCart(true)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <span class="cart-badge">0</span>
-            </button>
-        `;
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            themeToggle.insertAdjacentHTML('beforebegin', cartToggleHTML);
-        } else {
-            headerContent.insertAdjacentHTML('beforeend', cartToggleHTML);
+    // Injeta elementos do carrinho se não existirem
+    if (!document.querySelector('.cart-drawer')) {
+        const headerContent = document.querySelector('.header-content');
+        if (headerContent) {
+            const cartToggleHTML = `
+                <button class="cart-toggle" aria-label="Abrir carrinho" onclick="toggleCart(true)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </button>
+            `;
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.insertAdjacentHTML('beforebegin', cartToggleHTML);
+            } else {
+                headerContent.insertAdjacentHTML('beforeend', cartToggleHTML);
+            }
         }
-    }
 
-    const cartDrawerHTML = `
-        <div class="cart-overlay" onclick="toggleCart(false)"></div>
-        <div class="cart-drawer">
-            <div class="cart-header">
-                <h2>Meu Carrinho</h2>
-                <button class="cart-close" onclick="toggleCart(false)">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <div id="cart-items" class="cart-items"></div>
-            <div class="cart-footer">
-                <div class="cart-total-row">
-                    <span class="cart-total-label">Total do Pedido:</span>
-                    <span id="cart-total-value" class="cart-total-value">R$ 0,00</span>
+        const cartDrawerHTML = `
+            <div class="cart-overlay" onclick="toggleCart(false)"></div>
+            <div class="cart-drawer">
+                <div class="cart-header">
+                    <h2>Meu Carrinho</h2>
+                    <button class="cart-close" onclick="toggleCart(false)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
-                <button class="btn btn-finalize" onclick="finalizeOrder()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 10px;">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-                    </svg>
-                    Finalizar Pedido
-                </button>
+                <div id="cart-items" class="cart-items"></div>
+                <div class="cart-footer">
+                    <div class="cart-total-row">
+                        <span class="cart-total-label">Total do Pedido:</span>
+                        <span id="cart-total-value" class="cart-total-value">R$ 0,00</span>
+                    </div>
+                    <button class="btn btn-finalize" onclick="finalizeOrder()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 10px;">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                        </svg>
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Modal de Seleção de Preço -->
+            <div class="price-selector-overlay" onclick="closePriceSelector()">
+                <div class="price-selector-container" onclick="event.stopPropagation()">
+                    <h3 class="price-selector-title">Escolha uma opção:</h3>
+                    <div id="price-options-list" class="price-options-list"></div>
+                    <button class="btn btn-primary btn-confirm-price" onclick="confirmPriceSelection()">Confirmar</button>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', cartDrawerHTML);
+    }
+    updateCartUI();
+}
+
+let selectedProductId = null;
+let selectedOption = null;
+
+function handleAddToCartClick(id) {
+    const p = PRODUTOS.find(prod => prod.id === id);
+    if (!p) return;
+
+    const options = [];
+    options.push({ label: 'Unidade', price: p.precoUnidade });
+    if (p.precoUnidade5) options.push({ label: 'Atacado (5+)', price: p.precoUnidade5 });
+    if (p.precoUnidade50) options.push({ label: 'Atacado (50+)', price: p.precoUnidade50 });
+
+    if (options.length === 1) {
+        // Produto com apenas 1 preço, adiciona direto
+        addToCart(id, options[0].label, options[0].price);
+    } else {
+        // Produto com múltiplos preços, abre seletor
+        selectedProductId = id;
+        openPriceSelector(options);
+    }
+}
+
+function openPriceSelector(options) {
+    const list = document.getElementById('price-options-list');
+    list.innerHTML = options.map((opt, index) => `
+        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, '${opt.label}', ${opt.price})">
+            <div class="price-option-radio"></div>
+            <div class="price-option-info">
+                <span class="price-option-label">${opt.label}</span>
+                <span class="price-option-value">R$ ${formatPrice(opt.price)}</span>
             </div>
         </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', cartDrawerHTML);
+    `).join('');
+    
+    selectedOption = { label: options[0].label, price: options[0].price };
+    document.querySelector('.price-selector-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function selectPriceOption(element, label, price) {
+    document.querySelectorAll('.price-option-item').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedOption = { label, price };
+}
+
+function confirmPriceSelection() {
+    if (selectedProductId && selectedOption) {
+        addToCart(selectedProductId, selectedOption.label, selectedOption.price);
+        closePriceSelector();
+    }
+}
+
+function closePriceSelector() {
+    document.querySelector('.price-selector-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+    selectedProductId = null;
+    selectedOption = null;
+}
+
+function addToCart(id, label, price) {
+    const p = PRODUTOS.find(prod => prod.id === id);
+    if (!p) return;
+
+    // A chave única agora considera o ID + o Rótulo do Preço
+    const cartKey = `${id}_${label}`;
+    const existingItem = cart.find(item => `${item.id}_${item.opcao}` === cartKey);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: p.id,
+            nome: p.nome,
+            opcao: label,
+            preco: price,
+            imagem: p.imagem,
+            quantity: 1
+        });
+    }
+
+    saveCart();
     updateCartUI();
+    toggleCart(true);
 }
 
 function toggleCart(show) {
@@ -657,40 +754,18 @@ function toggleCart(show) {
     }
 }
 
-function addToCart(id) {
-    const p = PRODUTOS.find(prod => prod.id === id);
-    if (!p) return;
-
-    const existingItem = cart.find(item => item.id === id);
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({
-            id: p.id,
-            nome: p.nome,
-            preco: p.precoUnidade,
-            imagem: p.imagem,
-            quantity: 1
-        });
-    }
-
-    saveCart();
-    updateCartUI();
-    toggleCart(true);
-}
-
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
+function removeFromCart(id, opcao) {
+    cart = cart.filter(item => !(item.id === id && item.opcao === opcao));
     saveCart();
     updateCartUI();
 }
 
-function updateQuantity(id, change) {
-    const item = cart.find(item => item.id === id);
+function updateQuantity(id, opcao, change) {
+    const item = cart.find(item => item.id === id && item.opcao === opcao);
     if (item) {
         item.quantity += change;
         if (item.quantity <= 0) {
-            removeFromCart(id);
+            removeFromCart(id, opcao);
         } else {
             saveCart();
             updateCartUI();
@@ -731,12 +806,13 @@ function updateCartUI() {
                     <img src="${pathPrefix}${item.imagem}" alt="${item.nome}" class="cart-item-img">
                     <div class="cart-item-info">
                         <h3 class="cart-item-title">${item.nome}</h3>
+                        <p class="cart-item-option">Opção: ${item.opcao}</p>
                         <p class="cart-item-price">R$ ${formatPrice(item.preco)}</p>
                         <div class="cart-item-actions">
-                            <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', '${item.opcao}', -1)">-</button>
                             <span class="qty-val">${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
-                            <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Remover</button>
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', '${item.opcao}', 1)">+</button>
+                            <button class="cart-item-remove" onclick="removeFromCart('${item.id}', '${item.opcao}')">Remover</button>
                         </div>
                     </div>
                 </div>
@@ -760,8 +836,9 @@ function finalizeOrder() {
         total += subtotal;
         msgItens += `
 *Produto:* ${item.nome}
+*Opção escolhida:* ${item.opcao}
+*Preço unitário:* R$ ${formatPrice(item.preco)}
 *Quantidade:* ${item.quantity}
-*Preço Unitário:* R$ ${formatPrice(item.preco)}
 *Subtotal:* R$ ${formatPrice(subtotal)}
 `;
     });
@@ -779,12 +856,16 @@ Obrigado.`);
 // Globalizar funções
 window.openProductModal = openProductModal;
 window.closeProductModal = closeProductModal;
+window.handleAddToCartClick = handleAddToCartClick;
 window.addToCart = addToCart;
 window.toggleCart = toggleCart;
 window.updateQuantity = updateQuantity;
 window.removeFromCart = removeFromCart;
 window.finalizeOrder = finalizeOrder;
 window.initCart = initCart;
+window.selectPriceOption = selectPriceOption;
+window.confirmPriceSelection = confirmPriceSelection;
+window.closePriceSelector = closePriceSelector;
 
 // 8. WHATSAPP INTEGRATION
 function buyOnWhatsApp(id) {

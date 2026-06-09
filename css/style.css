@@ -1009,8 +1009,127 @@ header.scrolled {
     transform: translateY(-2px);
 }
 
+/* Modal de Seleção de Preços (Novo) */
+.price-selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 4000;
+    padding: 2rem;
+}
+
+.price-selector-overlay.active {
+    display: flex;
+}
+
+.price-selector-container {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 350px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    padding: var(--space-md);
+    box-shadow: var(--shadow);
+    animation: modalFadeIn 0.3s ease;
+}
+
+.price-selector-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.price-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.price-option-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--glass-bg);
+}
+
+.price-option-item:hover {
+    border-color: var(--primary);
+    background: rgba(131, 51, 227, 0.05);
+}
+
+.price-option-item.selected {
+    border-color: var(--primary);
+    background: rgba(131, 51, 227, 0.1);
+}
+
+.price-option-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-option-item.selected .price-option-radio {
+    border-color: var(--primary);
+}
+
+.price-option-item.selected .price-option-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.price-option-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.price-option-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.price-option-value {
+    font-size: 1.3rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.btn-confirm-price {
+    width: 100%;
+}
+
+.cart-item-option {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-top: 0.2rem;
+}
+
 @media (max-width: 480px) {
-    .cart-drawer {
+    .price-selector-container {
         max-width: 100%;
     }
 }
