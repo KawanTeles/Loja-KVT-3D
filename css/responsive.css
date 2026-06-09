@@ -92,7 +92,7 @@
     text-align: center;
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-      url("../img/banners/imagem-mbile.png");
+      url("../img/banners/imagem-hero-mobile.png");
   }
 
   .hero-content .hero-title {

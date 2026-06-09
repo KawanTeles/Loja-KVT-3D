@@ -543,7 +543,7 @@ header.scrolled {
 .hero {
   background:
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../img/banners/imagem.png") center/cover;
+    url("../img/banners/imagem-hero.png") center/cover;
   padding: 20rem 0 15rem;
 }
 
