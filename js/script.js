@@ -299,12 +299,12 @@ const PRODUTOS = [
 
 // 2. INICIALIZAÇÃO
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme(); // Inicializa o tema antes de tudo
+    initTheme(); 
     initMenuMobile();
     initScrollSuave();
     initHeaderScroll();
     initModal();
-    initCart(); // Inicializa o sistema de carrinho
+    initCart();
     
     if (window.location.pathname.includes('categoria.html') || document.getElementById('products-grid-dynamic')) {
         renderPaginaCategoria();
@@ -323,7 +323,6 @@ function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const storedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     
-    // Aplica o tema inicial
     document.documentElement.setAttribute('data-theme', storedTheme);
 
     if (themeToggle) {
@@ -365,7 +364,6 @@ function initModal() {
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    // Fechar ao clicar fora
     const modal = document.getElementById('product-modal');
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeProductModal();
@@ -398,7 +396,6 @@ function openProductModal(id) {
     const buyBtn = document.getElementById('modal-buy-btn');
     buyBtn.onclick = () => buyOnWhatsApp(p.id);
 
-    // Adiciona botão de carrinho no modal se não existir
     const actionsDiv = modal.querySelector('.product-actions');
     let cartBtn = document.getElementById('modal-cart-btn');
     if (!cartBtn) {
@@ -414,13 +411,13 @@ function openProductModal(id) {
     };
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeProductModal() {
     const modal = document.getElementById('product-modal');
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Libera o scroll
+    document.body.style.overflow = 'auto'; 
 }
 
 // 2.5 FILTRO DE CATEGORIAS (HOME)
@@ -430,7 +427,6 @@ function initCategoryFilter() {
 
     if (!filterButtons.length || !productsGrid) return;
 
-    // Renderização inicial - Mostra todos os produtos por padrão
     displayProducts(PRODUTOS, productsGrid);
 
     filterButtons.forEach(btn => {
@@ -465,7 +461,6 @@ function initMenuMobile() {
         });
     }
 
-    // Fecha o menu ao clicar em qualquer link (importante para navegação na mesma página)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -492,12 +487,10 @@ function renderPaginaCategoria() {
     const container = document.getElementById('products-grid-dynamic');
     if (!container) return;
 
-    // Se catSlug for 'todos' ou null, mostra tudo. Caso contrário, filtra pela categoria.
     let produtosFiltrados = (catSlug && catSlug !== 'todos') 
         ? PRODUTOS.filter(p => p.categoria === catSlug) 
         : PRODUTOS;
 
-    // Mantemos uma referéncia da ordem original para a opção "Relevância"
     const ordemOriginal = [...produtosFiltrados];
 
     displayProducts(produtosFiltrados, container);
@@ -509,7 +502,6 @@ function initSorting(produtos, ordemOriginal, container) {
     const sortSelect = document.getElementById('sort-products');
     if (!sortSelect) return;
 
-    // Remove event listener anterior se houver (para evitar duplicatas)
     sortSelect.replaceWith(sortSelect.cloneNode(true));
     const newSortSelect = document.getElementById('sort-products');
 
@@ -519,20 +511,16 @@ function initSorting(produtos, ordemOriginal, container) {
 
         switch (criterio) {
             case 'recent':
-                // Ordena por data (mais recente primeiro)
                 produtosOrdenados.sort((a, b) => new Date(b.data) - new Date(a.data));
                 break;
             case 'price-low':
-                // Ordena por Menor Preço (baseado no precoUnidade)
                 produtosOrdenados.sort((a, b) => a.precoUnidade - b.precoUnidade);
                 break;
             case 'price-high':
-                // Ordena por Maior Preço (baseado no precoUnidade)
                 produtosOrdenados.sort((a, b) => b.precoUnidade - a.precoUnidade);
                 break;
             case 'default':
             default:
-                // Retorna à ordem original (Relevância)
                 produtosOrdenados = [...ordemOriginal];
                 break;
         }
@@ -587,11 +575,10 @@ function displayProducts(products, container) {
     initMulticolorAnimation();
 }
 
-// 7. SISTEMA DE CARRINHO (ATUALIZADO COM ESCOLHA DE PREÇO)
+// 7. SISTEMA DE CARRINHO (LÓGICA DE PACOTES DE QUANTIDADE)
 let cart = JSON.parse(localStorage.getItem('kvt_cart')) || [];
 
 function initCart() {
-    // Injeta elementos do carrinho se não existirem
     if (!document.querySelector('.cart-drawer')) {
         const headerContent = document.querySelector('.header-content');
         if (headerContent) {
@@ -639,8 +626,6 @@ function initCart() {
                     </button>
                 </div>
             </div>
-            
-            <!-- Modal de Seleção de Preço -->
             <div class="price-selector-overlay" onclick="closePriceSelector()">
                 <div class="price-selector-container" onclick="event.stopPropagation()">
                     <h3 class="price-selector-title">Escolha uma opção:</h3>
@@ -661,16 +646,13 @@ function handleAddToCartClick(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
 
-    const options = [];
-    options.push({ label: 'Unidade', price: p.precoUnidade });
-    if (p.precoUnidade5) options.push({ label: 'Atacado (5+)', price: p.precoUnidade5 });
-    if (p.precoUnidade50) options.push({ label: 'Atacado (50+)', price: p.precoUnidade50 });
+    const options = [{ label: '1 unidade', price: p.precoUnidade, qty: 1 }];
+    if (p.precoUnidade5) options.push({ label: '5 unidades', price: p.precoUnidade5, qty: 5 });
+    if (p.precoUnidade50) options.push({ label: '50 unidades', price: p.precoUnidade50, qty: 50 });
 
     if (options.length === 1) {
-        // Produto com apenas 1 preço, adiciona direto
-        addToCart(id, options[0].label, options[0].price);
+        addToCart(id, options[0].label, options[0].price, options[0].qty);
     } else {
-        // Produto com múltiplos preços, abre seletor
         selectedProductId = id;
         openPriceSelector(options);
     }
@@ -679,29 +661,29 @@ function handleAddToCartClick(id) {
 function openPriceSelector(options) {
     const list = document.getElementById('price-options-list');
     list.innerHTML = options.map((opt, index) => `
-        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, '${opt.label}', ${opt.price})">
+        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, '${opt.label}', ${opt.price}, ${opt.qty})">
             <div class="price-option-radio"></div>
             <div class="price-option-info">
                 <span class="price-option-label">${opt.label}</span>
-                <span class="price-option-value">R$ ${formatPrice(opt.price)}</span>
+                <span class="price-option-value">R$ ${formatPrice(opt.price)} cada</span>
             </div>
         </div>
     `).join('');
     
-    selectedOption = { label: options[0].label, price: options[0].price };
+    selectedOption = { label: options[0].label, price: options[0].price, qty: options[0].qty };
     document.querySelector('.price-selector-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function selectPriceOption(element, label, price) {
+function selectPriceOption(element, label, price, qty) {
     document.querySelectorAll('.price-option-item').forEach(el => el.classList.remove('selected'));
     element.classList.add('selected');
-    selectedOption = { label, price };
+    selectedOption = { label, price, qty };
 }
 
 function confirmPriceSelection() {
     if (selectedProductId && selectedOption) {
-        addToCart(selectedProductId, selectedOption.label, selectedOption.price);
+        addToCart(selectedProductId, selectedOption.label, selectedOption.price, selectedOption.qty);
         closePriceSelector();
     }
 }
@@ -713,16 +695,14 @@ function closePriceSelector() {
     selectedOption = null;
 }
 
-function addToCart(id, label, price) {
+function addToCart(id, label, price, initialQty) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
 
-    // A chave única agora considera o ID + o Rótulo do Preço
-    const cartKey = `${id}_${label}`;
-    const existingItem = cart.find(item => `${item.id}_${item.opcao}` === cartKey);
+    const existingItem = cart.find(item => item.id === id && item.opcao === label);
 
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += initialQty;
     } else {
         cart.push({
             id: p.id,
@@ -730,7 +710,7 @@ function addToCart(id, label, price) {
             opcao: label,
             preco: price,
             imagem: p.imagem,
-            quantity: 1
+            quantity: initialQty
         });
     }
 
@@ -807,7 +787,7 @@ function updateCartUI() {
                     <div class="cart-item-info">
                         <h3 class="cart-item-title">${item.nome}</h3>
                         <p class="cart-item-option">Opção: ${item.opcao}</p>
-                        <p class="cart-item-price">R$ ${formatPrice(item.preco)}</p>
+                        <p class="cart-item-price">Preço unitário: R$ ${formatPrice(item.preco)}</p>
                         <div class="cart-item-actions">
                             <button class="qty-btn" onclick="updateQuantity('${item.id}', '${item.opcao}', -1)">-</button>
                             <span class="qty-val">${item.quantity}</span>
