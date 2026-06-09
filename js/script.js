@@ -1,4 +1,4 @@
-/* 
+﻿/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -276,7 +276,7 @@ const PRODUTOS = [
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
-        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na Glock, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
         imagem: "img/chaveiros/arma-glock.jpg",
         data: "2026-06-08"
     },
@@ -287,7 +287,7 @@ const PRODUTOS = [
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
-        descricao: "Suporte funcional with design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na M4A1, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
         imagem: "img/chaveiros/arma-m4a1.jpg",
         data: "2026-06-08"
     }
