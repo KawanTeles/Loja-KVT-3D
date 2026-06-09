@@ -55,7 +55,6 @@ const PRODUTOS = [
         imagem: "img/chaveiros/chaveiro-flamengo.jpg",
         data: "2026-06-01"
     },
-
     {
         id: "KF007",
         nome: "Chaveiro NT",
@@ -67,7 +66,6 @@ const PRODUTOS = [
         imagem: "img/chaveiros/chaveiro-nt.jpg",
         data: "2026-04-20"
     },
-
     {
         id: "KF008",
         nome: "Chaveiro Potinho Porta Comprimidos",
@@ -88,7 +86,6 @@ const PRODUTOS = [
         imagem: "img/chaveiros/chaveiro-povo.jpg",
         data: "2026-04-20"
     },
-
     {
         id: "KF010",
         nome: "Chaveiro Meu Lugar no Mundo",
@@ -242,7 +239,7 @@ const PRODUTOS = [
         imagem: "img/personalizados/arganel-clube.jpg",
         data: "2026-06-05"
     },
-      {
+    {
         id: "KF025",
         nome: "Expositor de Cartas Pókemon",
         precoUnidade: 29.00,
@@ -252,7 +249,7 @@ const PRODUTOS = [
         imagem: "img/personalizados/expositor-carta.jpg",
         data: "2026-06-05"
     },
-     {
+    {
         id: "KF026",
         nome: "Chaveiro do Flamengo Escudo",
         precoUnidade: 13.00,
@@ -262,9 +259,9 @@ const PRODUTOS = [
         imagem: "img/chaveiros/flamengo-escudo.jpg",
         data: "2026-06-07"
     },
-     {
+    {
         id: "KF027",
-        nome: "Suporte de Papel Higiénico ",
+        nome: "Suporte de Papel Higiênico",
         precoUnidade: 39.00,
         precoUnidade5: 35.00,
         categoria: "personalizados",
@@ -274,7 +271,7 @@ const PRODUTOS = [
     },
     {
         id: "KF028",
-        nome: "ARMA Glock chaveiro ",
+        nome: "ARMA Glock chaveiro",
         precoUnidade: 12.00,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
@@ -283,18 +280,17 @@ const PRODUTOS = [
         imagem: "img/chaveiros/arma-glock.jpg",
         data: "2026-06-08"
     },
-
-     {
+    {
         id: "KF029",
-        nome: "ARMA chaveiro ",
+        nome: "ARMA chaveiro",
         precoUnidade: 12.00,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
-        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        descricao: "Suporte funcional with design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
         imagem: "img/chaveiros/arma-m4a1.jpg",
         data: "2026-06-08"
-    },
+    }
 ];
 
 // 2. INICIALIZAÇÃO
@@ -309,11 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('categoria.html') || document.getElementById('products-grid-dynamic')) {
         renderPaginaCategoria();
     }
-
     if (document.getElementById('featured-products-grid')) {
         initCategoryFilter();
     }
-
     initFormularioContato();
     initMulticolorAnimation();
 });
@@ -322,14 +316,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const storedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    
     document.documentElement.setAttribute('data-theme', storedTheme);
-
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
@@ -363,7 +354,6 @@ function initModal() {
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-
     const modal = document.getElementById('product-modal');
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeProductModal();
@@ -373,29 +363,20 @@ function initModal() {
 function openProductModal(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-
     const modal = document.getElementById('product-modal');
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
-
     document.getElementById('modal-img').src = `${pathPrefix}${p.imagem}`;
     document.getElementById('modal-img').alt = p.nome;
     document.getElementById('modal-cat').textContent = p.categoria;
     document.getElementById('modal-title').textContent = p.nome;
     document.getElementById('modal-description').textContent = p.descricao;
-
     let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
-    if (p.precoUnidade5) {
-        pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
-    }
-    if (p.precoUnidade50) {
-        pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
-    }
+    if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+    if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
     document.getElementById('modal-pricing').innerHTML = pricingHTML;
-
     const buyBtn = document.getElementById('modal-buy-btn');
     buyBtn.onclick = () => buyOnWhatsApp(p.id);
-
     const actionsDiv = modal.querySelector('.product-actions');
     let cartBtn = document.getElementById('modal-cart-btn');
     if (!cartBtn) {
@@ -409,58 +390,43 @@ function openProductModal(id) {
         handleAddToCartClick(p.id);
         closeProductModal();
     };
-
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
 }
 
 function closeProductModal() {
     const modal = document.getElementById('product-modal');
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = 'auto';
 }
 
-// 2.5 FILTRO DE CATEGORIAS (HOME)
 function initCategoryFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productsGrid = document.getElementById('featured-products-grid');
-
     if (!filterButtons.length || !productsGrid) return;
-
     displayProducts(PRODUTOS, productsGrid);
-
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const category = btn.dataset.category;
-            const filtered = (category === 'todos' || !category)
-                ? PRODUTOS 
-                : PRODUTOS.filter(p => p.categoria === category);
-
+            const filtered = (category === 'todos' || !category) ? PRODUTOS : PRODUTOS.filter(p => p.categoria === category);
             displayProducts(filtered, productsGrid);
-
-            if (filtered.length === 0) {
-                productsGrid.innerHTML = '<p class="no-products">Nenhum produto encontrado nesta categoria no momento.</p>';
-            }
+            if (filtered.length === 0) productsGrid.innerHTML = '<p class="no-products">Nenhum produto encontrado nesta categoria no momento.</p>';
         });
     });
 }
 
-// 3. MENU MOBILE
 function initMenuMobile() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => { 
             navMenu.classList.toggle('active');
             menuToggle.classList.toggle('open');
         });
     }
-
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -469,7 +435,6 @@ function initMenuMobile() {
     });
 }
 
-// 4. HEADER SCROLL EFFECT
 function initHeaderScroll() {
     const header = document.querySelector('header');
     if (header) {
@@ -480,78 +445,47 @@ function initHeaderScroll() {
     }
 }
 
-// 5. RENDERIZAÇÃO DA PÁGINA DE CATEGORIA
 function renderPaginaCategoria() {
     const params = new URLSearchParams(window.location.search);
     const catSlug = params.get("categoria");
     const container = document.getElementById('products-grid-dynamic');
     if (!container) return;
-
-    let produtosFiltrados = (catSlug && catSlug !== 'todos') 
-        ? PRODUTOS.filter(p => p.categoria === catSlug) 
-        : PRODUTOS;
-
+    let produtosFiltrados = (catSlug && catSlug !== 'todos') ? PRODUTOS.filter(p => p.categoria === catSlug) : PRODUTOS;
     const ordemOriginal = [...produtosFiltrados];
-
     displayProducts(produtosFiltrados, container);
     initSorting(produtosFiltrados, ordemOriginal, container);
 }
 
-// 5.5 FUNCIONALIDADE DE ORDENAÇÃO
 function initSorting(produtos, ordemOriginal, container) {
     const sortSelect = document.getElementById('sort-products');
     if (!sortSelect) return;
-
     sortSelect.replaceWith(sortSelect.cloneNode(true));
     const newSortSelect = document.getElementById('sort-products');
-
     newSortSelect.addEventListener('change', (e) => {
         const criterio = e.target.value;
         let produtosOrdenados = [...produtos];
-
         switch (criterio) {
-            case 'recent':
-                produtosOrdenados.sort((a, b) => new Date(b.data) - new Date(a.data));
-                break;
-            case 'price-low':
-                produtosOrdenados.sort((a, b) => a.precoUnidade - b.precoUnidade);
-                break;
-            case 'price-high':
-                produtosOrdenados.sort((a, b) => b.precoUnidade - a.precoUnidade);
-                break;
-            case 'default':
-            default:
-                produtosOrdenados = [...ordemOriginal];
-                break;
+            case 'recent': produtosOrdenados.sort((a, b) => new Date(b.data) - new Date(a.data)); break;
+            case 'price-low': produtosOrdenados.sort((a, b) => a.precoUnidade - b.precoUnidade); break;
+            case 'price-high': produtosOrdenados.sort((a, b) => b.precoUnidade - a.precoUnidade); break;
+            default: produtosOrdenados = [...ordemOriginal]; break;
         }
-
         displayProducts(produtosOrdenados, container);
     });
 }
 
-// 6. EXIBIÇÃO DE PRODUTOS
 function formatPrice(value) { return value.toFixed(2).replace('.', ','); }
 
 function displayProducts(products, container) {
     if (!container) return;
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
-
     container.innerHTML = products.map(p => {
         let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
-        if (p.precoUnidade5) {
-            pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
-        }
-        if (p.precoUnidade50) {
-            pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
-        }
-
-        const displayTitle = p.nome.includes("Multicolor") 
-            ? p.nome.replace("Multicolor", '<span class="rgb-effect">Multicolor</span>')
-            : p.nome;
-
+        if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+        if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+        const displayTitle = p.nome.includes("Multicolor") ? p.nome.replace("Multicolor", '<span class="rgb-effect">Multicolor</span>') : p.nome;
         const imgClass = (p.nome === "Ovo Sensorial" || p.nome === "Arganel de Gato") ? "product-img-wrapper img-small" : "product-img-wrapper";
-
         return `
             <article class="product-card fade-in" onclick="openProductModal('${p.id}')">
                 <div class="${imgClass}">
@@ -571,11 +505,10 @@ function displayProducts(products, container) {
             </article>
         `;
     }).join('');
-
     initMulticolorAnimation();
 }
 
-// 7. SISTEMA DE CARRINHO (LÓGICA DE PACOTES DE QUANTIDADE)
+// 7. SISTEMA DE CARRINHO (HÍBRIDO: ESCOLHA + RECALCULO AUTOMÁTICO)
 let cart = JSON.parse(localStorage.getItem('kvt_cart')) || [];
 
 function initCart() {
@@ -593,13 +526,9 @@ function initCart() {
                 </button>
             `;
             const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.insertAdjacentHTML('beforebegin', cartToggleHTML);
-            } else {
-                headerContent.insertAdjacentHTML('beforeend', cartToggleHTML);
-            }
+            if (themeToggle) themeToggle.insertAdjacentHTML('beforebegin', cartToggleHTML);
+            else headerContent.insertAdjacentHTML('beforeend', cartToggleHTML);
         }
-
         const cartDrawerHTML = `
             <div class="cart-overlay" onclick="toggleCart(false)"></div>
             <div class="cart-drawer">
@@ -639,29 +568,31 @@ function initCart() {
     updateCartUI();
 }
 
+function getUnitPriceByQuantity(productId, quantity) {
+    const p = PRODUTOS.find(item => item.id === productId);
+    if (!p) return 0;
+    if (p.precoUnidade50 && quantity >= 50) return p.precoUnidade50;
+    if (p.precoUnidade5 && quantity >= 5) return p.precoUnidade5;
+    return p.precoUnidade;
+}
+
 let selectedProductId = null;
 let selectedOption = null;
 
 function handleAddToCartClick(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-
     const options = [{ label: '1 unidade', price: p.precoUnidade, qty: 1 }];
     if (p.precoUnidade5) options.push({ label: '5 unidades', price: p.precoUnidade5, qty: 5 });
     if (p.precoUnidade50) options.push({ label: '50 unidades', price: p.precoUnidade50, qty: 50 });
-
-    if (options.length === 1) {
-        addToCart(id, options[0].label, options[0].price, options[0].qty);
-    } else {
-        selectedProductId = id;
-        openPriceSelector(options);
-    }
+    if (options.length === 1) addToCart(id, options[0].qty);
+    else { selectedProductId = id; openPriceSelector(options); }
 }
 
 function openPriceSelector(options) {
     const list = document.getElementById('price-options-list');
     list.innerHTML = options.map((opt, index) => `
-        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, '${opt.label}', ${opt.price}, ${opt.qty})">
+        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, ${opt.qty})">
             <div class="price-option-radio"></div>
             <div class="price-option-info">
                 <span class="price-option-label">${opt.label}</span>
@@ -669,21 +600,20 @@ function openPriceSelector(options) {
             </div>
         </div>
     `).join('');
-    
-    selectedOption = { label: options[0].label, price: options[0].price, qty: options[0].qty };
+    selectedOption = { qty: options[0].qty };
     document.querySelector('.price-selector-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function selectPriceOption(element, label, price, qty) {
+function selectPriceOption(element, qty) {
     document.querySelectorAll('.price-option-item').forEach(el => el.classList.remove('selected'));
     element.classList.add('selected');
-    selectedOption = { label, price, qty };
+    selectedOption = { qty };
 }
 
 function confirmPriceSelection() {
     if (selectedProductId && selectedOption) {
-        addToCart(selectedProductId, selectedOption.label, selectedOption.price, selectedOption.qty);
+        addToCart(selectedProductId, selectedOption.qty);
         closePriceSelector();
     }
 }
@@ -695,25 +625,17 @@ function closePriceSelector() {
     selectedOption = null;
 }
 
-function addToCart(id, label, price, initialQty) {
+function addToCart(id, initialQty) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-
-    const existingItem = cart.find(item => item.id === id && item.opcao === label);
-
+    const existingItem = cart.find(item => item.id === id);
     if (existingItem) {
         existingItem.quantity += initialQty;
+        existingItem.preco = getUnitPriceByQuantity(id, existingItem.quantity);
     } else {
-        cart.push({
-            id: p.id,
-            nome: p.nome,
-            opcao: label,
-            preco: price,
-            imagem: p.imagem,
-            quantity: initialQty
-        });
+        const initialPrice = getUnitPriceByQuantity(id, initialQty);
+        cart.push({ id: p.id, nome: p.nome, preco: initialPrice, imagem: p.imagem, quantity: initialQty });
     }
-
     saveCart();
     updateCartUI();
     toggleCart(true);
@@ -723,196 +645,114 @@ function toggleCart(show) {
     const drawer = document.querySelector('.cart-drawer');
     const overlay = document.querySelector('.cart-overlay');
     if (!drawer || !overlay) return;
-    if (show) {
-        drawer.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    } else {
-        drawer.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    if (show) { drawer.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    else { drawer.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
 }
 
-function removeFromCart(id, opcao) {
-    cart = cart.filter(item => !(item.id === id && item.opcao === opcao));
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
     saveCart();
     updateCartUI();
 }
 
-function updateQuantity(id, opcao, change) {
-    const item = cart.find(item => item.id === id && item.opcao === opcao);
+function updateQuantity(id, change) {
+    const item = cart.find(item => item.id === id);
     if (item) {
         item.quantity += change;
-        if (item.quantity <= 0) {
-            removeFromCart(id, opcao);
-        } else {
+        if (item.quantity <= 0) removeFromCart(id);
+        else {
+            item.preco = getUnitPriceByQuantity(id, item.quantity);
             saveCart();
             updateCartUI();
         }
     }
 }
 
-function saveCart() {
-    localStorage.setItem('kvt_cart', JSON.stringify(cart));
-}
+function saveCart() { localStorage.setItem('kvt_cart', JSON.stringify(cart)); }
 
 function updateCartUI() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartBadge = document.querySelector('.cart-badge');
-    const cartTotalValue = document.getElementById('cart-total-value');
-    
-    if (!cartItemsContainer || !cartBadge || !cartTotalValue) return;
-
+    const container = document.getElementById('cart-items');
+    const badge = document.querySelector('.cart-badge');
+    const totalEl = document.getElementById('cart-total-value');
+    if (!container || !badge || !totalEl) return;
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
-
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="cart-empty-msg">Seu carrinho está vazio.</p>';
-        cartBadge.textContent = '0';
-        cartBadge.style.display = 'none';
-        cartTotalValue.textContent = 'R$ 0,00';
+        container.innerHTML = '<p class="cart-empty-msg">Seu carrinho está vazio.</p>';
+        badge.textContent = '0'; badge.style.display = 'none'; totalEl.textContent = 'R$ 0,00';
     } else {
-        let total = 0;
-        let count = 0;
-
-        cartItemsContainer.innerHTML = cart.map(item => {
+        let total = 0, count = 0;
+        container.innerHTML = cart.map(item => {
             const subtotal = item.preco * item.quantity;
-            total += subtotal;
-            count += item.quantity;
-
+            total += subtotal; count += item.quantity;
             return `
                 <div class="cart-item">
                     <img src="${pathPrefix}${item.imagem}" alt="${item.nome}" class="cart-item-img">
                     <div class="cart-item-info">
                         <h3 class="cart-item-title">${item.nome}</h3>
-                        <p class="cart-item-option">Opção: ${item.opcao}</p>
-                        <p class="cart-item-price">Preço unitário: R$ ${formatPrice(item.preco)}</p>
+                        <p class="cart-item-price">Preço unitário aplicado: R$ ${formatPrice(item.preco)}</p>
                         <div class="cart-item-actions">
-                            <button class="qty-btn" onclick="updateQuantity('${item.id}', '${item.opcao}', -1)">-</button>
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
                             <span class="qty-val">${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity('${item.id}', '${item.opcao}', 1)">+</button>
-                            <button class="cart-item-remove" onclick="removeFromCart('${item.id}', '${item.opcao}')">Remover</button>
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Remover</button>
                         </div>
                     </div>
                 </div>
             `;
         }).join('');
-
-        cartBadge.textContent = count;
-        cartBadge.style.display = 'flex';
-        cartTotalValue.textContent = `R$ ${formatPrice(total)}`;
+        badge.textContent = count; badge.style.display = 'flex'; totalEl.textContent = `R$ ${formatPrice(total)}`;
     }
 }
 
 function finalizeOrder() {
     if (cart.length === 0) return;
-
-    let total = 0;
-    let msgItens = "";
-
+    let total = 0, msgItens = "";
     cart.forEach(item => {
         const subtotal = item.preco * item.quantity;
         total += subtotal;
-        msgItens += `
-*Produto:* ${item.nome}
-*Opção escolhida:* ${item.opcao}
-*Preço unitário:* R$ ${formatPrice(item.preco)}
-*Quantidade:* ${item.quantity}
-*Subtotal:* R$ ${formatPrice(subtotal)}
-`;
+        msgItens += `\n*Produto:* ${item.nome}\n*Quantidade:* ${item.quantity}\n*Preço unitário aplicado:* R$ ${formatPrice(item.preco)}\n*Subtotal:* R$ ${formatPrice(subtotal)}\n`;
     });
-
     const fone = "5582998343617";
-    const msg = encodeURIComponent(`Olá, gostaria de fazer este pedido:
-${msgItens}
-*TOTAL DO PEDIDO: R$ ${formatPrice(total)}*
-
-Obrigado.`);
-
+    const msg = encodeURIComponent(`Olá, gostaria de fazer este pedido:\n${msgItens}\n*TOTAL DO PEDIDO: R$ ${formatPrice(total)}*\n\nObrigado.`);
     window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
 }
 
-// Globalizar funções
-window.openProductModal = openProductModal;
-window.closeProductModal = closeProductModal;
-window.handleAddToCartClick = handleAddToCartClick;
-window.addToCart = addToCart;
-window.toggleCart = toggleCart;
-window.updateQuantity = updateQuantity;
-window.removeFromCart = removeFromCart;
-window.finalizeOrder = finalizeOrder;
-window.initCart = initCart;
-window.selectPriceOption = selectPriceOption;
-window.confirmPriceSelection = confirmPriceSelection;
-window.closePriceSelector = closePriceSelector;
+window.openProductModal = openProductModal; window.closeProductModal = closeProductModal; window.handleAddToCartClick = handleAddToCartClick; window.addToCart = addToCart; window.toggleCart = toggleCart; window.updateQuantity = updateQuantity; window.removeFromCart = removeFromCart; window.finalizeOrder = finalizeOrder; window.initCart = initCart; window.selectPriceOption = selectPriceOption; window.confirmPriceSelection = confirmPriceSelection; window.closePriceSelector = closePriceSelector;
 
-// 8. WHATSAPP INTEGRATION
 function buyOnWhatsApp(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-
     let precoMsg = `• Unidade: R$ ${formatPrice(p.precoUnidade)}`;
-
-    if (p.precoUnidade5) {
-        precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
-    }
-
-    if (p.precoUnidade50) {
-        precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
-    }
-
+    if (p.precoUnidade5) precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
+    if (p.precoUnidade50) precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
     const fone = "5582998343617";
-    const msg = encodeURIComponent(`Olá! Tenho interesse no produto:
-*${p.nome}* (Cód: #${p.id})
-
-*Preços disponíveis:*
-${precoMsg}
-
-Poderia me informar a disponibilidade de cores e o prazo de entrega?`);
-
+    const msg = encodeURIComponent(`Olá! Tenho interesse no produto:\n*${p.nome}* (Cód: #${p.id})\n\n*Preços disponíveis:*\n${precoMsg}\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?`);
     window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
 }
 
-// 9. SCROLL SUAVE
 function initScrollSuave() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
 }
 
-// 10. FORMULÁRIO DE CONTATO (ORÇAMENTO)
 function initFormularioContato() {
     const form = document.getElementById('orcamento-form');
     if (!form) return;
-
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        const nome = document.getElementById('contato-nome').value;
-        const email = document.getElementById('contato-email').value;
-        const projeto = document.getElementById('contato-projeto').value;
-
+        const nome = document.getElementById('contato-nome').value, email = document.getElementById('contato-email').value, projeto = document.getElementById('contato-projeto').value;
         const fone = "5582998343617";
-        const msg = encodeURIComponent(`*Novo Orçamento de Projeto * 🚀
-
-*Nome:* ${nome}
-*E-mail:* ${email}
-
-*Descrição do Projeto:*
-${projeto}`);
-
+        const msg = encodeURIComponent(`*Novo Orçamento de Projeto * 🚀\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n\n*Descrição do Projeto:*\n${projeto}`);
         window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
     });
 }
 
-// 11. ANIMAÇÃO MULTICOLOR
 function initMulticolorAnimation() {
     const targets = document.querySelectorAll('#rgb, .rgb-effect');
     targets.forEach(target => {
@@ -923,9 +763,7 @@ function initMulticolorAnimation() {
         text.split("").forEach((letra, i) => {
             const span = document.createElement("span");
             span.textContent = letra;
-            setInterval(() => {
-                span.style.color = `hsl(${Date.now()/10 + i*40}, 100%, 50%)`;
-            }, 30);
+            setInterval(() => { span.style.color = `hsl(${Date.now()/10 + i*40}, 100%, 50%)`; }, 30);
             target.appendChild(span);
         });
         target.dataset.animated = "true";
