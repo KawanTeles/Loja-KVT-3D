@@ -43,6 +43,7 @@
   --bg-header: rgba(248, 249, 250, 0.8);
   --bg-header-scrolled: rgba(255, 255, 255, 0.95);
   --bg-input: #ffffff;
+  --text-white2: #ffffff;
   --text-white: #1a1a1a;
   --text-gray: #555555;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -176,6 +177,12 @@ header.scrolled {
 }
 
 .btn-outline {
+  border: 1.5px solid rgba(131, 51, 227, 0.4);
+  color: var(--text-white2);
+  background: transparent;
+}
+
+.btn-outline2 {
   border: 1.5px solid rgba(131, 51, 227, 0.4);
   color: var(--text-white);
   background: transparent;
@@ -545,6 +552,7 @@ header.scrolled {
   font-weight: 800;
   margin-bottom: 2rem;
   max-width: 800px;
+  color: var(--text-white2);
 }
 
 .hero-content .hero-title span {
@@ -556,6 +564,7 @@ header.scrolled {
   color: var(--text-gray);
   margin-bottom: 4rem;
   max-width: 600px;
+  color: var(--text-white2);
 }
 
 .hero-btns {
