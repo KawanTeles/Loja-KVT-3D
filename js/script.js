@@ -559,6 +559,19 @@ function initCart() {
                 <div class="price-selector-container" onclick="event.stopPropagation()">
                     <h3 class="price-selector-title">Escolha uma opção:</h3>
                     <div id="price-options-list" class="price-options-list"></div>
+                    
+                    <div class="manual-quantity-area" style="margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                        <label style="display: block; font-size: 1.4rem; color: var(--text-white); margin-bottom: 1rem; font-weight: 600;">Escolha sua quantidade:</label>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <button class="qty-btn" onclick="adjustManualQuantity(-1)" style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: var(--glass-bg); color: var(--text-white); border: 1px solid var(--border-color); cursor: pointer;">-</button>
+                            <input type="number" id="manual-quantity-input" value="1" min="1" oninput="handleManualQuantityChange(this.value)" style="width: 80px; height: 40px; text-align: center; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-white); font-size: 1.6rem; font-weight: 700;">
+                            <button class="qty-btn" onclick="adjustManualQuantity(1)" style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: var(--glass-bg); color: var(--text-white); border: 1px solid var(--border-color); cursor: pointer;">+</button>
+                        </div>
+                        <div id="selector-subtotal" style="font-size: 1.5rem; color: var(--text-white); font-weight: 600;">
+                            Subtotal: <span style="color: var(--primary); font-weight: 800; font-size: 1.8rem;">R$ 0,00</span>
+                        </div>
+                    </div>
+
                     <button class="btn btn-primary btn-confirm-price" onclick="confirmPriceSelection()">Confirmar</button>
                 </div>
             </div>
@@ -582,17 +595,29 @@ let selectedOption = null;
 function handleAddToCartClick(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-    const options = [{ label: '1 unidade', price: p.precoUnidade, qty: 1 }];
-    if (p.precoUnidade5) options.push({ label: '5 unidades', price: p.precoUnidade5, qty: 5 });
-    if (p.precoUnidade50) options.push({ label: '50 unidades', price: p.precoUnidade50, qty: 50 });
-    if (options.length === 1) addToCart(id, options[0].qty);
+    
+    // Configura as faixas dinamicamente baseadas nos preços disponíveis
+    const options = [];
+    
+    if (p.precoUnidade50) {
+        options.push({ label: '1 a 4 unidades', price: p.precoUnidade, qty: 1 });
+        options.push({ label: '5 a 49 unidades', price: p.precoUnidade5, qty: 5 });
+        options.push({ label: '50+ unidades', price: p.precoUnidade50, qty: 50 });
+    } else if (p.precoUnidade5) {
+        options.push({ label: '1 a 4 unidades', price: p.precoUnidade, qty: 1 });
+        options.push({ label: '5+ unidades', price: p.precoUnidade5, qty: 5 });
+    } else {
+        options.push({ label: 'Unidade', price: p.precoUnidade, qty: 1 });
+    }
+
+    if (options.length === 1) addToCart(id, 1);
     else { selectedProductId = id; openPriceSelector(options); }
 }
 
 function openPriceSelector(options) {
     const list = document.getElementById('price-options-list');
     list.innerHTML = options.map((opt, index) => `
-        <div class="price-option-item ${index === 0 ? 'selected' : ''}" onclick="selectPriceOption(this, ${opt.qty})">
+        <div class="price-option-item ${index === 0 ? 'selected' : ''}" data-qty="${opt.qty}" onclick="selectPriceOption(this, ${opt.qty})">
             <div class="price-option-radio"></div>
             <div class="price-option-info">
                 <span class="price-option-label">${opt.label}</span>
@@ -600,7 +625,14 @@ function openPriceSelector(options) {
             </div>
         </div>
     `).join('');
+    
     selectedOption = { qty: options[0].qty };
+    
+    // Inicializa o input manual e o subtotal
+    const inputManual = document.getElementById('manual-quantity-input');
+    if (inputManual) inputManual.value = options[0].qty;
+    updateSelectorSubtotal();
+
     document.querySelector('.price-selector-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -609,11 +641,59 @@ function selectPriceOption(element, qty) {
     document.querySelectorAll('.price-option-item').forEach(el => el.classList.remove('selected'));
     element.classList.add('selected');
     selectedOption = { qty };
+    
+    // Atualiza o input manual ao clicar em uma opção
+    const inputManual = document.getElementById('manual-quantity-input');
+    if (inputManual) inputManual.value = qty;
+    updateSelectorSubtotal();
+}
+
+// NOVAS FUNÇÕES PARA QUANTIDADE MANUAL
+function handleManualQuantityChange(value) {
+    let qty = parseInt(value) || 1;
+    if (qty < 1) qty = 1;
+    
+    selectedOption = { qty };
+    
+    // Destaca a faixa correspondente
+    const p = PRODUTOS.find(prod => prod.id === selectedProductId);
+    if (p) {
+        let activeQty = 1;
+        if (p.precoUnidade50 && qty >= 50) activeQty = 50;
+        else if (p.precoUnidade5 && qty >= 5) activeQty = 5;
+        
+        document.querySelectorAll('.price-option-item').forEach(el => {
+            el.classList.toggle('selected', parseInt(el.dataset.qty) === activeQty);
+        });
+    }
+    
+    updateSelectorSubtotal();
+}
+
+function adjustManualQuantity(change) {
+    const input = document.getElementById('manual-quantity-input');
+    if (!input) return;
+    let newValue = (parseInt(input.value) || 1) + change;
+    if (newValue < 1) newValue = 1;
+    input.value = newValue;
+    handleManualQuantityChange(newValue);
+}
+
+function updateSelectorSubtotal() {
+    if (!selectedProductId || !selectedOption) return;
+    const unitPrice = getUnitPriceByQuantity(selectedProductId, selectedOption.qty);
+    const subtotal = unitPrice * selectedOption.qty;
+    const subtotalEl = document.querySelector('#selector-subtotal span');
+    if (subtotalEl) {
+        subtotalEl.textContent = `R$ ${formatPrice(subtotal)}`;
+    }
 }
 
 function confirmPriceSelection() {
     if (selectedProductId && selectedOption) {
-        addToCart(selectedProductId, selectedOption.qty);
+        const inputManual = document.getElementById('manual-quantity-input');
+        const finalQty = inputManual ? (parseInt(inputManual.value) || selectedOption.qty) : selectedOption.qty;
+        addToCart(selectedProductId, finalQty);
         closePriceSelector();
     }
 }
@@ -719,6 +799,7 @@ function finalizeOrder() {
 }
 
 window.openProductModal = openProductModal; window.closeProductModal = closeProductModal; window.handleAddToCartClick = handleAddToCartClick; window.addToCart = addToCart; window.toggleCart = toggleCart; window.updateQuantity = updateQuantity; window.removeFromCart = removeFromCart; window.finalizeOrder = finalizeOrder; window.initCart = initCart; window.selectPriceOption = selectPriceOption; window.confirmPriceSelection = confirmPriceSelection; window.closePriceSelector = closePriceSelector;
+window.handleManualQuantityChange = handleManualQuantityChange; window.adjustManualQuantity = adjustManualQuantity;
 
 function buyOnWhatsApp(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
