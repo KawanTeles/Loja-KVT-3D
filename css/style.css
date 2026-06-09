@@ -154,8 +154,9 @@ header.scrolled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.4rem 3.2rem;
+  padding: 1.4rem 2.9rem;
   border-radius: var(--radius);
+  width: 50%;
   font-weight: 600;
   font-size: 1.5rem;
   transition: var(--transition);
@@ -1000,8 +1001,8 @@ header.scrolled {
     border: 1.5px solid var(--primary);
     color: var(--primary);
     background: transparent;
-    width: 100%;
-    margin-top: 1rem;
+    width: 50%;
+    padding: 1.9rem 3.2rem;
 }
 
 .cart-btn:hover {
