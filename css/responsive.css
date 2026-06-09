@@ -95,6 +95,10 @@
       url("../img/banners/imagem-hero-mobile.png");
   }
 
+  [data-theme="light"] .hero {
+    background-image: url("../img/banners/imagem-hero-mobile.png");
+  }
+
   .hero-content .hero-title {
     font-size: 3.6rem;
     line-height: 1.2;

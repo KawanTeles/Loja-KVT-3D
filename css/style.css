@@ -547,11 +547,19 @@ header.scrolled {
   padding: 20rem 0 15rem;
 }
 
+[data-theme="light"] .hero {
+  background: url("../img/banners/imagem-hero.png") center/cover;
+}
+
 .hero-content .hero-title {
   font-size: 6.4rem;
   font-weight: 800;
   margin-bottom: 2rem;
   max-width: 800px;
+  color: var(--text-white2);
+}
+
+[data-theme="light"] .hero-content .hero-title {
   color: var(--text-white2);
 }
 
@@ -564,6 +572,10 @@ header.scrolled {
   color: var(--text-gray);
   margin-bottom: 4rem;
   max-width: 600px;
+  color: var(--text-white2);
+}
+
+[data-theme="light"] .hero-content p {
   color: var(--text-white2);
 }
 
@@ -1001,7 +1013,7 @@ header.scrolled {
     color: var(--primary);
     background: transparent;
     width: 50%;
-    padding: 1.9rem 3.2rem;
+    padding: 1.9rem 1.4rem;
 }
 
 .cart-btn:hover {
