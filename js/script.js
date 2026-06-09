@@ -272,6 +272,29 @@ const PRODUTOS = [
         imagem: "img/personalizados/suporte-ph.jpg",
         data: "2026-06-07"
     },
+    {
+        id: "KF028",
+        nome: "ARMA Glock chaveiro ",
+        precoUnidade: 12.00,
+        precoUnidade5: 9.00,
+        precoUnidade50: 7.00,
+        categoria: "chaveiros",
+        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        imagem: "img/chaveiros/arma-glock.jpg",
+        data: "2026-06-08"
+    },
+
+     {
+        id: "KF029",
+        nome: "ARMA chaveiro ",
+        precoUnidade: 12.00,
+        precoUnidade5: 9.00,
+        precoUnidade50: 7.00,
+        categoria: "chaveiros",
+        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        imagem: "img/chaveiros/arma-m4a1.jpg",
+        data: "2026-06-08"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
