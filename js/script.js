@@ -290,6 +290,17 @@ const PRODUTOS = [
         descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na M4A1, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
         imagem: "img/chaveiros/arma-m4a1.jpg",
         data: "2026-06-08"
+    },
+    {
+        id: "KF030",
+        nome: "ALFABETO & NUMBER",
+        precoUnidade: 70.00,
+        precoUnidade5: 60.00,
+        precoUnidade50: 50.00,
+        categoria: "brinquedos-sensoriais",
+        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na M4A1, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
+        imagem: "img/brinquedos-sensoriais/alfabeto-number.jpg",
+        data: "2026-06-15"
     }
 ];
 
