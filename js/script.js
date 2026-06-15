@@ -298,7 +298,7 @@ const PRODUTOS = [
         precoUnidade5: 60.00,
         precoUnidade50: 50.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na M4A1, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
+        descricao: "Transforme os aprendizados em uma experiência divertida e interativa, com esse brinquedo sensorial desenvolvido para estimular o reconhecimento de letras, números, cores e formas por meio da manipulação prática das peças.",
         imagem: "img/brinquedos-sensoriais/alfabeto-number.jpg",
         data: "2026-06-15"
     }
