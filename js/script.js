@@ -12,7 +12,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro articulado com design exótico, produzido em impressão 3D com cores vibrantes e movimento fluido, perfeito para quem busca um acessório único e divertido.",
-        imagem: "img/chaveiros/chaveirolargato.jpeg",
+        imagem: "img/chaveiros/chaveirolargato.jpg",
         data: "2026-05-01"
     },
     {
@@ -22,7 +22,7 @@ const PRODUTOS = [
         precoUnidade5: 9.50,
         categoria: "chaveiros",
         descricao: "Miniatura funcional e interativa de uma marcha de câmbio, ideal para entusiastas automotivos que desejam um acessório detalhado e resistente.",
-        imagem: "img/chaveiros/chaveiromarcha.jpeg",
+        imagem: "img/chaveiros/chaveiromarcha.jpg",
         data: "2026-05-19"
     },
     {
@@ -32,7 +32,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro temático inspirado na clássica Pokébola, produzido com impressão 3D de alta precisão e acabamento pensado para colecionadores e fãs da franquia.",
-        imagem: "img/chaveiros/chaveiropokebola.jpeg",
+        imagem: "img/chaveiros/chaveiropokebola.jpg",
         data: "2026-05-10"
     },
     {
@@ -42,7 +42,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Acessório 2 em 1: um chaveiro estiloso que se transforma em um suporte estável para seu smartphone, ideal para assistir vídeos em qualquer lugar.",
-        imagem: "img/chaveiros/chaveirocelular.jpeg",
+        imagem: "img/chaveiros/chaveirocelular.jpg",
         data: "2026-04-20"
     },
     {
@@ -93,7 +93,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Chaveiro com design inspirador e acabamento refinado, ideal para presentear alguém especial ou para uso pessoal cheio de significado.",
-        imagem: "img/chaveiros/chaveiromlm.jpeg",
+        imagem: "img/chaveiros/chaveiromlm.jpg",
         data: "2026-04-20"
     },
     {
@@ -122,7 +122,7 @@ const PRODUTOS = [
         precoUnidade: 35.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Desenvolvido para estimular o desenvolvimento infantil, este chocalho combina texturas e sons suaves em um design seguro e ergonômico.",
-        imagem: "img/brinquedos-sensoriais/chocalho.jpeg",
+        imagem: "img/brinquedos-sensoriais/chocalho.jpg",
         data: "2026-04-20"
     },
     {
@@ -132,7 +132,7 @@ const PRODUTOS = [
         precoUnidade5: 55.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Ferramenta educativa e divertida que auxilia no aprendizado da matemática através da interação física e visual.",
-        imagem: "img/brinquedos-sensoriais/tabuada.jpeg",
+        imagem: "img/brinquedos-sensoriais/tabuada.jpg",
         data: "2026-04-20"
     },
     {
@@ -154,7 +154,7 @@ const PRODUTOS = [
         precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Ideal para exercícios de foco e estimulação motora fina, com acabamento suave e cores relaxantes.",
-        imagem: "img/brinquedos-sensoriais/brinquedo-sensorial.jpeg",
+        imagem: "img/brinquedos-sensoriais/brinquedo-sensorial.jpg",
         data: "2026-04-20"
     },
     {
@@ -165,7 +165,8 @@ const PRODUTOS = [
         precoUnidade50: 14.00,
         categoria: "brinquedos-sensoriais",
         descricao: "O clássico 'fidget toy' em uma versão de alta qualidade, perfeito para reduzir o estresse e manter as mãos ocupadas com movimentos infinitos.",
-        imagem: "img/brinquedos-sensoriais/cubo.jpeg",
+        imagem: "img/brinquedos-sensoriais/cubo.jpg",
+        imagensExtras: ["img/brinquedos-sensoriais/cubo1.jpg", "img/brinquedos-sensoriais/cubo2.jpg", "img/brinquedos-sensoriais/cubo3.jpg", "img/brinquedos-sensoriais/cubo4.jpg"],
         data: "2026-04-20"
     },
     {
@@ -175,7 +176,7 @@ const PRODUTOS = [
         precoUnidade5: 18.00,
         categoria: "brinquedos",
         descricao: "Brinquedo mecânico fascinante que demonstra princípios da física através de movimentos giroscópicos complexos e hipnotizantes.",
-        imagem: "img/brinquedos/giroscopios.jpeg",
+        imagem: "img/brinquedos/giroscopios.jpg",
         data: "2026-05-23"
     },
     {
@@ -185,7 +186,8 @@ const PRODUTOS = [
         precoUnidade5: 27.00,
         categoria: "personalizados",
         descricao: "Arganel decorativo com silhueta de gato, ideal para organizar acessórios com um toque de elegância e fofura.",
-        imagem: "img/personalizados/arganel-gato.jpeg",
+        imagem: "img/personalizados/arganel-gato.jpg",
+        imagensExtras: ["img/personalizados/gato1.jpg", "img/personalizados/gato2.jpg", "img/personalizados/gato3.jpg"],
         data: "2026-05-29"
     },
     {
@@ -227,6 +229,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Caneca robusta e personalizada feita sob medida para latões, garantindo uma pegada firme e isolamento térmico aprimorado.",
         imagem: "img/personalizados/caneca-latao.jpg",
+        imagensExtras: ["img/personalizados/caneca2.jpg"],
         data: "2026-06-05"
     },
     {
@@ -300,6 +303,7 @@ const PRODUTOS = [
         categoria: "brinquedos-sensoriais",
         descricao: "Transforme os aprendizados em uma experiência divertida e interativa, com esse brinquedo sensorial desenvolvido para estimular o reconhecimento de letras, números, cores e formas por meio da manipulação prática das peças.",
         imagem: "img/brinquedos-sensoriais/alfabeto-number.jpg",
+        imagensExtras: ["img/brinquedos-sensoriais/alfabeto2.jpg", "img/brinquedos-sensoriais/alfabeto3.jpg", "img/brinquedos-sensoriais/alfabeto4.jpg"],
         data: "2026-06-15"
     }
 ];
@@ -352,6 +356,7 @@ function initModal() {
                 <div class="modal-img-wrapper">
                     <img id="modal-img" src="" alt="">
                 </div>
+                <div id="modal-thumbnails" class="modal-thumbnails"></div>
                 <div class="modal-content">
                     <span id="modal-cat" class="modal-cat"></span>
                     <h2 id="modal-title" class="modal-title"></h2>
@@ -371,14 +376,42 @@ function initModal() {
     });
 }
 
+function setModalImage(src, thumbElement) {
+    const mainImg = document.getElementById('modal-img');
+    mainImg.src = src;
+    document.querySelectorAll('.modal-thumbnail').forEach(t => t.classList.remove('active'));
+    if (thumbElement) thumbElement.classList.add('active');
+}
+
 function openProductModal(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
     const modal = document.getElementById('product-modal');
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
-    document.getElementById('modal-img').src = `${pathPrefix}${p.imagem}`;
-    document.getElementById('modal-img').alt = p.nome;
+    
+    // Imagem Principal
+    const mainImg = document.getElementById('modal-img');
+    mainImg.src = `${pathPrefix}${p.imagem}`;
+    mainImg.alt = p.nome;
+
+    // Galeria de Miniaturas
+    const thumbContainer = document.getElementById('modal-thumbnails');
+    thumbContainer.innerHTML = '';
+    if (p.imagensExtras && p.imagensExtras.length > 0) {
+        const allImages = [p.imagem, ...p.imagensExtras];
+        allImages.forEach((img, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = `${pathPrefix}${img}`;
+            thumb.className = `modal-thumbnail ${index === 0 ? 'active' : ''}`;
+            thumb.onclick = () => setModalImage(`${pathPrefix}${img}`, thumb);
+            thumbContainer.appendChild(thumb);
+        });
+        thumbContainer.style.display = 'flex';
+    } else {
+        thumbContainer.style.display = 'none';
+    }
+
     document.getElementById('modal-cat').textContent = p.categoria;
     document.getElementById('modal-title').textContent = p.nome;
     document.getElementById('modal-description').textContent = p.descricao;
@@ -487,6 +520,30 @@ function initSorting(produtos, ordemOriginal, container) {
 
 function formatPrice(value) { return value.toFixed(2).replace('.', ','); }
 
+function changeCardImage(event, id, direction) {
+    event.stopPropagation();
+    const p = PRODUTOS.find(prod => prod.id === id);
+    if (!p || !p.imagensExtras) return;
+    
+    const allImages = [p.imagem, ...p.imagensExtras];
+    const card = event.target.closest('.product-card');
+    const img = card.querySelector('.product-img-wrapper img');
+    
+    // Encontrar o índice atual baseado no src (considerando o pathPrefix)
+    const currentSrc = img.getAttribute('src');
+    const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
+    const pathPrefix = isSubpage ? '../' : '';
+    
+    let currentIndex = allImages.findIndex(src => `${pathPrefix}${src}` === currentSrc);
+    if (currentIndex === -1) currentIndex = 0;
+
+    let nextIndex = currentIndex + direction;
+    if (nextIndex < 0) nextIndex = allImages.length - 1;
+    if (nextIndex >= allImages.length) nextIndex = 0;
+
+    img.src = `${pathPrefix}${allImages[nextIndex]}`;
+}
+
 function displayProducts(products, container) {
     if (!container) return;
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
@@ -497,10 +554,24 @@ function displayProducts(products, container) {
         if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
         const displayTitle = p.nome.includes("Multicolor") ? p.nome.replace("Multicolor", '<span class="rgb-effect">Multicolor</span>') : p.nome;
         const imgClass = (p.nome === "Ovo Sensorial" || p.nome === "Arganel de Gato") ? "product-img-wrapper img-small" : "product-img-wrapper";
+        
+        let galleryBtns = '';
+        if (p.imagensExtras && p.imagensExtras.length > 0) {
+            galleryBtns = `
+                <button class="card-gallery-btn prev" onclick="changeCardImage(event, '${p.id}', -1)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="card-gallery-btn next" onclick="changeCardImage(event, '${p.id}', 1)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            `;
+        }
+
         return `
             <article class="product-card fade-in" onclick="openProductModal('${p.id}')">
                 <div class="${imgClass}">
                     <img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy">
+                    ${galleryBtns}
                 </div>
                 <div class="product-info">
                     <span class="product-cat">${p.categoria}</span>
