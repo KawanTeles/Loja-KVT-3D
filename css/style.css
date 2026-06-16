@@ -367,6 +367,18 @@ header.scrolled {
   font-size: 1.6rem;
 }
 
+/* Animação Premium de Troca de Categoria */
+.products-grid {
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.products-grid.grid-fade-out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
 /* Animations */
 .fade-in {
   animation: fadeIn 0.8s ease forwards;

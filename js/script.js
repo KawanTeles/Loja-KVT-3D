@@ -451,12 +451,27 @@ function initCategoryFilter() {
     displayProducts(PRODUTOS, productsGrid);
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+            
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            
             const category = btn.dataset.category;
             const filtered = (category === 'todos' || !category) ? PRODUTOS : PRODUTOS.filter(p => p.categoria === category);
-            displayProducts(filtered, productsGrid);
-            if (filtered.length === 0) productsGrid.innerHTML = '<p class="no-products">Nenhum produto encontrado nesta categoria no momento.</p>';
+            
+            // Etapa 1: Fade-out
+            productsGrid.classList.add('grid-fade-out');
+            
+            setTimeout(() => {
+                // Atualização dos produtos
+                displayProducts(filtered, productsGrid);
+                if (filtered.length === 0) {
+                    productsGrid.innerHTML = '<p class="no-products">Nenhum produto encontrado nesta categoria no momento.</p>';
+                }
+                
+                // Etapa 2: Fade-in (removendo a classe de fade-out)
+                productsGrid.classList.remove('grid-fade-out');
+            }, 300); // Tempo compatível com a transição CSS (300ms)
         });
     });
 }
