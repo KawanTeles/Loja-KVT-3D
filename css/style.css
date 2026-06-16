@@ -428,15 +428,25 @@ header.scrolled {
   background: var(--modal-overlay);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: none;
+  display: flex; /* Mantido flex para centralização */
   justify-content: center;
   align-items: center;
   z-index: 2000;
   padding: var(--space-md);
+  
+  /* Estado Inicial / Fechamento (com delay para o conteúdo sumir antes) */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+              visibility 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
 }
 
 .modal-overlay.active {
-  display: flex;
+  /* Abertura (imediata) */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 0.5),
+              visibility 0.3s cubic-bezier(0.22, 1, 0.36, 0.5);
 }
 
 .modal-container {
@@ -448,12 +458,17 @@ header.scrolled {
   overflow: hidden;
   position: relative;
   box-shadow: var(--shadow);
-  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Estado Inicial / Fechamento */
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 0.5),
+              transform 0.3s cubic-bezier(0.22, 1, 0.36, 0.5);
 }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: scale(0.9) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+.modal-overlay.active .modal-container {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .modal-close {
