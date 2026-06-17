@@ -3,6 +3,20 @@
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
 
+// 0. INICIALIZAÇÃO GOOGLE ANALYTICS
+(function() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BC1K1WMMCG';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-BC1K1WMMCG');
+})();
+
 // 1. BANCO DE DADOS DE PRODUTOS COMPLETO
 const PRODUTOS = [
     {

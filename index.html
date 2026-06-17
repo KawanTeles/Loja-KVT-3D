@@ -2,15 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BC1K1WMMCG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-BC1K1WMMCG');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KVT | Loja Oficial</title>
@@ -48,7 +39,7 @@
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#produtos" class="nav-link">Produtos</a></li>
                     <li><a href="#como-funciona" class="nav-link span">Como Funciona</a></li>
-                    <li><a href="pages/contato.html" class="nav-link">Contato</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
 
@@ -305,6 +296,78 @@
                 </ol>
             </div>
         </section>
+
+        <!-- Sessão de Contato (Modernizada) -->
+        <section id="contato" class="contact-main">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info-side">
+                        <div class="contact-header">
+                            <span class="badge">Contato</span>
+                            <h1>Vamos transformar sua ideia em realidade?</h1>
+                            <p>Tire suas dúvidas, peça um orçamento ou agende uma consultoria para seu projeto personalizado.</p>
+                        </div>
+
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <div class="icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Telefone e WhatsApp</h4>
+                                    <p>(82) 99834-3617</p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="info-text">
+                                    <h4>E-mail</h4>
+                                    <p>kawanvictortelesdasilvasilva@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Horário</h4>
+                                    <p>Dom a Qui: 08h às 20h</p>
+                                    <p>Sex: 08h às 13h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-side">
+                        <div class="form-container-glass">
+                            <h3>Mande sua mensagem</h3>
+                            <form class="contact-form" id="orcamento-form">
+                                <div class="input-group">
+                                    <label for="contato-nome">Nome Completo</label>
+                                    <input type="text" id="contato-nome" placeholder="Como podemos te chamar?" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="contato-email">E-mail</label>
+                                    <input type="email" id="contato-email" placeholder="seu@email.com" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="contato-projeto">Descrição do Projeto</label>
+                                    <textarea id="contato-projeto" placeholder="Conte-nos os detalhes do seu projeto (tamanho, cor, finalidade...)" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full">
+                                    <span>Enviar via WhatsApp</span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Botão WhatsApp Flutuante -->
@@ -336,7 +399,7 @@
                 <h4 class="footer-title">Suporte</h4>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="pages/contato.html">Contato</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
             <div class="footer-newsletter">
