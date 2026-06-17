@@ -57,12 +57,29 @@
         text-align: center;
     }
 
+    .contact-main h1 {
+        font-size: 3.2rem;
+    }
+
     .contact-main p {
         margin-left: auto;
         margin-right: auto;
+        font-size: 1.6rem;
     }
 
     .contact-form {
         padding: var(--space-lg);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-main h1 {
+        font-size: 2.8rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
     }
 }

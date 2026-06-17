@@ -841,8 +841,8 @@ header.scrolled {
 
 .footer-top-premium {
   display: grid;
-  grid-template-columns: 1.2fr 1.8fr 1fr;
-  gap: 6rem;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 8rem;
   margin-bottom: 6rem;
 }
 
