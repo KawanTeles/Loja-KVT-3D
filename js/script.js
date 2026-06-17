@@ -305,6 +305,18 @@ const PRODUTOS = [
         imagem: "img/brinquedos-sensoriais/alfabeto-number.jpg",
         imagensExtras: ["img/brinquedos-sensoriais/alfabeto2.jpg", "img/brinquedos-sensoriais/alfabeto3.jpg", "img/brinquedos-sensoriais/alfabeto4.jpg"],
         data: "2026-06-15"
+    },
+     {
+        id: "KF031",
+        nome: "Polvo articulado tricô",
+        precoUnidade: 14.00,
+        precoUnidade5: 12.00,
+        precoUnidade50: 10.00,
+        categoria: "brinquedos-sensoriais",
+        descricao: "Brinquedo sensorial com design de polvo, apresentando tentáculos articulados e texturizados, ideal para estimular a criatividade e o relaxamento através do toque e manipulação.",
+        imagem: "img/brinquedos-sensoriais/polvo1.jpg",
+        imagensExtras: ["img/brinquedos-sensoriais/polvo2.jpg"],
+        data: "2026-06-17"
     }
 ];
 
