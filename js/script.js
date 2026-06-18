@@ -133,7 +133,7 @@ const PRODUTOS = [
     {
         id: "KF013",
         nome: "Chocalho Sensorial",
-        precoUnidade: 35.00,
+        precoUnidade: 42.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Desenvolvido para estimular o desenvolvimento infantil, este chocalho combina texturas e sons suaves em um design seguro e ergonômico.",
         imagem: "img/brinquedos-sensoriais/chocalho.jpg",
