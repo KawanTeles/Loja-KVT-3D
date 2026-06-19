@@ -133,7 +133,7 @@ const PRODUTOS = [
     {
         id: "KF013",
         nome: "Chocalho Sensorial",
-        precoUnidade: 49.00,
+        precoUnidade: 50.00,
         categoria: "brinquedos-sensoriais",
         descricao: "Desenvolvido para estimular a coordenação motora, a percepção sensorial e a curiosidade das crianças, o Chocalho Sensorial combina movimento, textura e som em um único brinquedo. Produzido com acabamento seguro e confortável, proporciona momentos de aprendizado e diversão através da exploração tátil e auditiva.",
         imagem: "img/brinquedos-sensoriais/chocalho.jpg",
@@ -331,7 +331,18 @@ const PRODUTOS = [
         imagem: "img/brinquedos-sensoriais/polvo1.jpg",
         imagensExtras: ["img/brinquedos-sensoriais/polvo2.jpg"],
         data: "2026-06-17"
-    }
+    },
+
+    {
+        id: "KF032",
+        nome: "Betoneira | Verão personalizado com o nome ou contato 3 reais a mais",
+        precoUnidade: 14.00,
+        precoUnidade5: 12.00,
+        categoria: "personalizados",
+        descricao: "Esta mini betoneira personalizada é perfeita para quem procura um presente criativo para profissionais da construção civil, engenheiros, arquitetos, pedreiros e estudantes. Com a opção de personalizar com nome, empresa ou contato, torna-se um brinde exclusivo, uma lembrança diferenciada ou um item decorativo cheio de personalidade.",
+        imagem: "img/personalizados/betoneira.jpg",
+        data: "2026-06-19"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
