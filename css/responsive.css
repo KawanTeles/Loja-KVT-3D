@@ -137,7 +137,7 @@
   }
 
   .nav-menu {
-    display: none; 
+    display: none;
   }
 
   .menu-toggle {
@@ -280,15 +280,34 @@
   }
 
   .footer-nav-columns {
-    grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas para melhor uso de espaço no tablet/mobile médio */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Mantém 2 colunas para melhor uso de espaço no tablet/mobile médio */
     gap: 3rem;
   }
 
+  @media (max-width: 600px) {
+    .modal-overlay {
+      max-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      z-index: 2000;
+      opacity: 0;
+    }
+
+    .modal-container {
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+  }
   @media (max-width: 480px) {
     .footer-nav-columns {
       grid-template-columns: 1fr; /* 1 coluna apenas em celulares pequenos */
     }
-    
+
     .contact-header h1 {
       font-size: 2.8rem;
     }
@@ -361,7 +380,7 @@
   .hero-content .hero-title {
     font-size: 3rem;
   }
-  
+
   .featured-products h2 {
     font-size: 2.6rem;
   }
@@ -414,7 +433,10 @@
 
   .btn {
     padding: 1.2rem 2rem;
+    font-size: 12px;
   }
+
+ 
 }
 
 /* Menu Mobile Ativo - Overlay Polido */
@@ -434,7 +456,7 @@
   padding: var(--space-xl);
   z-index: 1001;
   animation: fadeInOverlay 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  transform: none; 
+  transform: none;
 }
 
 .nav-menu.active .nav-list {
@@ -451,6 +473,12 @@
 }
 
 @keyframes fadeInOverlay {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
