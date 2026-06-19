@@ -25,7 +25,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro articulado com design exótico, produzido em impressão 3D com cores vibrantes e movimento fluido, perfeito para quem busca um acessório único e divertido.",
+        descricao: "Adicione um toque de personalidade ao seu dia a dia com o Chaveiro Lagarto Articulado Multicolor. Produzido com alta qualidade, possui corpo totalmente articulado que proporciona movimentos suaves e um visual diferenciado. Suas cores vibrantes e acabamento detalhado fazem dele um acessório perfeito para chaves, mochilas ou estojos, além de ser uma excelente opção de presente para quem gosta de peças criativas e exclusivas.",
         imagem: "img/chaveiros/chaveirolargato.jpg",
         data: "2026-05-01"
     },
@@ -35,7 +35,7 @@ const PRODUTOS = [
         precoUnidade: 12.00,
         precoUnidade5: 9.50,
         categoria: "chaveiros",
-        descricao: "Miniatura funcional e interativa de uma marcha de câmbio, ideal para entusiastas automotivos que desejam um acessório detalhado e resistente.",
+        descricao: "Perfeito para apaixonados pelo universo automotivo, este Chaveiro Marcha de Câmbio reproduz o visual de uma alavanca de câmbio em miniatura. Produzido em material de alta qualidade com excelente acabamento, é um acessório resistente, criativo e ideal para personalizar suas chaves, mochila ou presentear quem é fã de carros.",
         imagem: "img/chaveiros/chaveiromarcha.jpg",
         data: "2026-05-19"
     },
@@ -45,7 +45,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro temático inspirado na clássica Pokébola, produzido com impressão 3D de alta precisão e acabamento pensado para colecionadores e fãs da franquia.",
+        descricao: "Leve a nostalgia dos grandes treinadores para qualquer lugar com este chaveiro inspirado no clássico design da Pokébola. Produzido com ótimo acabamento, é leve, resistente e perfeito para mochilas, chaves ou coleções. Um presente ideal para fãs do universo Pokémon.",
         imagem: "img/chaveiros/chaveiropokebola.jpg",
         data: "2026-05-10"
     },
@@ -55,7 +55,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Acessório 2 em 1: um chaveiro estiloso que se transforma em um suporte estável para seu smartphone, ideal para assistir vídeos em qualquer lugar.",
+        descricao: "Muito mais do que um chaveiro, este acessório também funciona como um prático suporte para celular. Compacto e fácil de transportar, permite apoiar o smartphone em superfícies planas para assistir vídeos, fazer videochamadas ou acompanhar receitas com mais conforto.",
         imagem: "img/chaveiros/chaveirocelular.jpg",
         data: "2026-04-20"
     },
@@ -65,7 +65,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro personalizado com o icônico escudo CRF, produzido com acabamento premium para que o torcedor rubro-negro carregue seu orgulho com estilo.",
+        descricao: "Demonstre sua paixão pelo Flamengo em qualquer lugar com este chaveiro personalizado. Com acabamento de qualidade e design inspirado no tradicional símbolo CRF, é um acessório resistente, leve e perfeito para acompanhar suas chaves, mochila ou servir como presente para outros torcedores.",
         imagem: "img/chaveiros/chaveiro-flamengo.jpg",
         data: "2026-06-01"
     },
@@ -76,7 +76,7 @@ const PRODUTOS = [
         precoUnidade5: 10.00,
         precoUnidade50: 8.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro exclusivo com design moderno e minimalista, fabricado com materiais de alta durabilidade para o uso cotidiano.",
+        descricao: "Um chaveiro moderno e discreto para quem valoriza acessórios exclusivos. Oferece resistência para o uso diário e um design diferenciado que combina com qualquer estilo.",
         imagem: "img/chaveiros/chaveiro-nt.jpg",
         data: "2026-04-20"
     },
@@ -86,18 +86,18 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Prático e funcional, este chaveiro possui um compartimento discreto para armazenar comprimidos, unindo utilidade e design compacto.",
+        descricao: "Tenha praticidade sempre à mão com este chaveiro porta comprimidos. Seu compartimento interno permite transportar pequenas doses de medicamentos ou outros itens de pequeno porte com segurança e discrição. Compacto, resistente e produzido em de alta qualidade, é ideal para o dia a dia.",
         imagem: "img/chaveiros/chaveiro-potinho.jpg",
         data: "2026-04-20"
     },
     {
         id: "KF009",
-        nome: "Chaveiro Povo Articulado",
+        nome: "Chaveiro Polvo Articulado",
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro de polvo com tentáculos totalmente articulados, proporcionando uma experiéncia sensorial tátil e visual única.",
-        imagem: "img/chaveiros/chaveiro-povo.jpg",
+        descricao: "Dê mais personalidade às suas chaves com este Polvo Articulado em miniatura. Seus tentáculos flexíveis proporcionam uma experiência tátil divertida, tornando o chaveiro não apenas um acessório, mas também um pequeno brinquedo sensorial. Produzido com ótimo acabamento e disponível em diversas cores.",
+        imagem: "img/chaveiros/chaveiro-polvo.jpg",
         data: "2026-04-20"
     },
     {
@@ -106,7 +106,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro com design inspirador e acabamento refinado, ideal para presentear alguém especial ou para uso pessoal cheio de significado.",
+        descricao: "Um acessório cheio de significado para quem gosta de carregar boas lembranças e representar lugares especiais. Produzido com acabamento de qualidade, é perfeito para uso diário ou para presentear alguém importante.",
         imagem: "img/chaveiros/chaveiromlm.jpg",
         data: "2026-04-20"
     },
@@ -116,7 +116,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Inspirado no universo fantástico, este chaveiro apresenta detalhes impressionantes da Fúria da Luz com alta fidelidade de design.",
+        descricao: "Inspirado em uma das criaturas mais queridas do universo da animação, este chaveiro apresenta detalhes cuidadosamente produzidos em alta qualidade. Leve, resistente e cheio de personalidade, é ideal para colecionadores e fãs que desejam levar seu personagem favorito para qualquer lugar.",
         imagem: "img/chaveiros/chaveiro-furialuz.jpg",
         data: "2026-04-20"
     },
@@ -126,16 +126,16 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Miniatura charmosa em formato de garrafa, produzida com precisão para ser um acessório leve, resistente e estiloso.",
+        descricao: "Um chaveiro criativo e divertido em formato de garrafinha. Compacto, resistente e leve, é perfeito para personalizar suas chaves, mochila ou presentear alguém com um acessório diferente.",
         imagem: "img/chaveiros/chaveiro-garrafinha.jpg",
         data: "2026-04-20"
     },
     {
         id: "KF013",
         nome: "Chocalho Sensorial",
-        precoUnidade: 42.00,
+        precoUnidade: 49.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Desenvolvido para estimular o desenvolvimento infantil, este chocalho combina texturas e sons suaves em um design seguro e ergonômico.",
+        descricao: "Desenvolvido para estimular a coordenação motora, a percepção sensorial e a curiosidade das crianças, o Chocalho Sensorial combina movimento, textura e som em um único brinquedo. Produzido com acabamento seguro e confortável, proporciona momentos de aprendizado e diversão através da exploração tátil e auditiva.",
         imagem: "img/brinquedos-sensoriais/chocalho.jpg",
         data: "2026-04-20"
     },
@@ -145,7 +145,7 @@ const PRODUTOS = [
         precoUnidade: 65.00,
         precoUnidade5: 55.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Ferramenta educativa e divertida que auxilia no aprendizado da matemática através da interação física e visual.",
+        descricao: "Aprender matemática pode ser muito mais divertido! A Tabuada de Vezes foi desenvolvida para auxiliar crianças no aprendizado das operações de multiplicação por meio da interação prática. Seu formato facilita a memorização, estimula o raciocínio lógico e transforma o estudo em uma atividade mais envolvente.",
         imagem: "img/brinquedos-sensoriais/tabuada.jpg",
         data: "2026-04-20"
     },
@@ -156,7 +156,7 @@ const PRODUTOS = [
         precoUnidade5: 27.00,
         precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Brinquedo tátil com design orgânico que proporciona relaxamento e foco através de sua superfície texturizada.",
+        descricao: "O Ovo Sensorial oferece uma experiência tátil agradável através de seu formato ergonômico e textura diferenciada. Ideal para manter as mãos ocupadas durante momentos de estudo, trabalho ou lazer, também é uma excelente opção para quem aprecia brinquedos sensoriais e objetos interativos. Produzido com materiais de alta qualidade, é resistente e perfeito para uso diário, proporcionando relaxamento e estímulo sensorial a qualquer hora do dia.",
         imagem: "img/brinquedos-sensoriais/brinquedosesorial.png",
         data: "2026-04-20"
     },
@@ -167,7 +167,7 @@ const PRODUTOS = [
         precoUnidade5: 26.00,
         precoUnidade50: 24.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Ideal para exercícios de foco e estimulação motora fina, com acabamento suave e cores relaxantes.",
+        descricao: "Compacta, leve e confortável de utilizar, a Vareta Sensorial proporciona uma experiência tátil agradável que estimula o movimento das mãos e a exploração sensorial. Ideal para crianças e adultos que gostam de brinquedos interativos ou procuram um acessório criativo para o dia a dia.",
         imagem: "img/brinquedos-sensoriais/brinquedo-sensorial.jpg",
         data: "2026-04-20"
     },
@@ -178,7 +178,7 @@ const PRODUTOS = [
         precoUnidade5: 16.00,
         precoUnidade50: 14.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "O clássico 'fidget toy' em uma versão de alta qualidade, perfeito para reduzir o estresse e manter as mãos ocupadas com movimentos infinitos.",
+        descricao: "Descubra uma maneira divertida de manter as mãos em movimento com o Cubo Infinito Sensorial. Seu mecanismo permite movimentos contínuos e suaves, tornando-o perfeito para momentos de lazer, estudo ou trabalho. Compacto, resistente e fácil de transportar, é um dos brinquedos sensoriais mais procurados por quem gosta de experiências táteis.",
         imagem: "img/brinquedos-sensoriais/cubo.jpg",
         imagensExtras: ["img/brinquedos-sensoriais/cubo1.jpg", "img/brinquedos-sensoriais/cubo2.jpg", "img/brinquedos-sensoriais/cubo3.jpg", "img/brinquedos-sensoriais/cubo4.jpg"],
         data: "2026-04-20"
@@ -189,7 +189,7 @@ const PRODUTOS = [
         precoUnidade: 20.00,
         precoUnidade5: 18.00,
         categoria: "brinquedos",
-        descricao: "Brinquedo mecânico fascinante que demonstra princípios da física através de movimentos giroscópicos complexos e hipnotizantes.",
+        descricao: "Descubra a diversão da física em movimento com os Giroscópios. Além de proporcionar momentos de entretenimento, eles demonstram de forma prática princípios de equilíbrio, rotação e estabilidade. Um brinquedo criativo para crianças, jovens e adultos que gostam de desafios, ciência e objetos interativos. Produzido com excelente acabamento e alta durabilidade.",
         imagem: "img/brinquedos/giroscopios.jpg",
         data: "2026-05-23"
     },
@@ -199,7 +199,7 @@ const PRODUTOS = [
         precoUnidade: 31.00,
         precoUnidade5: 27.00,
         categoria: "personalizados",
-        descricao: "Arganel decorativo com silhueta de gato, ideal para organizar acessórios com um toque de elegância e fofura.",
+        descricao: "Organize suas chaves com muito estilo utilizando o Arganel de Gato. Produzido com acabamento detalhado, combina praticidade e decoração em uma única peça. Seu design delicado é perfeito para amantes de gatos e para quem deseja dar um toque especial à entrada da casa, escritório ou quarto.",
         imagem: "img/personalizados/arganel-gato.jpg",
         imagensExtras: ["img/personalizados/gato1.jpg", "img/personalizados/gato2.jpg", "img/personalizados/gato3.jpg"],
         data: "2026-05-29"
@@ -210,7 +210,7 @@ const PRODUTOS = [
         precoUnidade: 28.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Peça personalizada de alta fidelidade representando uma lontra, perfeita para decoração ou como suporte de itens leves.",
+        descricao: "O Arganel de Lontra une funcionalidade e criatividade em uma peça exclusiva. Ideal para organizar chaves e pequenos acessórios, seu design inspirado em uma simpática lontra traz charme e personalidade para qualquer ambiente. Uma ótima opção para presentear quem gosta de decoração criativa.",
         imagem: "img/personalizados/arganel-lontra.jpg",
         data: "2026-05-20"
     },
@@ -220,7 +220,7 @@ const PRODUTOS = [
         precoUnidade: 28.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Figura articulada colecionável com as cores e o escudo do Flamengo, unindo tecnologia de impressão 3D e paixão futebolística.",
+        descricao: "Demonstre sua paixão pelo Flamengo com esta figura articulada. Seu corpo flexível proporciona movimentos suaves, tornando a peça perfeita tanto para colecionar quanto para decorar mesas, estantes ou ambientes de trabalho. Um presente ideal para qualquer torcedor rubro-negro.",
         imagem: "img/personalizados/articulado-flamengo.jpg",
         data: "2026-06-01"
     },
@@ -230,7 +230,7 @@ const PRODUTOS = [
         precoUnidade: 25.00,
         precoUnidade5: 23.00,
         categoria: "personalizados",
-        descricao: "Suporte ergonômico projetado para acomodar seu celular com segurança, incluindo abertura para cabo de carregador, ideal para mesas de trabalho.",
+        descricao: "Deixe seu celular sempre na posição ideal com este suporte. Seu design foi desenvolvido para oferecer estabilidade durante chamadas de vídeo, estudos, trabalho ou entretenimento, além de possuir espaço para passagem do cabo de carregamento. Prático, resistente e perfeito para organizar sua mesa.",
         imagem: "img/personalizados/suporte-celular-carregador.jpg",
         data: "2026-05-20"
     },
@@ -241,7 +241,7 @@ const PRODUTOS = [
         precoUnidade5: 45.00,
         precoUnidade50: 42.00,
         categoria: "personalizados",
-        descricao: "Caneca robusta e personalizada feita sob medida para latões, garantindo uma pegada firme e isolamento térmico aprimorado.",
+        descricao: "Aproveite suas bebidas com mais conforto utilizando esta caneca personalizada para latão. Produzida em de alta qualidade, oferece excelente pegada, maior conforto durante o uso e um visual exclusivo. Ideal para personalizações, presentes e eventos especiais.",
         imagem: "img/personalizados/caneca-latao.jpg",
         imagensExtras: ["img/personalizados/caneca2.jpg"],
         data: "2026-06-05"
@@ -252,7 +252,7 @@ const PRODUTOS = [
         precoUnidade: 0.00,
         precoUnidade5: 0.00,
         categoria: "personalizados",
-        descricao: "Arganel exclusivo que pode ser personalizado com o escudo do seu clube do coração, sob consulta de design e cores.",
+        descricao: "Personalize sua decoração com um arganel exclusivo desenvolvido especialmente para representar seu clube ou unidade. Pode ser confeccionado em diferentes cores e estilos mediante consulta. Uma peça perfeita para demonstrar sua paixão pelo clube ou sua unidade.",
         imagem: "img/personalizados/arganel-clube.jpg",
         data: "2026-06-05"
     },
@@ -262,7 +262,7 @@ const PRODUTOS = [
         precoUnidade: 29.00,
         precoUnidade5: 25.00,
         categoria: "personalizados",
-        descricao: "Expositor elegante para proteger e exibir suas cartas Pokémon mais raras, com design transparente e base estável.",
+        descricao: "Valorize sua coleção com este expositor desenvolvido para destacar cartas colecionáveis de forma elegante e segura. Produzido com excelente acabamento, proporciona ótima estabilidade e visualização da carta, sendo ideal para colecionadores que desejam exibir suas peças favoritas em mesas, estantes ou vitrines.",
         imagem: "img/personalizados/expositor-carta.jpg",
         data: "2026-06-05"
     },
@@ -272,7 +272,7 @@ const PRODUTOS = [
         precoUnidade: 13.00,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro personalizado inspirado no escudo do Flamengo, produzido em impressão 3D com acabamento premium e ideal para torcedores que querem carregar sua paixão no dia a dia.",
+        descricao: "Leve o escudo do Flamengo sempre com você através deste chaveiro exclusivo. Compacto, resistente e com excelente acabamento, é perfeito para personalizar suas chaves, mochila ou estojo, além de ser uma ótima opção de presente para qualquer torcedor apaixonado.",
         imagem: "img/chaveiros/flamengo-escudo.jpg",
         data: "2026-06-07"
     },
@@ -282,7 +282,7 @@ const PRODUTOS = [
         precoUnidade: 39.00,
         precoUnidade5: 35.00,
         categoria: "personalizados",
-        descricao: "Suporte funcional com design criativo, perfeito para adicionar um toque de personalidade e modernidade ao seu banheiro.",
+        descricao: "Transforme seu banheiro com um suporte para papel higiênico que une praticidade e criatividade. Produzido em alta qualidade, oferece excelente resistência e um design moderno que deixa o ambiente muito mais organizado e personalizado.",
         imagem: "img/personalizados/suporte-ph.jpg",
         data: "2026-06-07"
     },
@@ -293,7 +293,7 @@ const PRODUTOS = [
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na Glock, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
+        descricao: "Inspirado no design de uma pistola Glock, este chaveiro decorativo em miniatura é produzido com riqueza de detalhes e excelente acabamento. Compacto e resistente, é ideal para colecionadores e entusiastas de miniaturas, sendo um acessório diferenciado para chaves, mochilas ou coleções.",
         imagem: "img/chaveiros/arma-glock.jpg",
         data: "2026-06-08"
     },
@@ -304,18 +304,18 @@ const PRODUTOS = [
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
-        descricao: "Chaveiro para entusiastas de armas, com design detalhado inspirado na M4A1, produzido em impressão 3D de alta qualidade para um acessório único e resistente.",
+        descricao: "Este chaveiro apresenta uma miniatura inspirada no design de um rifle M4A1, produzida com ótimo nível de detalhes. Leve, resistente e criativo, é perfeito para colecionadores e apreciadores de miniaturas que procuram um acessório exclusivo para o dia a dia.",
         imagem: "img/chaveiros/arma-m4a1.jpg",
         data: "2026-06-08"
     },
     {
         id: "KF030",
-        nome: "ALFABETO & NUMBER",
+        nome: "Alfabeto & Números Sensorial",
         precoUnidade: 70.00,
         precoUnidade5: 60.00,
         precoUnidade50: 50.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Transforme os aprendizados em uma experiência divertida e interativa, com esse brinquedo sensorial desenvolvido para estimular o reconhecimento de letras, números, cores e formas por meio da manipulação prática das peças.",
+        descricao: "Aprender brincando faz toda a diferença. O Alfabeto & Números Sensorial foi desenvolvido para estimular o reconhecimento de letras, números, cores e formas por meio da manipulação das peças. Ideal para atividades educativas em casa ou na escola, incentiva o desenvolvimento da coordenação motora, do raciocínio lógico e da criatividade de maneira divertida e interativa. Produzido com excelente acabamento e pensado para proporcionar uma experiência de aprendizado envolvente.",
         imagem: "img/brinquedos-sensoriais/alfabeto-number.jpg",
         imagensExtras: ["img/brinquedos-sensoriais/alfabeto2.jpg", "img/brinquedos-sensoriais/alfabeto3.jpg", "img/brinquedos-sensoriais/alfabeto4.jpg"],
         data: "2026-06-15"
@@ -327,7 +327,7 @@ const PRODUTOS = [
         precoUnidade5: 12.00,
         precoUnidade50: 10.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "Brinquedo sensorial com design de polvo, apresentando tentáculos articulados e texturizados, ideal para estimular a criatividade e o relaxamento através do toque e manipulação.",
+        descricao: "O Polvo Articulado Tricô combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos, enquanto a textura inspirada em tricô torna a peça ainda mais diferenciada. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
         imagem: "img/brinquedos-sensoriais/polvo1.jpg",
         imagensExtras: ["img/brinquedos-sensoriais/polvo2.jpg"],
         data: "2026-06-17"
