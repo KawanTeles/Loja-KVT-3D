@@ -62,7 +62,7 @@ body {
 
 /* Layout Containers */
 .container {
-  max-width: 1240px;
+  max-width: 1242px;
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
