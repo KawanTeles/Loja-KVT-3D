@@ -335,13 +335,43 @@ const PRODUTOS = [
 
     {
         id: "KF032",
-        nome: "Betoneira | Verão personalizado com o nome ou contato 3 reais a mais",
+        nome: "Betoneira | Versão personalizado com o nome ou contato 3 reais a mais",
         precoUnidade: 14.00,
         precoUnidade5: 12.00,
         categoria: "personalizados",
         descricao: "Esta mini betoneira personalizada é perfeita para quem procura um presente criativo para profissionais da construção civil, engenheiros, arquitetos, pedreiros e estudantes. Com a opção de personalizar com nome, empresa ou contato, torna-se um brinde exclusivo, uma lembrança diferenciada ou um item decorativo cheio de personalidade.",
         imagem: "img/personalizados/betoneira.jpg",
         data: "2026-06-19"
+    },
+    {
+        id: "KF033",
+        nome: "Totem de Pix | Versão personalizado com o nome 1 reais a mais",
+        precoUnidade: 22.50,
+        precoUnidade5: 19.50,
+        categoria: "personalizados",
+        descricao: "O Totem de Pix é o acessório que faltava no seu balcão para tornar o momento do pagamento muito mais rápido e prático. Produzido com alta qualidade, ele conta com um espaço perfeito para você aplicar o seu QR Code. Chega de ficar soletrando a chave Pix para o cliente!",
+        imagem: "img/personalizados/totem.jpg",
+        data: "2026-06-23"
+    },
+     {
+        id: "KF034",
+        nome: "Tiara Brasil",
+        precoUnidade: 19.00,
+        precoUnidade5: 16.00,
+        categoria: "personalizados",
+        descricao: "Perfeita para vibrar pelo Brasil em jogos, festas temáticas e grandes eventos. Essa tiara traz as cores vibrantes da nossa bandeira em um design exclusivo feito em alta qualidade. Leve e super confortável para você usar o dia inteiro sem incômodo.",
+        imagem: "img/personalizados/tiara-brasil.jpg",
+        data: "2026-06-23"
+    },
+     {
+        id: "KF035",
+        nome: "Tiara Brasil (Cor única)",
+        precoUnidade: 17.50,
+        precoUnidade5: 15.50,
+        categoria: "personalizados",
+        descricao: "Se você quer demonstrar seu amor pelo Brasil de forma estilosa, mas prefere uma composição mais clean, a Tiara Brasil Monocromática é a escolha ideal. Com a palavra Brasil em destaque na cor amarela, ela combina perfeitamente com qualquer look de torcedor.",
+        imagem: "img/personalizados/tiara-cor-unica.jpg",
+        data: "2026-06-23"
     },
 ];
 
