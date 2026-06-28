@@ -274,6 +274,7 @@ const PRODUTOS = [
         categoria: "chaveiros",
         descricao: "Leve o escudo do Flamengo sempre com você através deste chaveiro exclusivo. Compacto, resistente e com excelente acabamento, é perfeito para personalizar suas chaves, mochila ou estojo, além de ser uma ótima opção de presente para qualquer torcedor apaixonado.",
         imagem: "img/chaveiros/flamengo-escudo.jpg",
+        imagensExtras: ["img/chaveiros/flamengo1.jpg", "img/chaveiros/flamengo2.jpg"],
         data: "2026-06-07"
     },
     {
@@ -288,7 +289,7 @@ const PRODUTOS = [
     },
     {
         id: "KF028",
-        nome: "ARMA Glock chaveiro",
+        nome: "Arma Glock chaveiro",
         precoUnidade: 12.00,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
@@ -299,13 +300,14 @@ const PRODUTOS = [
     },
     {
         id: "KF029",
-        nome: "ARMA chaveiro",
+        nome: "Arma M4A1 chaveiro",
         precoUnidade: 12.00,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
         descricao: "Este chaveiro apresenta uma miniatura inspirada no design de um rifle M4A1, produzida com ótimo nível de detalhes. Leve, resistente e criativo, é perfeito para colecionadores e apreciadores de miniaturas que procuram um acessório exclusivo para o dia a dia.",
         imagem: "img/chaveiros/arma-m4a1.jpg",
+        imagensExtras: ["img/chaveiros/arma1-m4a1.jpg"],
         data: "2026-06-08"
     },
     {
@@ -322,14 +324,13 @@ const PRODUTOS = [
     },
      {
         id: "KF031",
-        nome: "Polvo articulado tricô",
+        nome: "Polvo articulado",
         precoUnidade: 14.00,
         precoUnidade5: 12.00,
         precoUnidade50: 10.00,
         categoria: "brinquedos-sensoriais",
         descricao: "O Polvo Articulado Tricô combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos, enquanto a textura inspirada em tricô torna a peça ainda mais diferenciada. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
         imagem: "img/brinquedos-sensoriais/polvo1.jpg",
-        imagensExtras: ["img/brinquedos-sensoriais/polvo2.jpg"],
         data: "2026-06-17"
     },
 
@@ -341,6 +342,7 @@ const PRODUTOS = [
         categoria: "personalizados",
         descricao: "Esta mini betoneira personalizada é perfeita para quem procura um presente criativo para profissionais da construção civil, engenheiros, arquitetos, pedreiros e estudantes. Com a opção de personalizar com nome, empresa ou contato, torna-se um brinde exclusivo, uma lembrança diferenciada ou um item decorativo cheio de personalidade.",
         imagem: "img/personalizados/betoneira.jpg",
+        imagensExtras: ["img/personalizados/betoneira1.jpg"],
         data: "2026-06-19"
     },
     {
