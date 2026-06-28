@@ -375,6 +375,17 @@ const PRODUTOS = [
         imagem: "img/personalizados/tiara-cor-unica.jpg",
         data: "2026-06-23"
     },
+     {
+        id: "KF036",
+        nome: "Totem ddia dos Pais",
+        precoUnidade: 28.00,
+        precoUnidade5: 22.00,
+        categoria: "personalizados",
+        descricao: "Um presente especial que simboliza o amor e a conexão entre pai e filho. Com dessign moderno e elegante, é  perfeito para decorar qualquer ambiente e homenagear quem sempre esteve ao seu lado. Disponível nas cores preta e branca",
+        imagem: "img/personalizados/totem1.jpg",
+        imagensExtras: ["img/personalizados/totem2.jpg", "img/personalizados/totem3.jpg"],
+        data: "2026-06-23"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
