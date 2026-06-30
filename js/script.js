@@ -347,8 +347,8 @@ const PRODUTOS = [
     },
     {
         id: "KF033",
-        nome: "Totem de Pix | Versão personalizado com o nome 1 reais a mais",
-        precoUnidade: 22.50,
+        nome: "Totem de Pix",
+        precoUnidade: 23.00,
         precoUnidade5: 19.50,
         categoria: "personalizados",
         descricao: "O Totem de Pix é o acessório que faltava no seu balcão para tornar o momento do pagamento muito mais rápido e prático. Produzido com alta qualidade, ele conta com um espaço perfeito para você aplicar o seu QR Code. Chega de ficar soletrando a chave Pix para o cliente!",
@@ -377,14 +377,24 @@ const PRODUTOS = [
     },
      {
         id: "KF036",
-        nome: "Totem ddia dos Pais",
+        nome: "Totem dia dos Pais",
         precoUnidade: 28.00,
         precoUnidade5: 22.00,
         categoria: "personalizados",
         descricao: "Um presente especial que simboliza o amor e a conexão entre pai e filho. Com dessign moderno e elegante, é  perfeito para decorar qualquer ambiente e homenagear quem sempre esteve ao seu lado. Disponível nas cores preta e branca",
         imagem: "img/personalizados/totem1.jpg",
         imagensExtras: ["img/personalizados/totem2.jpg", "img/personalizados/totem3.jpg"],
-        data: "2026-06-23"
+        data: "2026-06-29"
+    },
+    {
+        id: "KF037",
+        nome: "Totem de Pix Personalizado com QR Code e Nome",
+        precoUnidade: 45.00,
+        categoria: "personalizados",
+        descricao: "Facilite os pagamentos com uma placa Pix moderna e personalizada! Produzida em alta qualidade, acompanha base de apoio e pode ser personalizada com seu QR Code e nome. Ideal para lojas, comércios, salões, restaurantes, igrejas e profissionais autônomos. Resistente, elegante e pronta para deixar seu atendimento mais profissional.",
+        imagem: "img/personalizados/totem-gigante.jpg",
+        imagensExtras: ["img/personalizados/totem-gigante1.jpg"],
+        data: "2026-06-30"
     },
 ];
 
