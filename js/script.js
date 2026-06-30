@@ -1,4 +1,4 @@
-/* 
+﻿/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -62,8 +62,8 @@ const PRODUTOS = [
     {
         id: "KF006",
         nome: "Chaveiro do Flamengo CRF",
-        precoUnidade: 13.00,
-        precoUnidade5: 10.00,
+        precoUnidade: 13.50,
+        precoUnidade5: 10.50,
         categoria: "chaveiros",
         descricao: "Demonstre sua paixão pelo Flamengo em qualquer lugar com este chaveiro personalizado. Com acabamento de qualidade e design inspirado no tradicional símbolo CRF, é um acessório resistente, leve e perfeito para acompanhar suas chaves, mochila ou servir como presente para outros torcedores.",
         imagem: "img/chaveiros/chaveiro-flamengo.jpg",
@@ -93,7 +93,7 @@ const PRODUTOS = [
     {
         id: "KF009",
         nome: "Chaveiro Polvo Articulado",
-        precoUnidade: 13.00,
+        precoUnidade: 13.50,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Dê mais personalidade às suas chaves com este Polvo Articulado em miniatura. Seus tentáculos flexíveis proporcionam uma experiência tátil divertida, tornando o chaveiro não apenas um acessório, mas também um pequeno brinquedo sensorial. Produzido com ótimo acabamento e disponível em diversas cores.",
@@ -103,7 +103,7 @@ const PRODUTOS = [
     {
         id: "KF010",
         nome: "Chaveiro Meu Lugar no Mundo",
-        precoUnidade: 13.00,
+        precoUnidade: 13.50,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Um acessório cheio de significado para quem gosta de carregar boas lembranças e representar lugares especiais. Produzido com acabamento de qualidade, é perfeito para uso diário ou para presentear alguém importante.",
@@ -113,7 +113,7 @@ const PRODUTOS = [
     {
         id: "KF011",
         nome: "Chaveiro Fúria da Luz",
-        precoUnidade: 13.00,
+        precoUnidade: 13.50,
         precoUnidade5: 10.00,
         categoria: "chaveiros",
         descricao: "Inspirado em uma das criaturas mais queridas do universo da animação, este chaveiro apresenta detalhes cuidadosamente produzidos em alta qualidade. Leve, resistente e cheio de personalidade, é ideal para colecionadores e fãs que desejam levar seu personagem favorito para qualquer lugar.",
@@ -268,8 +268,8 @@ const PRODUTOS = [
     {
         id: "KF026",
         nome: "Chaveiro do Flamengo Escudo",
-        precoUnidade: 13.00,
-        precoUnidade5: 10.00,
+        precoUnidade: 13.50,
+        precoUnidade5: 10.50,
         categoria: "chaveiros",
         descricao: "Leve o escudo do Flamengo sempre com você através deste chaveiro exclusivo. Compacto, resistente e com excelente acabamento, é perfeito para personalizar suas chaves, mochila ou estojo, além de ser uma ótima opção de presente para qualquer torcedor apaixonado.",
         imagem: "img/chaveiros/flamengo-escudo.jpg",
@@ -289,7 +289,7 @@ const PRODUTOS = [
     {
         id: "KF028",
         nome: "Arma Glock chaveiro",
-        precoUnidade: 12.00,
+        precoUnidade: 12.50,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
@@ -300,7 +300,7 @@ const PRODUTOS = [
     {
         id: "KF029",
         nome: "Arma M4A1 chaveiro",
-        precoUnidade: 12.00,
+        precoUnidade: 12.50,
         precoUnidade5: 9.00,
         precoUnidade50: 7.00,
         categoria: "chaveiros",
@@ -328,11 +328,10 @@ const PRODUTOS = [
         precoUnidade5: 12.00,
         precoUnidade50: 10.00,
         categoria: "brinquedos-sensoriais",
-        descricao: "O Polvo Articulado Tricô combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos, enquanto a textura inspirada em tricô torna a peça ainda mais diferenciada. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
+        descricao: "O Polvo Articulado combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
         imagem: "img/brinquedos-sensoriais/polvo1.jpg",
         data: "2026-06-17"
     },
-
     {
         id: "KF032",
         nome: "Betoneira | Versão personalizado com o nome ou contato 3 reais a mais",
@@ -393,6 +392,41 @@ const PRODUTOS = [
         descricao: "Facilite os pagamentos com uma placa Pix moderna e personalizada! Produzida em alta qualidade, acompanha base de apoio e pode ser personalizada com seu QR Code e nome. Ideal para lojas, comércios, salões, restaurantes, igrejas e profissionais autônomos. Resistente, elegante e pronta para deixar seu atendimento mais profissional.",
         imagem: "img/personalizados/totem-gigante.jpg",
         imagensExtras: ["img/personalizados/totem-gigante1.jpg"],
+        data: "2026-06-30"
+    },
+    {
+        id: "KF038",
+        nome: "Polvo Articulado Tricô",
+        precoUnidade: 16.00,
+        precoUnidade5: 12.00,
+        precoUnidade50: 10.00,
+        categoria: "brinquedos-sensoriais",
+        descricao: "O Polvo Articulado Tricô combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos, enquanto a textura inspirada em tricô torna a peça ainda mais diferenciada. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
+        imagem: "img/brinquedos-sensoriais/polvo-trico.jpg",
+        imagensExtras: ["img/brinquedos-sensoriais/polvo-trico1.jpg"],
+        data: "2026-06-30"
+    },
+    {
+        id: "KF039",
+        nome: "Arma MiiniGun chaveiro",
+        precoUnidade: 18.50,
+        precoUnidade5: 15.50,
+        precoUnidade50: 13.50,
+        categoria: "chaveiros",
+        descricao: "Chaveiro com design inspirado em uma MiniGun, rico em detalhes e acabamento de qualidade. Compacto, resistente e perfeito para decorar chaves, mochilas ou completar sua coleção. Um acessório criativo e ideal para presentear.",
+        imagem: "img/chaveiros/chaveiro-minigun1.jpg",
+        imagensExtras: ["img/chaveiros/chaveiro-minigun2.jpg", "img/chaveiros/chaveiro-minigun3.jpg"],
+        data: "2026-06-30"
+    },
+     {
+        id: "KF040",
+        nome: "Chaveiro Anilha",
+        precoUnidade: 9.50,
+        precoUnidade5: 6.50,
+        precoUnidade50: 5.00,
+        categoria: "chaveiros",
+        descricao: "Chaveiro em formato de anilha, ideal para quem ama musculação e academia. Compacto, resistente e com acabamento de qualidade, é perfeito para decorar chaves, mochilas ou presentear amantes do mundo fitness.",
+        imagem: "img/chaveiros/anilha.jpg",
         data: "2026-06-30"
     },
 ];
