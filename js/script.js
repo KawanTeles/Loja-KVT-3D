@@ -1,4 +1,4 @@
-﻿/* 
+/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -249,8 +249,7 @@ const PRODUTOS = [
     {
         id: "KF024",
         nome: "Arganel de Clube Personalizado",
-        precoUnidade: 0.00,
-        precoUnidade5: 0.00,
+        precoUnidade: "Promoção surpresa",
         categoria: "personalizados",
         descricao: "Personalize sua decoração com um arganel exclusivo desenvolvido especialmente para representar seu clube ou unidade. Pode ser confeccionado em diferentes cores e estilos mediante consulta. Uma peça perfeita para demonstrar sua paixão pelo clube ou sua unidade.",
         imagem: "img/personalizados/arganel-clube.jpg",
@@ -505,11 +504,17 @@ function openProductModal(id) {
     document.getElementById('modal-cat').textContent = p.categoria;
     document.getElementById('modal-title').textContent = p.nome;
     document.getElementById('modal-description').textContent = p.descricao;
-    let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
-    if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
-    if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+    let pricingHTML = "";
+    if (p.precoUnidade === "Promoção surpresa") {
+        pricingHTML = `<div class="price-item"><span class="price-value">${p.precoUnidade}</span></div>`;
+    } else {
+        pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
+        if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+        if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+    }
     document.getElementById('modal-pricing').innerHTML = pricingHTML;
     const buyBtn = document.getElementById('modal-buy-btn');
+    buyBtn.textContent = p.precoUnidade === "Promoção surpresa" ? "Clique Aqui" : "Comprar";
     buyBtn.onclick = () => buyOnWhatsApp(p.id);
     const actionsDiv = modal.querySelector('.product-actions');
     let cartBtn = document.getElementById('modal-cart-btn');
@@ -615,8 +620,20 @@ function initSorting(produtos, ordemOriginal, container) {
         let produtosOrdenados = [...produtos];
         switch (criterio) {
             case 'recent': produtosOrdenados.sort((a, b) => new Date(b.data) - new Date(a.data)); break;
-            case 'price-low': produtosOrdenados.sort((a, b) => a.precoUnidade - b.precoUnidade); break;
-            case 'price-high': produtosOrdenados.sort((a, b) => b.precoUnidade - a.precoUnidade); break;
+            case 'price-low': 
+                produtosOrdenados.sort((a, b) => {
+                    const priceA = typeof a.precoUnidade === 'number' ? a.precoUnidade : Infinity;
+                    const priceB = typeof b.precoUnidade === 'number' ? b.precoUnidade : Infinity;
+                    return priceA - priceB;
+                }); 
+                break;
+            case 'price-high': 
+                produtosOrdenados.sort((a, b) => {
+                    const priceA = typeof a.precoUnidade === 'number' ? a.precoUnidade : -Infinity;
+                    const priceB = typeof b.precoUnidade === 'number' ? b.precoUnidade : -Infinity;
+                    return priceB - priceA;
+                }); 
+                break;
             default: produtosOrdenados = [...ordemOriginal]; break;
         }
         displayProducts(produtosOrdenados, container);
@@ -654,9 +671,14 @@ function displayProducts(products, container) {
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
     container.innerHTML = products.map(p => {
-        let pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
-        if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
-        if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+        let pricingHTML = "";
+        if (p.precoUnidade === "Promoção surpresa") {
+            pricingHTML = `<div class="price-item"><span class="price-value">${p.precoUnidade}</span></div>`;
+        } else {
+            pricingHTML = `<div class="price-item"><span class="price-label">Unidade</span><span class="price-value">R$ ${formatPrice(p.precoUnidade)}</span></div>`;
+            if (p.precoUnidade5) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (5+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade5)}</span></div>`;
+            if (p.precoUnidade50) pricingHTML += `<div class="price-item wholesale"><span class="price-label">Atacado (50+)</span><span class="price-value">R$ ${formatPrice(p.precoUnidade50)}</span></div>`;
+        }
         const displayTitle = p.nome.includes("Multicolor") ? p.nome.replace("Multicolor", '<span class="rgb-effect">Multicolor</span>') : p.nome;
         const imgClass = (p.nome === "Ovo Sensorial" || p.nome === "Arganel de Gato") ? "product-img-wrapper img-small" : "product-img-wrapper";
         
@@ -672,6 +694,8 @@ function displayProducts(products, container) {
             `;
         }
 
+        const buyBtnText = p.precoUnidade === "Promoção surpresa" ? "Clique Aqui" : "Comprar";
+
         return `
             <article class="product-card fade-in" onclick="openProductModal('${p.id}')">
                 <div class="${imgClass}">
@@ -684,7 +708,7 @@ function displayProducts(products, container) {
                     <div class="product-pricing">${pricingHTML}</div>
                     <div class="product-actions">
                         <div style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
-                            <button onclick="event.stopPropagation(); buyOnWhatsApp('${p.id}')" class="btn btn-primary" style="width: 100%;">Comprar</button>
+                            <button onclick="event.stopPropagation(); buyOnWhatsApp('${p.id}')" class="btn btn-primary" style="width: 100%;">${buyBtnText}</button>
                             <button onclick="event.stopPropagation(); handleAddToCartClick('${p.id}')" class="btn btn-outline cart-btn" style="width: 100%; margin-top: 0;">Adicionar ao Carrinho</button>
                         </div>
                     </div>
@@ -771,6 +795,7 @@ function initCart() {
 function getUnitPriceByQuantity(productId, quantity) {
     const p = PRODUTOS.find(item => item.id === productId);
     if (!p) return 0;
+    if (p.precoUnidade === "Promoção surpresa") return "Promoção surpresa";
     if (p.precoUnidade50 && quantity >= 50) return p.precoUnidade50;
     if (p.precoUnidade5 && quantity >= 5) return p.precoUnidade5;
     return p.precoUnidade;
@@ -949,15 +974,25 @@ function updateCartUI() {
         badge.textContent = '0'; badge.style.display = 'none'; totalEl.textContent = 'R$ 0,00';
     } else {
         let total = 0, count = 0;
+        let hasPromoSurpresa = false;
         container.innerHTML = cart.map(item => {
-            const subtotal = item.preco * item.quantity;
-            total += subtotal; count += item.quantity;
+            const isPromo = item.preco === "Promoção surpresa";
+            let priceText = "";
+            if (isPromo) {
+                hasPromoSurpresa = true;
+                priceText = item.preco;
+            } else {
+                const subtotal = item.preco * item.quantity;
+                total += subtotal;
+                priceText = `R$ ${formatPrice(item.preco)}`;
+            }
+            count += item.quantity;
             return `
                 <div class="cart-item">
                     <img src="${pathPrefix}${item.imagem}" alt="${item.nome}" class="cart-item-img">
                     <div class="cart-item-info">
                         <h3 class="cart-item-title">${item.nome}</h3>
-                        <p class="cart-item-price">Preço unitário aplicado: R$ ${formatPrice(item.preco)}</p>
+                        <p class="cart-item-price">Preço unitário aplicado: ${priceText}</p>
                         <div class="cart-item-actions">
                             <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
                             <span class="qty-val">${item.quantity}</span>
@@ -968,20 +1003,36 @@ function updateCartUI() {
                 </div>
             `;
         }).join('');
-        badge.textContent = count; badge.style.display = 'flex'; totalEl.textContent = `R$ ${formatPrice(total)}`;
+        badge.textContent = count; 
+        badge.style.display = 'flex'; 
+        if (hasPromoSurpresa) {
+            totalEl.textContent = total > 0 ? `R$ ${formatPrice(total)} + Promoção surpresa` : "Promoção surpresa";
+        } else {
+            totalEl.textContent = `R$ ${formatPrice(total)}`;
+        }
     }
 }
 
 function finalizeOrder() {
     if (cart.length === 0) return;
     let total = 0, msgItens = "";
+    let hasPromoSurpresa = false;
     cart.forEach(item => {
-        const subtotal = item.preco * item.quantity;
-        total += subtotal;
-        msgItens += `\n*Produto:* ${item.nome}\n*Quantidade:* ${item.quantity}\n*Preço unitário aplicado:* R$ ${formatPrice(item.preco)}\n*Subtotal:* R$ ${formatPrice(subtotal)}\n`;
+        const isPromo = item.preco === "Promoção surpresa";
+        if (isPromo) {
+            hasPromoSurpresa = true;
+            msgItens += `\n*Produto:* ${item.nome}\n*Quantidade:* ${item.quantity}\n*Preço unitário aplicado:* Promoção surpresa\n*Subtotal:* Promoção surpresa\n`;
+        } else {
+            const subtotal = item.preco * item.quantity;
+            total += subtotal;
+            msgItens += `\n*Produto:* ${item.nome}\n*Quantidade:* ${item.quantity}\n*Preço unitário aplicado:* R$ ${formatPrice(item.preco)}\n*Subtotal:* R$ ${formatPrice(subtotal)}\n`;
+        }
     });
     const fone = "5582998343617";
-    const msg = encodeURIComponent(`Olá, gostaria de fazer este pedido:\n${msgItens}\n*TOTAL DO PEDIDO: R$ ${formatPrice(total)}*\n\nObrigado.`);
+    const totalMsg = hasPromoSurpresa 
+        ? (total > 0 ? `R$ ${formatPrice(total)} + Promoção surpresa` : "Promoção surpresa") 
+        : `R$ ${formatPrice(total)}`;
+    const msg = encodeURIComponent(`Olá, gostaria de fazer este pedido:\n${msgItens}\n*TOTAL DO PEDIDO: ${totalMsg}*\n\nObrigado.`);
     window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
 }
 
@@ -991,9 +1042,14 @@ window.handleManualQuantityChange = handleManualQuantityChange; window.adjustMan
 function buyOnWhatsApp(id) {
     const p = PRODUTOS.find(prod => prod.id === id);
     if (!p) return;
-    let precoMsg = `• Unidade: R$ ${formatPrice(p.precoUnidade)}`;
-    if (p.precoUnidade5) precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
-    if (p.precoUnidade50) precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
+    let precoMsg = "";
+    if (p.precoUnidade === "Promoção surpresa") {
+        precoMsg = `• Preço: Promoção surpresa`;
+    } else {
+        precoMsg = `• Unidade: R$ ${formatPrice(p.precoUnidade)}`;
+        if (p.precoUnidade5) precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
+        if (p.precoUnidade50) precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
+    }
     const fone = "5582998343617";
     const msg = encodeURIComponent(`Olá! Tenho interesse no produto:\n*${p.nome}* (Cód: #${p.id})\n\n*Preços disponíveis:*\n${precoMsg}\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?`);
     window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
