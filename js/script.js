@@ -429,6 +429,51 @@ const PRODUTOS = [
         imagem: "img/chaveiros/anilha.jpg",
         data: "2026-06-30"
     },
+     {
+        id: "KF041",
+        nome: "Suporte do Banguela",
+        precoUnidade: 27.50,
+        precoUnidade5: 22.50,
+        precoUnidade50: 20.00,
+        categoria: "personalizados",
+        descricao: "Suporte para celular inspirado no famoso dragão Banguela, com design detalhado e acabamento de qualidade. Ideal para apoiar seu smartphone na mesa, perfeito para assistir vídeos, fazer chamadas ou decorar seu espaço com muito estilo. Um presente incrível para fãs de dragões e animações.",
+        imagem: "img/personalizados/suporte-banguela.jpg",
+        imagensExtras: ["img/personalizados/suporte-banguela1.jpg"],
+        data: "2026-06-30"
+    },
+    {
+        id: "KF042",
+        nome: "Jogo de Equilíibrio Pokémon / Sem a caixa o Preço baixa muuito",
+        precoUnidade: 122.00,
+        precoUnidade5: 105.50,
+        categoria: "brinquedos",
+        descricao: "Divirta-se com este incrível jogo de equilíbrio inspirado no universo Pokémon! O desafio é posicionar as peças sem deixar a base tombar. Perfeito para crianças e adultos, estimula a coordenação, concentração e o raciocínio de forma divertida. Ideal para brincar em família ou com amigos.",
+        imagem: "img/brinquedos/jogo-equilibrio3.jpg",
+        imagensExtras: ["img/brinquedos/jogo-equilibrio1.jpg", "img/brinquedos/jogo-equilibrio2.jpg"],
+        data: "2026-06-30"
+    },
+     {
+        id: "KF043",
+        nome: "Urso rosa",
+        precoUnidade: 45.00,
+        precoUnidade5: 39.00,
+        precoUnidade50: 35.00,
+        categoria: "personalizados",
+        descricao: "Urso decorativo com design moderno e textura em formato de rosas, perfeito para decorar ambientes ou presentear em ocasiões especiais. Produzido com ótimo acabamento, é uma peça charmosa que combina delicadeza e elegância.",
+        imagem: "img/personalizados/urso.jpg",
+        data: "2026-06-30"
+    },
+    {
+        id: "KF044",
+        nome: "Spiner pequeno",
+        precoUnidade: 16.00,
+        precoUnidade5: 14.00,
+        precoUnidade50:12.00,
+        categoria: "brinquedos",
+        descricao: "Spinner compacto com design moderno e acabamento de qualidade, ideal para aliviar o estresse, melhorar a concentração ou simplesmente se divertir. Leve, resistente e fácil de transportar, é perfeito para o dia a dia e também para presentear.",
+        imagem: "img/brinquedos/spiner.jpg",
+        data: "2026-06-30"
+    },
 ];
 
 // 2. INICIALIZAÇÃO
