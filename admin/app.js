@@ -1,5 +1,5 @@
 // APP JS - Frontend do Painel Administrativo KVT-3D
-const API_URL = window.location.protocol === 'file:' ? 'http://localhost:3000' : ''; // Suporta execução local via file://
+const API_URL = window.location.port !== '3000' ? 'http://localhost:3000' : ''; // Suporta execução local via file://, Live Server (5500) ou outras portas
 
 // Estado global do admin
 const state = {
