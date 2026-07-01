@@ -61,7 +61,7 @@ const dbInicial = {
         { slug: "personalizados", nome: "Personalizados", ativa: true, ordem: 4 }
     ],
     configuracoes: {
-        nomeLoja: "Loja KVT-3D",
+        nomeLoja: "KVT | Loja Oficial",
         whatsapp: "5582998343617",
         email: "kvt3d.contato@gmail.com",
         socialLinks: {
@@ -69,7 +69,7 @@ const dbInicial = {
             facebook: "",
             tiktok: ""
         },
-        textoRodape: "© 2026 Loja KVT-3D. Todos os direitos reservados. Maceió - AL",
+        textoRodape: "© 2026 KVT | Loja Oficial. Todos os direitos reservados. Maceió - AL",
         endereco: "Maceió - AL",
         horarioAtendimento: "Segunda a Sexta - 8h às 18h",
         mensagemWhatsAppPadrao: "Olá! Tenho interesse no produto:\n*[NOME_PRODUTO]* (Cód: #[ID_PRODUTO])\n\n*Preços disponíveis:*\n[PRECOS_PRODUTO]\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?",
@@ -90,7 +90,7 @@ const dbInicial = {
         }
     },
     seo: {
-        siteTitle: "Loja KVT-3D - Impressão 3D e Presentes Personalizados",
+        siteTitle: "KVT | Loja Oficial - Impressão 3D e Presentes Personalizados",
         metaDescription: "Encontre produtos exclusivos, miniaturas detalhadas e presentes personalizados em Maceió - AL com a mais alta qualidade de impressão 3D.",
         keywords: "impressão 3d, miniaturas, chaveiros, brinquedos sensoriais, presentes personalizados, maceió, kvt 3d",
         googleAnalytics: "G-BC1K1WMMCG",

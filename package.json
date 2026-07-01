@@ -1,7 +1,7 @@
 {
   "name": "loja-kvt-3d-admin",
   "version": "1.0.0",
-  "description": "Painel Administrativo Integrado para Loja KVT-3D",
+  "description": "Painel Administrativo Integrado para KVT | Loja Oficial",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

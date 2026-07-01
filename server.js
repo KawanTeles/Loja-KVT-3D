@@ -109,7 +109,7 @@ app.get('/admin/*', (req, res) => {
 // Servidor escutando
 app.listen(PORT, () => {
     console.log(`==================================================`);
-    console.log(`  SERVIDOR LOJA KVT-3D COM PAINEL ADMINISTRATIVO  `);
+    console.log(`  SERVIDOR KVT | Loja Oficial COM PAINEL ADMINISTRATIVO  `);
     console.log(`  Rodando em: http://localhost:${PORT}             `);
     console.log(`  Painel em:  http://localhost:${PORT}/admin       `);
     console.log(`==================================================`);

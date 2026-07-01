@@ -521,7 +521,7 @@ window.DADOS_LOJA = {
     }
   ],
   "configuracoes": {
-    "nomeLoja": "Loja KVT-3D",
+    "nomeLoja": "Loja KVT",
     "whatsapp": "5582998343617",
     "email": "kvt3d.contato@gmail.com",
     "socialLinks": {
@@ -529,11 +529,10 @@ window.DADOS_LOJA = {
       "facebook": "",
       "tiktok": ""
     },
-    "textoRodape": "© 2026 Loja KVT-3D. Todos os direitos reservados. Maceió - AL",
     "endereco": "Maceió - AL",
     "horarioAtendimento": "Segunda a Sexta - 8h às 18h",
-    "mensagemWhatsAppPadrao": "Olá! Tenho interesse no produto:\n*[NOME_PRODUTO]* (Cód: #[ID_PRODUTO])\n\n*Preços disponíveis:*\n[PRECOS_PRODUTO]\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?",
-    "linksImportantes": []
+    "textoRodape": "© 2026 Loja KVT. Todos os direitos reservados. Maceió - AL",
+    "mensagemWhatsAppPadrao": "Olá! Tenho interesse no produto:\n*[NOME_PRODUTO]* (Cód: #[ID_PRODUTO])\n\n*Preços disponíveis:*\n[PRECOS_PRODUTO]\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?"
   },
   "hero": {
     "titulo": "Transforme Ideias em Realidade",
@@ -550,7 +549,7 @@ window.DADOS_LOJA = {
     }
   },
   "seo": {
-    "siteTitle": "Loja KVT-3D - Impressão 3D e Presentes Personalizados",
+    "siteTitle": "Loja KVT - Impressão 3D e Presentes Personalizados",
     "metaDescription": "Encontre produtos exclusivos, miniaturas detalhadas e presentes personalizados em Maceió - AL com a mais alta qualidade de impressão 3D.",
     "keywords": "impressão 3d, miniaturas, chaveiros, brinquedos sensoriais, presentes personalizados, maceió, kvt 3d",
     "googleAnalytics": "G-BC1K1WMMCG",
