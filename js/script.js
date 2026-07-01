@@ -1,4 +1,4 @@
-﻿/* 
+/* 
    SCRIPT JS - E-commerce Premium
    Foco: Banco de Dados de Produtos, Filtros, Dinamismo e Integração WhatsApp.
 */
@@ -476,8 +476,13 @@ const PRODUTOS = [
     },
 ];
 
+
+
+
 // 2. INICIALIZAÇÃO
 document.addEventListener('DOMContentLoaded', () => {
+    // Ordenação inicial por data de cadastro (mais recentes primeiro)
+    PRODUTOS.sort((a, b) => new Date(b.data) - new Date(a.data));
     initTheme(); 
     initMenuMobile();
     initScrollSuave();
