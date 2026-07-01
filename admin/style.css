@@ -78,13 +78,21 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    /* Garante que html nunca crie scroll horizontal */
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-primary);
     background-color: var(--bg-app);
     color: var(--text-main);
-    overflow-x: hidden;
+    /* O body não deve ter overflow próprio — o scroll fica em .main-content */
+    overflow: hidden;
     line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,20 +100,26 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-/* Scrollbars */
+/* Scrollbars — visual discreto e profissional */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--bg-app);
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: var(--radius-full);
+    transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
+}
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
 }
 
 /* Botões */
@@ -359,7 +373,8 @@ textarea:focus {
 /* Layout Administrativo */
 .admin-layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;        /* Ocupa exatamente a viewport */
+    overflow: hidden;     /* Nada vaza pelo .admin-layout */
 }
 
 /* Sidebar */
@@ -473,13 +488,16 @@ textarea:focus {
     background-color: var(--danger-soft);
 }
 
-/* Área Principal de Conteúdo */
+/* Área Principal de Conteúdo — container isolado de scroll */
 .main-content {
     flex: 1;
     margin-left: 260px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;          /* Altura fixa = a viewport */
+    overflow-y: auto;       /* Scroll vertical apenas aqui */
+    overflow-x: hidden;     /* Bloqueia horizontal */
+    scroll-behavior: smooth;
 }
 
 @media(max-width: 1024px) {
@@ -494,6 +512,7 @@ textarea:focus {
     }
     .main-content {
         margin-left: 70px;
+        height: 100vh;
     }
     .menu-item {
         justify-content: center;
@@ -1235,9 +1254,10 @@ textarea:focus {
     }
     .sidebar.mobile-open #logout-btn { display: flex; }
 
-    /* --- Main content: ocupa 100% --- */
+    /* --- Main content: ocupa 100% sem margem da sidebar --- */
     .main-content {
         margin-left: 0 !important;
+        height: 100vh;
     }
 
     /* --- Header mobile --- */
@@ -1493,17 +1513,21 @@ textarea:focus {
 }
 
 /* ---------- GARANTIAS GERAIS (todos os tamanhos) ---------- */
-.admin-layout,
-.main-content,
+
+/* Impede overflow horizontal nos containers internos */
 .content-container,
 .view-section {
     max-width: 100%;
-    overflow-x: hidden;
+    /* Não definimos overflow aqui — o scroll container é .main-content */
 }
+
+/* Células de tabela não quebram o layout */
 .admin-table td {
     word-break: break-word;
     max-width: 200px;
 }
+
+/* Inputs nunca ultrapassam o container */
 input[type="text"],
 input[type="password"],
 input[type="email"],
