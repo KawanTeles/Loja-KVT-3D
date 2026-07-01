@@ -1,5 +1,5 @@
 // APP JS - Frontend do Painel Administrativo KVT-3D
-const API_URL = ''; // Rotas relativas no mesmo domínio
+const API_URL = window.location.protocol === 'file:' ? 'http://localhost:3000' : ''; // Suporta execução local via file://
 
 // Estado global do admin
 const state = {
@@ -38,7 +38,7 @@ function initAuth() {
     
     if (state.token) {
         // Verificar se token ainda é válido no servidor
-        fetch('/api/auth/check', {
+        fetch(API_URL + '/api/auth/check', {
             headers: getHeaders()
         })
         .then(res => {
@@ -60,7 +60,7 @@ function initAuth() {
         const code = codeInput.value.trim();
         
         try {
-            const res = await fetch('/api/auth/login', {
+            const res = await fetch(API_URL + '/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code })
@@ -210,7 +210,7 @@ function switchView(viewName) {
 // ==========================================
 async function loadDashboard() {
     try {
-        const res = await fetch('/api/dashboard', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/dashboard', { headers: getHeaders() });
         if (!res.ok) throw new Error('Não autorizado');
         const data = await res.json();
         
@@ -251,7 +251,7 @@ async function loadProducts() {
         // Carregar categorias primeiro para o filtro e modal
         await loadCategoriesDataOnly();
         
-        const res = await fetch('/api/produtos', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/produtos', { headers: getHeaders() });
         state.products = await res.json();
         
         renderProductsTable();
@@ -329,7 +329,7 @@ document.getElementById('product-filter-status').addEventListener('change', rend
 // Toggle rápido Ativo/Inativo do produto
 async function toggleProductStatus(id, currentStatus) {
     try {
-        const res = await fetch(`/api/produtos/${id}`, {
+        const res = await fetch(`${API_URL}/api/produtos/${id}`, {
             method: 'PUT',
             headers: getHeaders(),
             body: JSON.stringify({ ativo: !currentStatus })
@@ -349,7 +349,7 @@ async function toggleProductStatus(id, currentStatus) {
 // Duplicar produto
 async function duplicateProduct(id) {
     try {
-        const res = await fetch(`/api/produtos/duplicate/${id}`, {
+        const res = await fetch(`${API_URL}/api/produtos/duplicate/${id}`, {
             method: 'POST',
             headers: getHeaders()
         });
@@ -369,7 +369,7 @@ async function deleteProduct(id) {
     if (!confirm(`Deseja realmente excluir o produto #${id}? Esta ação não pode ser desfeita.`)) return;
     
     try {
-        const res = await fetch(`/api/produtos/${id}`, {
+        const res = await fetch(`${API_URL}/api/produtos/${id}`, {
             method: 'DELETE',
             headers: getHeaders()
         });
@@ -494,13 +494,13 @@ document.getElementById('product-form').addEventListener('submit', async (e) => 
     try {
         let res;
         if (action === 'edit') {
-            res = await fetch(`/api/produtos/${id}`, {
+            res = await fetch(`${API_URL}/api/produtos/${id}`, {
                 method: 'PUT',
                 headers: getHeaders(),
                 body: JSON.stringify(payload)
             });
         } else {
-            res = await fetch('/api/produtos', {
+            res = await fetch(API_URL + '/api/produtos', {
                 method: 'POST',
                 headers: getHeaders(),
                 body: JSON.stringify(payload)
@@ -525,7 +525,7 @@ document.getElementById('product-form').addEventListener('submit', async (e) => 
 // ==========================================
 async function loadCategories() {
     try {
-        const res = await fetch('/api/categorias', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/categorias', { headers: getHeaders() });
         state.categories = await res.json();
         
         const tbody = document.getElementById('categories-table-body');
@@ -556,7 +556,7 @@ async function loadCategories() {
 
 // Carrega categorias apenas em variáveis auxiliares (ex: para dropdowns)
 async function loadCategoriesDataOnly() {
-    const res = await fetch('/api/categorias', { headers: getHeaders() });
+    const res = await fetch(API_URL + '/api/categorias', { headers: getHeaders() });
     state.categories = await res.json();
     
     // Preencher select de filtros
@@ -620,13 +620,13 @@ document.getElementById('category-form').addEventListener('submit', async (e) =>
     try {
         let res;
         if (action === 'edit') {
-            res = await fetch(`/api/categorias/${oldSlug}`, {
+            res = await fetch(`${API_URL}/api/categorias/${oldSlug}`, {
                 method: 'PUT',
                 headers: getHeaders(),
                 body: JSON.stringify(payload)
             });
         } else {
-            res = await fetch('/api/categorias', {
+            res = await fetch(API_URL + '/api/categorias', {
                 method: 'POST',
                 headers: getHeaders(),
                 body: JSON.stringify(payload)
@@ -651,7 +651,7 @@ async function deleteCategory(slug) {
     if (!confirm(`Deseja realmente excluir a categoria '${slug}'? Os produtos existentes associados a ela permanecerão catalogados.`)) return;
     
     try {
-        const res = await fetch(`/api/categorias/${slug}`, {
+        const res = await fetch(`${API_URL}/api/categorias/${slug}`, {
             method: 'DELETE',
             headers: getHeaders()
         });
@@ -668,7 +668,7 @@ async function deleteCategory(slug) {
 // ==========================================
 async function loadSettingsData() {
     try {
-        const res = await fetch('/api/config', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/config', { headers: getHeaders() });
         state.config = await res.json();
         
         // 1. Preencher Banners/Hero
@@ -851,7 +851,7 @@ function setupForms() {
                 csvStatus.innerHTML = '<span class="text-muted"><i class="fa-solid fa-spinner fa-spin"></i> Importando...</span>';
                 
                 try {
-                    const res = await fetch('/api/backup/import-products', {
+                    const res = await fetch(API_URL + '/api/backup/import-products', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'text/plain; charset=utf-8',
@@ -878,7 +878,7 @@ function setupForms() {
 
 async function saveConfigPayload(payload) {
     try {
-        const res = await fetch('/api/config', {
+        const res = await fetch(API_URL + '/api/config', {
             method: 'PUT',
             headers: getHeaders(),
             body: JSON.stringify(payload)
@@ -899,7 +899,7 @@ async function saveConfigPayload(payload) {
 // ==========================================
 async function loadMediaLibrary() {
     try {
-        const res = await fetch('/api/media', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/media', { headers: getHeaders() });
         state.media = await res.json();
         
         renderMediaLibrary();
@@ -938,7 +938,7 @@ async function deleteMediaFile(path) {
     if (!confirm('Tem certeza de que deseja excluir permanentemente esta imagem? Certifique-se de que nenhum produto a esteja utilizando.')) return;
     
     try {
-        const res = await fetch(`/api/media?filePath=${encodeURIComponent(path)}`, {
+        const res = await fetch(`${API_URL}/api/media?filePath=${encodeURIComponent(path)}`, {
             method: 'DELETE',
             headers: getHeaders()
         });
@@ -962,7 +962,7 @@ async function uploadMediaFiles(files, callback) {
     }
     
     try {
-        const res = await fetch('/api/media/upload', {
+        const res = await fetch(API_URL + '/api/media/upload', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${state.token}`
@@ -988,7 +988,7 @@ async function openMediaSelector(targetFieldName) {
     state.mediaSelectorTarget = targetFieldName;
     
     try {
-        const res = await fetch('/api/media', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/media', { headers: getHeaders() });
         state.media = await res.json();
         
         renderMediaSelector();
@@ -1048,7 +1048,7 @@ function selectImageForTarget(path) {
 // ==========================================
 async function loadBackups() {
     try {
-        const res = await fetch('/api/backup/list', { headers: getHeaders() });
+        const res = await fetch(API_URL + '/api/backup/list', { headers: getHeaders() });
         state.backups = await res.json();
         
         const tbody = document.getElementById('backups-table-body');
@@ -1075,7 +1075,7 @@ async function loadBackups() {
 
 async function createBackup() {
     try {
-        const res = await fetch('/api/backup/create', {
+        const res = await fetch(API_URL + '/api/backup/create', {
             method: 'POST',
             headers: getHeaders()
         });
@@ -1094,7 +1094,7 @@ async function restoreBackup(backupName) {
     if (!confirm(`ATENÇÃO! Você tem certeza de que deseja restaurar o backup '${backupName}'?\nIsso substituirá todos os produtos, categorias e configurações atuais pela versão desse backup.`)) return;
     
     try {
-        const res = await fetch('/api/backup/restore', {
+        const res = await fetch(API_URL + '/api/backup/restore', {
             method: 'POST',
             headers: getHeaders(),
             body: JSON.stringify({ backupName })
