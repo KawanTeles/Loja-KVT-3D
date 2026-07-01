@@ -143,6 +143,8 @@ function setupNavigation() {
             e.preventDefault();
             const view = item.dataset.view;
             switchView(view);
+            // Fecha sidebar ao clicar em um item no mobile
+            closeMobileSidebar();
         });
     });
 
@@ -164,6 +166,38 @@ function setupNavigation() {
             }
         });
     });
+
+    // ---- MENU HAMBÚRGUER (mobile) ----
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', () => {
+            const isOpen = sidebar.classList.contains('mobile-open');
+            if (isOpen) {
+                closeMobileSidebar();
+            } else {
+                sidebar.classList.add('mobile-open');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            closeMobileSidebar();
+        });
+    }
+}
+
+function closeMobileSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    if (sidebar) sidebar.classList.remove('mobile-open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 function switchView(viewName) {
