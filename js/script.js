@@ -625,21 +625,85 @@ function initializeStore() {
     initMulticolorAnimation();
 }
 
+async function carregarDadosSupabase() {
+    try {
+        if (!window.supabaseClient) {
+            throw new Error('Supabase client não inicializado.');
+        }
+
+        window.DADOS_LOJA = {
+            produtos: [],
+            categorias: [],
+            configuracoes: null,
+            hero: null,
+            seo: null,
+            tema: null
+        };
+
+        // 1. Buscar Produtos
+        const { data: produtos, error: prodErr } = await window.supabaseClient
+            .from('produtos')
+            .select('*');
+        if (prodErr) throw prodErr;
+        
+        window.DADOS_LOJA.produtos = (produtos || []).map(p => ({
+            id: p.id,
+            nome: p.nome,
+            precoUnidade: p.preco_unidade === null ? undefined : (isNaN(Number(p.preco_unidade)) ? p.preco_unidade : Number(p.preco_unidade)),
+            precoUnidade5: p.preco_unidade_5 ? Number(p.preco_unidade_5) : undefined,
+            precoUnidade50: p.preco_unidade_50 ? Number(p.preco_unidade_50) : undefined,
+            categoria: p.categoria,
+            descricao: p.descricao,
+            imagem: p.imagem,
+            imagensExtras: p.imagens_extras || [],
+            data: p.data,
+            ativo: p.ativo !== false,
+            destaque: !!p.destaque,
+            promocao: !!p.promocao,
+            novo: !!p.novo,
+            maisVendido: !!p.mais_vendido,
+            mensagemCustomizada: p.mensagem_customizada
+        }));
+
+        // 2. Buscar Categorias
+        const { data: categorias, error: catErr } = await window.supabaseClient
+            .from('categorias')
+            .select('*');
+        if (catErr) throw catErr;
+        window.DADOS_LOJA.categorias = categorias || [];
+
+        // 3. Buscar Configurações
+        const { data: configs, error: confErr } = await window.supabaseClient
+            .from('configuracoes')
+            .select('*');
+        if (confErr) throw confErr;
+        
+        (configs || []).forEach(c => {
+            window.DADOS_LOJA[c.key] = c.value;
+        });
+
+        console.log('Dados carregados com sucesso do Supabase!');
+    } catch (err) {
+        console.error('Erro ao carregar dados do Supabase, tentando carregar dados_loja.js local:', err);
+        await new Promise((resolve) => {
+            const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
+            const pathPrefix = isSubpage ? '../' : '';
+            const script = document.createElement('script');
+            script.src = `${pathPrefix}js/dados_loja.js?t=${Date.now()}`;
+            script.onload = () => resolve(true);
+            script.onerror = () => {
+                console.warn('Falha no fallback local.');
+                resolve(false);
+            };
+            document.head.appendChild(script);
+        });
+    } finally {
+        initializeStore();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Carregar dados_loja.js dinamicamente primeiro
-    const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
-    const pathPrefix = isSubpage ? '../' : '';
-    
-    const script = document.createElement('script');
-    script.src = `${pathPrefix}js/dados_loja.js?t=${Date.now()}`;
-    script.onload = () => {
-        initializeStore();
-    };
-    script.onerror = () => {
-        console.warn('dados_loja.js não encontrado ou falhou ao carregar. Usando dados estáticos de fallback.');
-        initializeStore();
-    };
-    document.head.appendChild(script);
+    carregarDadosSupabase();
 });
 
 // 2.1 SISTEMA DE TEMAS (DARK/LIGHT)
@@ -707,7 +771,7 @@ function openProductModal(id) {
     
     // Imagem Principal
     const mainImg = document.getElementById('modal-img');
-    mainImg.src = `${pathPrefix}${p.imagem}`;
+    mainImg.src = window.obterImagemUrl(p.imagem, pathPrefix);
     mainImg.alt = p.nome;
 
     // Galeria de Miniaturas
@@ -717,9 +781,9 @@ function openProductModal(id) {
         const allImages = [p.imagem, ...p.imagensExtras];
         allImages.forEach((img, index) => {
             const thumb = document.createElement('img');
-            thumb.src = `${pathPrefix}${img}`;
+            thumb.src = window.obterImagemUrl(img, pathPrefix);
             thumb.className = `modal-thumbnail ${index === 0 ? 'active' : ''}`;
-            thumb.onclick = () => setModalImage(`${pathPrefix}${img}`, thumb);
+            thumb.onclick = () => setModalImage(window.obterImagemUrl(img, pathPrefix), thumb);
             thumbContainer.appendChild(thumb);
         });
         thumbContainer.style.display = 'flex';
@@ -882,14 +946,14 @@ function changeCardImage(event, id, direction) {
     const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
     const pathPrefix = isSubpage ? '../' : '';
     
-    let currentIndex = allImages.findIndex(src => `${pathPrefix}${src}` === currentSrc);
+    let currentIndex = allImages.findIndex(src => window.obterImagemUrl(src, pathPrefix) === currentSrc);
     if (currentIndex === -1) currentIndex = 0;
 
     let nextIndex = currentIndex + direction;
     if (nextIndex < 0) nextIndex = allImages.length - 1;
     if (nextIndex >= allImages.length) nextIndex = 0;
 
-    img.src = `${pathPrefix}${allImages[nextIndex]}`;
+    img.src = window.obterImagemUrl(allImages[nextIndex], pathPrefix);
 }
 
 function displayProducts(products, container) {
@@ -925,7 +989,7 @@ function displayProducts(products, container) {
         return `
             <article class="product-card fade-in" onclick="openProductModal('${p.id}')">
                 <div class="${imgClass}">
-                    <img src="${pathPrefix}${p.imagem}" alt="${p.nome}" loading="lazy">
+                    <img src="${window.obterImagemUrl(p.imagem, pathPrefix)}" alt="${p.nome}" loading="lazy">
                     ${galleryBtns}
                 </div>
                 <div class="product-info">
@@ -1215,7 +1279,7 @@ function updateCartUI() {
             count += item.quantity;
             return `
                 <div class="cart-item">
-                    <img src="${pathPrefix}${item.imagem}" alt="${item.nome}" class="cart-item-img">
+                    <img src="${window.obterImagemUrl(item.imagem, pathPrefix)}" alt="${item.nome}" class="cart-item-img">
                     <div class="cart-item-info">
                         <h3 class="cart-item-title">${item.nome}</h3>
                         <p class="cart-item-price">Preço unitário aplicado: ${priceText}</p>
