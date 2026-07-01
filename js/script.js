@@ -479,10 +479,135 @@ const PRODUTOS = [
 
 
 
-// 2. INICIALIZAÇÃO
-document.addEventListener('DOMContentLoaded', () => {
-    // Ordenação inicial por data de cadastro (mais recentes primeiro)
+// 2. INICIALIZAÇÃO E INTEGRAÇÃO DO PAINEL
+function getWhatsAppNumber() {
+    return (window.DADOS_LOJA && window.DADOS_LOJA.configuracoes && window.DADOS_LOJA.configuracoes.whatsapp) 
+        ? window.DADOS_LOJA.configuracoes.whatsapp 
+        : "5582998343617";
+}
+
+function renderCategoriasDinamicas() {
+    const filterList = document.querySelector('.category-filter-list');
+    if (!filterList || !window.DADOS_LOJA || !window.DADOS_LOJA.categorias) return;
+    
+    const categoriasAtivas = window.DADOS_LOJA.categorias
+        .filter(c => c.ativa !== false)
+        .sort((a, b) => (a.ordem || 0) - (b.ordem || 0));
+        
+    filterList.innerHTML = `<li><button class="filter-btn active" data-category="todos">Todos</button></li>` +
+        categoriasAtivas.map(cat => `<li><button class="filter-btn" data-category="${cat.slug}">${cat.nome}</button></li>`).join('');
+}
+
+function aplicarConfiguracoesDinamicas() {
+    if (!window.DADOS_LOJA) return;
+    const config = window.DADOS_LOJA;
+
+    // 1. Aplicar Banners/Hero
+    if (config.hero) {
+        const heroTitle = document.querySelector('.hero-title');
+        const heroDesc = document.querySelector('.hero p');
+        const heroBtns = document.querySelectorAll('.hero-btns a');
+
+        if (heroTitle && config.hero.titulo) heroTitle.textContent = config.hero.titulo;
+        if (heroDesc && config.hero.subtitulo) heroDesc.textContent = config.hero.subtitulo;
+        if (heroBtns.length >= 1 && config.hero.botaoPrincipal) {
+            heroBtns[0].textContent = config.hero.botaoPrincipal.texto;
+            heroBtns[0].href = config.hero.botaoPrincipal.link;
+        }
+        if (heroBtns.length >= 2 && config.hero.botaoSecundario) {
+            heroBtns[1].textContent = config.hero.botaoSecundario.texto;
+            heroBtns[1].href = config.hero.botaoSecundario.link;
+        }
+        
+        const heroSection = document.querySelector('.hero');
+        if (heroSection && config.hero.imagemDesktop) {
+            const isMobile = window.innerWidth <= 768;
+            const bgImage = (isMobile && config.hero.imagemCelular) ? config.hero.imagemCelular : config.hero.imagemDesktop;
+            heroSection.style.backgroundImage = `url('${bgImage}')`;
+        }
+    }
+
+    // 2. Aplicar Configurações Gerais
+    if (config.configuracoes) {
+        const fone = config.configuracoes.whatsapp || "5582998343617";
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.includes('wa.me/')) {
+                const regex = /wa\.me\/([0-9]+)/;
+                link.setAttribute('href', href.replace(regex, `wa.me/${fone}`));
+            }
+        });
+        
+        const footerText = document.querySelector('footer p, .footer-copyright');
+        if (footerText && config.configuracoes.textoRodape) {
+            footerText.innerHTML = config.configuracoes.textoRodape;
+        }
+    }
+
+    // 3. Aplicar Cores do Tema
+    if (config.tema) {
+        let styleEl = document.getElementById('dynamic-theme-colors');
+        if (!styleEl) {
+            styleEl = document.createElement('style');
+            styleEl.id = 'dynamic-theme-colors';
+            document.head.appendChild(styleEl);
+        }
+        const darkTheme = config.tema.dark || {};
+        const lightTheme = config.tema.light || {};
+        
+        styleEl.innerHTML = `
+            :root {
+                ${darkTheme.primary ? `--primary: ${darkTheme.primary};` : ''}
+                ${darkTheme.secondary ? `--secondary: ${darkTheme.secondary};` : ''}
+                ${darkTheme.accent ? `--accent: ${darkTheme.accent};` : ''}
+                ${darkTheme.bgDark ? `--bg-dark: ${darkTheme.bgDark};` : ''}
+                ${darkTheme.bgCard ? `--bg-card: ${darkTheme.bgCard};` : ''}
+                ${darkTheme.textWhite ? `--text-white: ${darkTheme.textWhite};` : ''}
+                ${darkTheme.textGray ? `--text-gray: ${darkTheme.textGray};` : ''}
+            }
+            [data-theme="light"] {
+                ${lightTheme.primary ? `--primary: ${lightTheme.primary};` : ''}
+                ${lightTheme.secondary ? `--secondary: ${lightTheme.secondary};` : ''}
+                ${lightTheme.accent ? `--accent: ${lightTheme.accent};` : ''}
+                ${lightTheme.bgDark ? `--bg-dark: ${lightTheme.bgDark};` : ''}
+                ${lightTheme.bgCard ? `--bg-card: ${lightTheme.bgCard};` : ''}
+                ${lightTheme.textWhite ? `--text-white: ${lightTheme.textWhite};` : ''}
+                ${lightTheme.textGray ? `--text-gray: ${lightTheme.textGray};` : ''}
+            }
+        `;
+    }
+
+    // 4. Aplicar SEO
+    if (config.seo) {
+        if (config.seo.siteTitle && (!window.location.pathname.includes('/pages/'))) {
+            document.title = config.seo.siteTitle;
+        }
+        if (config.seo.metaDescription) {
+            let metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', config.seo.metaDescription);
+        }
+        if (config.seo.keywords) {
+            let metaKeys = document.querySelector('meta[name="keywords"]');
+            if (metaKeys) metaKeys.setAttribute('content', config.seo.keywords);
+        }
+    }
+}
+
+function initializeStore() {
+    // Carregar dados dinâmicos se existirem
+    if (window.DADOS_LOJA && window.DADOS_LOJA.produtos) {
+        PRODUTOS.length = 0;
+        PRODUTOS.push(...window.DADOS_LOJA.produtos);
+    }
+    
+    // Ordenar produtos
     PRODUTOS.sort((a, b) => new Date(b.data) - new Date(a.data));
+    
+    // Aplicar configurações e renderizar categorias
+    renderCategoriasDinamicas();
+    aplicarConfiguracoesDinamicas();
+
+    // Inicializar site original
     initTheme(); 
     initMenuMobile();
     initScrollSuave();
@@ -498,6 +623,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     initFormularioContato();
     initMulticolorAnimation();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Carregar dados_loja.js dinamicamente primeiro
+    const isSubpage = /[\/\\]pages[\/\\]/.test(window.location.pathname) || window.location.pathname.includes("pages/");
+    const pathPrefix = isSubpage ? '../' : '';
+    
+    const script = document.createElement('script');
+    script.src = `${pathPrefix}js/dados_loja.js?t=${Date.now()}`;
+    script.onload = () => {
+        initializeStore();
+    };
+    script.onerror = () => {
+        console.warn('dados_loja.js não encontrado ou falhou ao carregar. Usando dados estáticos de fallback.');
+        initializeStore();
+    };
+    document.head.appendChild(script);
 });
 
 // 2.1 SISTEMA DE TEMAS (DARK/LIGHT)
@@ -1112,7 +1254,7 @@ function finalizeOrder() {
             msgItens += `\n*Produto:* ${item.nome}\n*Quantidade:* ${item.quantity}\n*Preço unitário aplicado:* R$ ${formatPrice(item.preco)}\n*Subtotal:* R$ ${formatPrice(subtotal)}\n`;
         }
     });
-    const fone = "5582998343617";
+    const fone = getWhatsAppNumber();
     const totalMsg = hasPromoSurpresa 
         ? (total > 0 ? `R$ ${formatPrice(total)} + Promoção surpresa` : "Promoção surpresa") 
         : `R$ ${formatPrice(total)}`;
@@ -1134,8 +1276,24 @@ function buyOnWhatsApp(id) {
         if (p.precoUnidade5) precoMsg += `\n• Atacado (5+): R$ ${formatPrice(p.precoUnidade5)}`;
         if (p.precoUnidade50) precoMsg += `\n• Atacado (50+): R$ ${formatPrice(p.precoUnidade50)}`;
     }
-    const fone = "5582998343617";
-    const msg = encodeURIComponent(`Olá! Tenho interesse no produto:\n*${p.nome}* (Cód: #${p.id})\n\n*Preços disponíveis:*\n${precoMsg}\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?`);
+    const fone = getWhatsAppNumber();
+    
+    let msgTemplate = "";
+    if (p.mensagemCustomizada) {
+        msgTemplate = p.mensagemCustomizada;
+    } else if (window.DADOS_LOJA && window.DADOS_LOJA.configuracoes && window.DADOS_LOJA.configuracoes.mensagemWhatsAppPadrao) {
+        msgTemplate = window.DADOS_LOJA.configuracoes.mensagemWhatsAppPadrao;
+    } else {
+        msgTemplate = "Olá! Tenho interesse no produto:\n*[NOME_PRODUTO]* (Cód: #[ID_PRODUTO])\n\n*Preços disponíveis:*\n[PRECOS_PRODUTO]\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?";
+    }
+    
+    let msgText = msgTemplate
+        .replace(/\[NOME_PRODUTO\]/g, p.nome)
+        .replace(/\[NOME DO PRODUTO\]/g, p.nome)
+        .replace(/\[ID_PRODUTO\]/g, p.id)
+        .replace(/\[PRECOS_PRODUTO\]/g, precoMsg);
+        
+    const msg = encodeURIComponent(msgText);
     window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
 }
 
@@ -1155,7 +1313,7 @@ function initFormularioContato() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const nome = document.getElementById('contato-nome').value, email = document.getElementById('contato-email').value, projeto = document.getElementById('contato-projeto').value;
-        const fone = "5582998343617";
+        const fone = getWhatsAppNumber();
         const msg = encodeURIComponent(`*Novo Orçamento de Projeto * 🚀\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n\n*Descrição do Projeto:*\n${projeto}`);
         window.open(`https://wa.me/${fone}?text=${msg}`, '_blank');
     });

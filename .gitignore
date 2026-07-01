@@ -1,0 +1,4 @@
+node_modules/
+.vscode/
+temp_debug_text.png
+backups/

@@ -1,0 +1,16 @@
+{
+  "name": "loja-kvt-3d-admin",
+  "version": "1.0.0",
+  "description": "Painel Administrativo Integrado para Loja KVT-3D",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1",
+    "fs-extra": "^11.2.0"
+  }
+}

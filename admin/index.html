@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Loja KVT-3D</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    
+    <!-- TELA DE LOGIN/ACESSO PROTEGIDO -->
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <h2>KVT-3D ADMIN</h2>
+                <p>Insira o código de acesso para gerenciar a loja</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="access-code">Código de Acesso</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="access-code" placeholder="Digite o código de acesso..." required>
+                    </div>
+                </div>
+                <div id="login-error" class="error-msg"></div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-text">Acessar Painel</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            <div class="login-footer">
+                <p>Estrutura pronta para Login/Senha corporativo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAINEL ADMINISTRATIVO PRINCIPAL -->
+    <div id="admin-app" class="admin-layout" style="display: none;">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-cube"></i>
+                <span>KVT-3D Painel</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" data-view="dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#products" class="menu-item" data-view="products">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="#categories" class="menu-item" data-view="categories">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Categorias</span>
+                </a>
+                <a href="#banners" class="menu-item" data-view="banners">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Hero & Banners</span>
+                </a>
+                <a href="#settings" class="menu-item" data-view="settings">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Configurações</span>
+                </a>
+                <a href="#seo" class="menu-item" data-view="seo">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>SEO</span>
+                </a>
+                <a href="#backup" class="menu-item" data-view="backup">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Backup & Import</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-user">
+                <div class="user-avatar">A</div>
+                <div class="user-info">
+                    <span class="user-name">Administrador</span>
+                    <span class="user-role">Super Admin</span>
+                </div>
+                <button id="logout-btn" title="Sair do Painel">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- HEADER -->
+            <header class="main-header">
+                <div class="header-left">
+                    <h1 id="view-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <a href="../" target="_blank" class="btn btn-outline btn-sm">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Ver Loja</span>
+                    </a>
+                    <button id="theme-toggle" class="theme-toggle-btn">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- ÁREA DOS CONTEÚDOS DAS TABS -->
+            <div class="content-container">
+                
+                <!-- VIEW 1: DASHBOARD -->
+                <section id="dashboard-view" class="view-section">
+                    <!-- Cards de Estatísticas -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary-soft"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Total de Produtos</span>
+                                <h3 id="stat-total-products" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success-soft"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Produtos Ativos</span>
+                                <h3 id="stat-active-products" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-danger-soft"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Produtos Inativos</span>
+                                <h3 id="stat-inactive-products" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning-soft"><i class="fa-solid fa-star"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Em Destaque</span>
+                                <h3 id="stat-featured-products" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-info-soft"><i class="fa-solid fa-percent"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Em Promoção</span>
+                                <h3 id="stat-promo-products" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-purple-soft"><i class="fa-solid fa-tags"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Categorias</span>
+                                <h3 id="stat-total-categories" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-blue-soft"><i class="fa-solid fa-image"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-label">Imagens Totais</span>
+                                <h3 id="stat-total-images" class="stat-value">0</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo em Duas Colunas -->
+                    <div class="dashboard-cols">
+                        <!-- Coluna Esquerda: Lista de Últimos Adicionados -->
+                        <div class="dashboard-panel col-span-2">
+                            <div class="panel-header">
+                                <h3>Últimos Produtos Adicionados</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Data Cadastro</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recent-products-table">
+                                        <!-- Preenchido via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Coluna Direita: Atalhos e Ações Rápidas -->
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>Ações Rápidas</h3>
+                            </div>
+                            <div class="panel-body quick-actions">
+                                <button class="btn btn-outline btn-block" onclick="switchView('products'); openProductModal(null);">
+                                    <i class="fa-solid fa-plus"></i>
+                                    <span>Adicionar Produto</span>
+                                </button>
+                                <button class="btn btn-outline btn-block" onclick="switchView('categories');">
+                                    <i class="fa-solid fa-folder-plus"></i>
+                                    <span>Criar Categoria</span>
+                                </button>
+                                <button class="btn btn-outline btn-block" onclick="switchView('backup');">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>Criar Backup</span>
+                                </button>
+                                <a href="../" target="_blank" class="btn btn-primary btn-block text-center">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span>Ir Para a Loja</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW 2: PRODUTOS -->
+                <section id="products-view" class="view-section" style="display: none;">
+                    <div class="view-actions-bar">
+                        <div class="search-bar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="product-search-input" placeholder="Buscar produtos por nome ou código...">
+                        </div>
+                        <div class="filters-row">
+                            <select id="product-filter-category">
+                                <option value="">Todas as Categorias</option>
+                                <!-- Preenchido dinamicamente -->
+                            </select>
+                            <select id="product-filter-status">
+                                <option value="">Todos os Status</option>
+                                <option value="ativo">Ativos</option>
+                                <option value="inativo">Inativos</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="openProductModal(null);">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Novo Produto</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-panel">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Imagem</th>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Categoria</th>
+                                    <th>Preço</th>
+                                    <th>Preços de Atacado</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body">
+                                <!-- Preenchido dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- VIEW 3: CATEGORIAS -->
+                <section id="categories-view" class="view-section" style="display: none;">
+                    <div class="view-actions-bar" style="justify-content: flex-end;">
+                        <button class="btn btn-primary" onclick="openCategoryModal(null);">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Nova Categoria</span>
+                        </button>
+                    </div>
+                    
+                    <div class="dashboard-panel">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Ordem</th>
+                                    <th>Slug (ID)</th>
+                                    <th>Nome</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categories-table-body">
+                                <!-- Preenchido dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- VIEW 4: HERO & BANNERS -->
+                <section id="banners-view" class="view-section" style="display: none;">
+                    <form id="hero-settings-form">
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>Seção Hero Principal</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="hero-title-input">Título Principal</label>
+                                        <input type="text" id="hero-title-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="hero-subtitle-input">Subtítulo</label>
+                                        <textarea id="hero-subtitle-input" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="hero-btn-primary-text">Texto Botão Principal</label>
+                                        <input type="text" id="hero-btn-primary-text" placeholder="ex: Ver Produtos">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="hero-btn-primary-link">Link Botão Principal</label>
+                                        <input type="text" id="hero-btn-primary-link" placeholder="ex: #produtos">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="hero-btn-secondary-text">Texto Botão Secundário</label>
+                                        <input type="text" id="hero-btn-secondary-text" placeholder="ex: Fale Conosco">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="hero-btn-secondary-link">Link Botão Secundário</label>
+                                        <input type="text" id="hero-btn-secondary-link" placeholder="ex: link do whatsapp">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label>Imagem Desktop (Background)</label>
+                                        <div class="image-select-container">
+                                            <input type="text" id="hero-img-desktop" readonly placeholder="Selecione uma imagem...">
+                                            <button type="button" class="btn btn-outline" onclick="openMediaSelector('hero-img-desktop')">Escolher</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Imagem Celular (Background Mobile)</label>
+                                        <div class="image-select-container">
+                                            <input type="text" id="hero-img-mobile" readonly placeholder="Selecione uma imagem...">
+                                            <button type="button" class="btn btn-outline" onclick="openMediaSelector('hero-img-mobile')">Escolher</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Salvar Banner Hero</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- VIEW 5: CONFIGURAÇÕES -->
+                <section id="settings-view" class="view-section" style="display: none;">
+                    <div class="settings-tabs">
+                        <button class="settings-tab-btn active" data-settings-tab="general">Geral & Loja</button>
+                        <button class="settings-tab-btn" data-settings-tab="colors">Cores do Tema</button>
+                        <button class="settings-tab-btn" data-settings-tab="media">Biblioteca de Mídias</button>
+                    </div>
+
+                    <!-- TAB GERAL -->
+                    <div id="settings-tab-general" class="settings-tab-content">
+                        <form id="general-settings-form">
+                            <div class="dashboard-panel">
+                                <div class="panel-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="store-name">Nome da Loja</label>
+                                            <input type="text" id="store-name" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="store-whatsapp">WhatsApp (com DDD, apenas números)</label>
+                                            <input type="text" id="store-whatsapp" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="store-email">E-mail de Contato</label>
+                                            <input type="email" id="store-email">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="store-instagram">Instagram (URL Completa)</label>
+                                            <input type="text" id="store-instagram">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="store-address">Endereço Físico</label>
+                                            <input type="text" id="store-address">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="store-hours">Horário de Atendimento</label>
+                                            <input type="text" id="store-hours">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label for="store-footer">Copyright Rodapé</label>
+                                            <input type="text" id="store-footer">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label for="store-whatsapp-template">Mensagem Padrão WhatsApp (Use [NOME_PRODUTO], [ID_PRODUTO], [PRECOS_PRODUTO] para dados automáticos)</label>
+                                            <textarea id="store-whatsapp-template" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Salvar Configurações Gerais</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- TAB CORES -->
+                    <div id="settings-tab-colors" class="settings-tab-content" style="display: none;">
+                        <form id="theme-settings-form">
+                            <div class="dashboard-panel">
+                                <div class="panel-header">
+                                    <h3>Tema Escuro (Padrão)</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-3">
+                                            <label>Cor Primária</label>
+                                            <input type="color" id="color-dark-primary">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Cor Secundária</label>
+                                            <input type="color" id="color-dark-secondary">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Destaque / Accent</label>
+                                            <input type="color" id="color-dark-accent">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Fundo Escuro</label>
+                                            <input type="color" id="color-dark-bg">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label>Fundo do Card</label>
+                                            <input type="color" id="color-dark-card">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label>Texto Principal</label>
+                                            <input type="color" id="color-dark-text-white">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label>Texto Cinza</label>
+                                            <input type="color" id="color-dark-text-gray">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="dashboard-panel" style="margin-top: 1.5rem;">
+                                <div class="panel-header">
+                                    <h3>Tema Claro</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-3">
+                                            <label>Cor Primária</label>
+                                            <input type="color" id="color-light-primary">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Cor Secundária</label>
+                                            <input type="color" id="color-light-secondary">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Destaque / Accent</label>
+                                            <input type="color" id="color-light-accent">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label>Fundo Claro</label>
+                                            <input type="color" id="color-light-bg">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label>Fundo do Card</label>
+                                            <input type="color" id="color-light-card">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label>Texto Principal</label>
+                                            <input type="color" id="color-light-text-white">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label>Texto Cinza</label>
+                                            <input type="color" id="color-light-text-gray">
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Salvar Configurações de Cores</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- TAB MIDIA -->
+                    <div id="settings-tab-media" class="settings-tab-content" style="display: none;">
+                        <div class="media-actions-bar">
+                            <div class="search-bar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="media-search" placeholder="Pesquisar imagens...">
+                            </div>
+                            <div class="upload-btn-wrapper">
+                                <button class="btn btn-primary"><i class="fa-solid fa-cloud-arrow-up"></i> Upload de Imagens</button>
+                                <input type="file" id="media-file-input" multiple accept="image/*">
+                            </div>
+                        </div>
+                        
+                        <div class="media-gallery-grid" id="media-library-grid">
+                            <!-- Preenchido dinamicamente -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW 6: SEO -->
+                <section id="seo-view" class="view-section" style="display: none;">
+                    <form id="seo-settings-form">
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>SEO & Meta Tags</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="seo-title">Título do Site (Home Page)</label>
+                                        <input type="text" id="seo-title" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="seo-description">Meta Description</label>
+                                        <textarea id="seo-description" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="seo-keywords">Palavras-chave (separadas por vírgula)</label>
+                                        <input type="text" id="seo-keywords">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-panel" style="margin-top: 1.5rem;">
+                            <div class="panel-header">
+                                <h3>Ferramentas de Rastreamento (Analytics / Pixel)</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="seo-ga">Google Analytics ID (ex: G-XXXXXXX)</label>
+                                        <input type="text" id="seo-ga">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="seo-gsc">Google Search Console Verification Tag</label>
+                                        <input type="text" id="seo-gsc">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="seo-pixel">Facebook/Meta Pixel ID</label>
+                                        <input type="text" id="seo-pixel">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="seo-scripts">Scripts Personalizados Adicionais (Header/Body)</label>
+                                        <textarea id="seo-scripts" rows="3" placeholder="Insira tags <script> aqui se necessário..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Salvar Configurações SEO</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- VIEW 7: BACKUP & IMPORT -->
+                <section id="backup-view" class="view-section" style="display: none;">
+                    <div class="dashboard-cols">
+                        <!-- Coluna 1: Backups do Sistema -->
+                        <div class="dashboard-panel col-span-2">
+                            <div class="panel-header">
+                                <h3>Pontos de Backup</h3>
+                                <button class="btn btn-primary btn-sm" onclick="createBackup();">
+                                    <i class="fa-solid fa-plus"></i> Criar Backup Agora
+                                </button>
+                            </div>
+                            <div class="panel-body">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome do Backup</th>
+                                            <th>Data Criação</th>
+                                            <th>Tamanho</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="backups-table-body">
+                                        <!-- Preenchido dinamicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Coluna 2: Importar/Exportar Catálogo -->
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>Importar & Exportar Catálogo</h3>
+                            </div>
+                            <div class="panel-body font-sm">
+                                <p><strong>Exportar Produtos em CSV</strong><br>Baixe a planilha completa do catálogo de produtos.</p>
+                                <a href="/api/backup/export-products" id="csv-export-btn" class="btn btn-outline btn-block text-center" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                                    <i class="fa-solid fa-file-export"></i> Exportar CSV
+                                </a>
+                                
+                                <hr style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0;">
+                                
+                                <p><strong>Importar Produtos via CSV</strong><br>Carregue ou atualize produtos enviando um arquivo CSV com cabeçalhos apropriados.</p>
+                                <div class="form-group" style="margin-top: 0.5rem;">
+                                    <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+                                    <button class="btn btn-primary btn-block" onclick="document.getElementById('csv-file-input').click();">
+                                        <i class="fa-solid fa-file-import"></i> Selecionar Arquivo CSV
+                                    </button>
+                                </div>
+                                <div id="csv-import-status" style="margin-top: 0.5rem;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- DRAWER / MODAL LATERAL PARA PRODUTO (ADD/EDIT) -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-drawer">
+            <div class="modal-drawer-header">
+                <h2 id="product-modal-title">Novo Produto</h2>
+                <button type="button" class="close-modal-btn" onclick="closeProductModal();">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <form id="product-form" class="modal-drawer-body">
+                <input type="hidden" id="product-id-hidden">
+                <input type="hidden" id="product-action-hidden"> <!-- "add" ou "edit" -->
+                
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="product-name">Nome do Produto</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="product-id-custom">Código Personalizado (ID)</label>
+                        <input type="text" id="product-id-custom" placeholder="ex: KF044 (Deixe vazio para auto-gerar)">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="product-category">Categoria</label>
+                        <select id="product-category" required>
+                            <!-- Preenchido dinamicamente -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="product-desc">Descrição</label>
+                        <textarea id="product-desc" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="product-price">Preço Unitário (ou "Promoção surpresa")</label>
+                        <input type="text" id="product-price" required placeholder="ex: 13.00 ou Promoção surpresa">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="product-price5">Preço Atacado (5+)</label>
+                        <input type="number" step="0.01" id="product-price5" placeholder="ex: 10.00">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="product-price50">Preço Atacado (50+)</label>
+                        <input type="number" step="0.01" id="product-price50" placeholder="ex: 8.00">
+                    </div>
+                </div>
+
+                <!-- Imagem Principal -->
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label>Imagem Principal</label>
+                        <div class="image-select-container">
+                            <input type="text" id="product-main-image" readonly required placeholder="Nenhuma imagem selecionada...">
+                            <button type="button" class="btn btn-outline" onclick="openMediaSelector('product-main-image')">Escolher</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Galeria de Imagens Extras -->
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label>Galeria de Imagens Extras</label>
+                        <div id="product-gallery-list" class="drawer-gallery-list">
+                            <!-- Preenchido via JS -->
+                        </div>
+                        <button type="button" class="btn btn-outline btn-sm btn-block" style="margin-top: 0.5rem;" onclick="openMediaSelector('product-gallery')">
+                            <i class="fa-solid fa-plus"></i> Adicionar Imagem à Galeria
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Marcadores -->
+                <div class="form-row">
+                    <div class="form-group col-12 checkbox-group-row">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="product-mark-new">
+                            <span class="checkmark"></span>
+                            <span>Novo</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="product-mark-promo">
+                            <span class="checkmark"></span>
+                            <span>Promoção</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="product-mark-featured">
+                            <span class="checkmark"></span>
+                            <span>Destaque</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="product-mark-bestseller">
+                            <span class="checkmark"></span>
+                            <span>Mais Vendido</span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="product-status-active" checked>
+                            <span class="checkmark"></span>
+                            <span>Ativo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Personalizado -->
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="product-whatsapp-message">Mensagem Exclusiva do WhatsApp (Opcional - Deixe vazio para usar a mensagem padrão)</label>
+                        <textarea id="product-whatsapp-message" rows="3" placeholder="Mensagem personalizada para este produto..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="drawer-footer-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeProductModal();">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE CATEGORIA (ADD/EDIT) -->
+    <div id="category-modal" class="modal-overlay">
+        <div class="modal-card mini-modal">
+            <div class="modal-header">
+                <h3 id="category-modal-title">Nova Categoria</h3>
+                <button type="button" class="close-modal-btn" onclick="closeCategoryModal();">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="category-form">
+                <input type="hidden" id="category-action-hidden"> <!-- "add" ou "edit" -->
+                <input type="hidden" id="category-slug-hidden">
+                
+                <div class="form-group">
+                    <label for="category-name">Nome da Categoria</label>
+                    <input type="text" id="category-name" required placeholder="ex: Brinquedos">
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-slug">Slug da Categoria (ID na URL e Filtros)</label>
+                    <input type="text" id="category-slug" required placeholder="ex: brinquedos">
+                </div>
+
+                <div class="form-group">
+                    <label for="category-order">Ordem de Exibição</label>
+                    <input type="number" id="category-order" required min="1" placeholder="ex: 1">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="category-active" checked>
+                        <span class="checkmark"></span>
+                        <span>Categoria Ativa (Exibir na Loja)</span>
+                    </label>
+                </div>
+
+                <div class="modal-footer-actions">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="closeCategoryModal();">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Salvar Categoria</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SELETOR DE IMAGENS DA BIBLIOTECA (POPUP OVER MODAL) -->
+    <div id="media-selector-modal" class="modal-overlay popup-overlay">
+        <div class="modal-card media-selector-card">
+            <div class="modal-header">
+                <h3>Selecionar Imagem da Biblioteca</h3>
+                <button type="button" class="close-modal-btn" onclick="closeMediaSelector();">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="media-selector-actions">
+                <input type="text" id="media-selector-search" placeholder="Pesquisar imagens...">
+                <div class="upload-btn-wrapper">
+                    <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cloud-arrow-up"></i> Fazer Upload</button>
+                    <input type="file" id="media-selector-file" accept="image/*" multiple>
+                </div>
+            </div>
+
+            <div class="media-selector-grid" id="media-selector-grid">
+                <!-- Carregado via JS -->
+            </div>
+            
+            <div class="modal-footer-actions">
+                <button type="button" class="btn btn-outline btn-sm" onclick="closeMediaSelector();">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Painel -->
+    <script src="app.js"></script>
+</body>
+</html>
