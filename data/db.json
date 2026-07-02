@@ -779,6 +779,24 @@
       "novo": false,
       "maisVendido": false,
       "mensagemCustomizada": null
+    },
+    {
+      "id": "KF045",
+      "nome": "yhy",
+      "precoUnidade": 15,
+      "categoria": "chaveiros",
+      "descricao": "ii",
+      "imagem": "https://qusbhrvyergymhgoqsng.supabase.co/storage/v1/object/public/media/1783000804615_0_000667__popusdt__futuros__contrato_perp__tuo_com_margem_em_usdt___mexc_-_opera_26_11_2025_15_36_41.png",
+      "imagensExtras": [
+        "https://qusbhrvyergymhgoqsng.supabase.co/storage/v1/object/public/media/1783000804615_0_000667__popusdt__futuros__contrato_perp__tuo_com_margem_em_usdt___mexc_-_opera_26_11_2025_15_36_41.png"
+      ],
+      "data": "2026-07-02",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     }
   ],
   "categorias": [
