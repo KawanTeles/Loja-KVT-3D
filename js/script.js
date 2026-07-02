@@ -798,24 +798,6 @@ const PRODUTOS = [
         "novo": false,
         "maisVendido": false,
         "mensagemCustomizada": null
-    },
-    {
-        "id": "KF045",
-        "nome": "hyh",
-        "precoUnidade": 15,
-        "categoria": "chaveiros",
-        "descricao": "hty",
-        "imagem": "",
-        "imagensExtras": [
-            "https://qusbhrvyergymhgoqsng.supabase.co/storage/v1/object/public/media/1783000915618_spiner.jpg"
-        ],
-        "data": "2026-07-02",
-        "ativo": true,
-        "destaque": false,
-        "promocao": false,
-        "novo": false,
-        "maisVendido": false,
-        "mensagemCustomizada": null
     }
 ];
 
