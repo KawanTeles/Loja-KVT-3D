@@ -8,7 +8,14 @@
       "categoria": "chaveiros",
       "descricao": "Adicione um toque de personalidade ao seu dia a dia com o Chaveiro Lagarto Articulado Multicolor. Produzido com alta qualidade, possui corpo totalmente articulado que proporciona movimentos suaves e um visual diferenciado. Suas cores vibrantes e acabamento detalhado fazem dele um acessório perfeito para chaves, mochilas ou estojos, além de ser uma excelente opção de presente para quem gosta de peças criativas e exclusivas.",
       "imagem": "img/chaveiros/chaveirolargato.jpg",
-      "data": "2026-05-01"
+      "imagensExtras": [],
+      "data": "2026-05-01",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF002",
@@ -18,7 +25,14 @@
       "categoria": "chaveiros",
       "descricao": "Perfeito para apaixonados pelo universo automotivo, este Chaveiro Marcha de Câmbio reproduz o visual de uma alavanca de câmbio em miniatura. Produzido em material de alta qualidade com excelente acabamento, é um acessório resistente, criativo e ideal para personalizar suas chaves, mochila ou presentear quem é fã de carros.",
       "imagem": "img/chaveiros/chaveiromarcha.jpg",
-      "data": "2026-05-19"
+      "imagensExtras": [],
+      "data": "2026-05-19",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF003",
@@ -28,7 +42,14 @@
       "categoria": "chaveiros",
       "descricao": "Leve a nostalgia dos grandes treinadores para qualquer lugar com este chaveiro inspirado no clássico design da Pokébola. Produzido com ótimo acabamento, é leve, resistente e perfeito para mochilas, chaves ou coleções. Um presente ideal para fãs do universo Pokémon.",
       "imagem": "img/chaveiros/chaveiropokebola.jpg",
-      "data": "2026-05-10"
+      "imagensExtras": [],
+      "data": "2026-05-10",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF004",
@@ -38,7 +59,14 @@
       "categoria": "chaveiros",
       "descricao": "Muito mais do que um chaveiro, este acessório também funciona como um prático suporte para celular. Compacto e fácil de transportar, permite apoiar o smartphone em superfícies planas para assistir vídeos, fazer videochamadas ou acompanhar receitas com mais conforto.",
       "imagem": "img/chaveiros/chaveirocelular.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF006",
@@ -48,7 +76,14 @@
       "categoria": "chaveiros",
       "descricao": "Demonstre sua paixão pelo Flamengo em qualquer lugar com este chaveiro personalizado. Com acabamento de qualidade e design inspirado no tradicional símbolo CRF, é um acessório resistente, leve e perfeito para acompanhar suas chaves, mochila ou servir como presente para outros torcedores.",
       "imagem": "img/chaveiros/chaveiro-flamengo.jpg",
-      "data": "2026-06-01"
+      "imagensExtras": [],
+      "data": "2026-06-01",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF007",
@@ -59,7 +94,14 @@
       "categoria": "chaveiros",
       "descricao": "Um chaveiro moderno e discreto para quem valoriza acessórios exclusivos. Oferece resistência para o uso diário e um design diferenciado que combina com qualquer estilo.",
       "imagem": "img/chaveiros/chaveiro-nt.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF008",
@@ -69,7 +111,14 @@
       "categoria": "chaveiros",
       "descricao": "Tenha praticidade sempre à mão com este chaveiro porta comprimidos. Seu compartimento interno permite transportar pequenas doses de medicamentos ou outros itens de pequeno porte com segurança e discrição. Compacto, resistente e produzido em de alta qualidade, é ideal para o dia a dia.",
       "imagem": "img/chaveiros/chaveiro-potinho.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF009",
@@ -79,7 +128,14 @@
       "categoria": "chaveiros",
       "descricao": "Dê mais personalidade às suas chaves com este Polvo Articulado em miniatura. Seus tentáculos flexíveis proporcionam uma experiência tátil divertida, tornando o chaveiro não apenas um acessório, mas também um pequeno brinquedo sensorial. Produzido com ótimo acabamento e disponível em diversas cores.",
       "imagem": "img/chaveiros/chaveiro-polvo.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF010",
@@ -89,7 +145,14 @@
       "categoria": "chaveiros",
       "descricao": "Um acessório cheio de significado para quem gosta de carregar boas lembranças e representar lugares especiais. Produzido com acabamento de qualidade, é perfeito para uso diário ou para presentear alguém importante.",
       "imagem": "img/chaveiros/chaveiromlm.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF011",
@@ -99,7 +162,14 @@
       "categoria": "chaveiros",
       "descricao": "Inspirado em uma das criaturas mais queridas do universo da animação, este chaveiro apresenta detalhes cuidadosamente produzidos em alta qualidade. Leve, resistente e cheio de personalidade, é ideal para colecionadores e fãs que desejam levar seu personagem favorito para qualquer lugar.",
       "imagem": "img/chaveiros/chaveiro-furialuz.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF012",
@@ -109,7 +179,14 @@
       "categoria": "chaveiros",
       "descricao": "Um chaveiro criativo e divertido em formato de garrafinha. Compacto, resistente e leve, é perfeito para personalizar suas chaves, mochila ou presentear alguém com um acessório diferente.",
       "imagem": "img/chaveiros/chaveiro-garrafinha.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF013",
@@ -118,7 +195,14 @@
       "categoria": "brinquedos-sensoriais",
       "descricao": "Desenvolvido para estimular a coordenação motora, a percepção sensorial e a curiosidade das crianças, o Chocalho Sensorial combina movimento, textura e som em um único brinquedo. Produzido com acabamento seguro e confortável, proporciona momentos de aprendizado e diversão através da exploração tátil e auditiva.",
       "imagem": "img/brinquedos-sensoriais/chocalho.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF014",
@@ -128,7 +212,14 @@
       "categoria": "brinquedos-sensoriais",
       "descricao": "Aprender matemática pode ser muito mais divertido! A Tabuada de Vezes foi desenvolvida para auxiliar crianças no aprendizado das operações de multiplicação por meio da interação prática. Seu formato facilita a memorização, estimula o raciocínio lógico e transforma o estudo em uma atividade mais envolvente.",
       "imagem": "img/brinquedos-sensoriais/tabuada.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF015",
@@ -139,7 +230,14 @@
       "categoria": "brinquedos-sensoriais",
       "descricao": "O Ovo Sensorial oferece uma experiência tátil agradável através de seu formato ergonômico e textura diferenciada. Ideal para manter as mãos ocupadas durante momentos de estudo, trabalho ou lazer, também é uma excelente opção para quem aprecia brinquedos sensoriais e objetos interativos. Produzido com materiais de alta qualidade, é resistente e perfeito para uso diário, proporcionando relaxamento e estímulo sensorial a qualquer hora do dia.",
       "imagem": "img/brinquedos-sensoriais/brinquedosesorial.png",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF016",
@@ -150,7 +248,14 @@
       "categoria": "brinquedos-sensoriais",
       "descricao": "Compacta, leve e confortável de utilizar, a Vareta Sensorial proporciona uma experiência tátil agradável que estimula o movimento das mãos e a exploração sensorial. Ideal para crianças e adultos que gostam de brinquedos interativos ou procuram um acessório criativo para o dia a dia.",
       "imagem": "img/brinquedos-sensoriais/brinquedo-sensorial.jpg",
-      "data": "2026-04-20"
+      "imagensExtras": [],
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF017",
@@ -167,7 +272,13 @@
         "img/brinquedos-sensoriais/cubo3.jpg",
         "img/brinquedos-sensoriais/cubo4.jpg"
       ],
-      "data": "2026-04-20"
+      "data": "2026-04-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF018",
@@ -177,7 +288,14 @@
       "categoria": "brinquedos",
       "descricao": "Descubra a diversão da física em movimento com os Giroscópios. Além de proporcionar momentos de entretenimento, eles demonstram de forma prática princípios de equilíbrio, rotação e estabilidade. Um brinquedo criativo para crianças, jovens e adultos que gostam de desafios, ciência e objetos interativos. Produzido com excelente acabamento e alta durabilidade.",
       "imagem": "img/brinquedos/giroscopios.jpg",
-      "data": "2026-05-23"
+      "imagensExtras": [],
+      "data": "2026-05-23",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF019",
@@ -192,7 +310,13 @@
         "img/personalizados/gato2.jpg",
         "img/personalizados/gato3.jpg"
       ],
-      "data": "2026-05-29"
+      "data": "2026-05-29",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF020",
@@ -202,7 +326,14 @@
       "categoria": "personalizados",
       "descricao": "O Arganel de Lontra une funcionalidade e criatividade em uma peça exclusiva. Ideal para organizar chaves e pequenos acessórios, seu design inspirado em uma simpática lontra traz charme e personalidade para qualquer ambiente. Uma ótima opção para presentear quem gosta de decoração criativa.",
       "imagem": "img/personalizados/arganel-lontra.jpg",
-      "data": "2026-05-20"
+      "imagensExtras": [],
+      "data": "2026-05-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF021",
@@ -212,7 +343,14 @@
       "categoria": "personalizados",
       "descricao": "Demonstre sua paixão pelo Flamengo com esta figura articulada. Seu corpo flexível proporciona movimentos suaves, tornando a peça perfeita tanto para colecionar quanto para decorar mesas, estantes ou ambientes de trabalho. Um presente ideal para qualquer torcedor rubro-negro.",
       "imagem": "img/personalizados/articulado-flamengo.jpg",
-      "data": "2026-06-01"
+      "imagensExtras": [],
+      "data": "2026-06-01",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF022",
@@ -222,7 +360,14 @@
       "categoria": "personalizados",
       "descricao": "Deixe seu celular sempre na posição ideal com este suporte. Seu design foi desenvolvido para oferecer estabilidade durante chamadas de vídeo, estudos, trabalho ou entretenimento, além de possuir espaço para passagem do cabo de carregamento. Prático, resistente e perfeito para organizar sua mesa.",
       "imagem": "img/personalizados/suporte-celular-carregador.jpg",
-      "data": "2026-05-20"
+      "imagensExtras": [],
+      "data": "2026-05-20",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF023",
@@ -236,7 +381,13 @@
       "imagensExtras": [
         "img/personalizados/caneca2.jpg"
       ],
-      "data": "2026-06-05"
+      "data": "2026-06-05",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF024",
@@ -245,7 +396,14 @@
       "categoria": "personalizados",
       "descricao": "Personalize sua decoração com um arganel exclusivo desenvolvido especialmente para representar seu clube ou unidade. Pode ser confeccionado em diferentes cores e estilos mediante consulta. Uma peça perfeita para demonstrar sua paixão pelo clube ou sua unidade.",
       "imagem": "img/personalizados/arganel-clube.jpg",
-      "data": "2026-06-05"
+      "imagensExtras": [],
+      "data": "2026-06-05",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF025",
@@ -255,7 +413,14 @@
       "categoria": "personalizados",
       "descricao": "Valorize sua coleção com este expositor desenvolvido para destacar cartas colecionáveis de forma elegante e segura. Produzido com excelente acabamento, proporciona ótima estabilidade e visualização da carta, sendo ideal para colecionadores que desejam exibir suas peças favoritas em mesas, estantes ou vitrines.",
       "imagem": "img/personalizados/expositor-carta.jpg",
-      "data": "2026-06-05"
+      "imagensExtras": [],
+      "data": "2026-06-05",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF026",
@@ -269,7 +434,13 @@
         "img/chaveiros/flamengo1.jpg",
         "img/chaveiros/flamengo2.jpg"
       ],
-      "data": "2026-06-07"
+      "data": "2026-06-07",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF027",
@@ -279,7 +450,14 @@
       "categoria": "personalizados",
       "descricao": "Transforme seu banheiro com um suporte para papel higiênico que une praticidade e criatividade. Produzido em alta qualidade, oferece excelente resistência e um design moderno que deixa o ambiente muito mais organizado e personalizado.",
       "imagem": "img/personalizados/suporte-ph.jpg",
-      "data": "2026-06-07"
+      "imagensExtras": [],
+      "data": "2026-06-07",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF028",
@@ -290,7 +468,14 @@
       "categoria": "chaveiros",
       "descricao": "Inspirado no design de uma pistola Glock, este chaveiro decorativo em miniatura é produzido com riqueza de detalhes e excelente acabamento. Compacto e resistente, é ideal para colecionadores e entusiastas de miniaturas, sendo um acessório diferenciado para chaves, mochilas ou coleções.",
       "imagem": "img/chaveiros/arma-glock.jpg",
-      "data": "2026-06-08"
+      "imagensExtras": [],
+      "data": "2026-06-08",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF029",
@@ -304,7 +489,13 @@
       "imagensExtras": [
         "img/chaveiros/arma1-m4a1.jpg"
       ],
-      "data": "2026-06-08"
+      "data": "2026-06-08",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF030",
@@ -320,7 +511,13 @@
         "img/brinquedos-sensoriais/alfabeto3.jpg",
         "img/brinquedos-sensoriais/alfabeto4.jpg"
       ],
-      "data": "2026-06-15"
+      "data": "2026-06-15",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF031",
@@ -331,7 +528,14 @@
       "categoria": "brinquedos-sensoriais",
       "descricao": "O Polvo Articulado combina um visual encantador com uma experiência sensorial agradável. Seus tentáculos totalmente articulados proporcionam movimentos suaves e divertidos. Produzido em alta qualidade, é perfeito para decoração, coleção, presentes ou para quem aprecia brinquedos sensoriais criativos e exclusivos.",
       "imagem": "img/brinquedos-sensoriais/polvo1.jpg",
-      "data": "2026-06-17"
+      "imagensExtras": [],
+      "data": "2026-06-17",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF032",
@@ -344,7 +548,13 @@
       "imagensExtras": [
         "img/personalizados/betoneira1.jpg"
       ],
-      "data": "2026-06-19"
+      "data": "2026-06-19",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF033",
@@ -354,7 +564,14 @@
       "categoria": "personalizados",
       "descricao": "O Totem de Pix é o acessório que faltava no seu balcão para tornar o momento do pagamento muito mais rápido e prático. Produzido com alta qualidade, ele conta com um espaço perfeito para você aplicar o seu QR Code. Chega de ficar soletrando a chave Pix para o cliente!",
       "imagem": "img/personalizados/totem.jpg",
-      "data": "2026-06-23"
+      "imagensExtras": [],
+      "data": "2026-06-23",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF034",
@@ -364,7 +581,14 @@
       "categoria": "personalizados",
       "descricao": "Perfeita para vibrar pelo Brasil em jogos, festas temáticas e grandes eventos. Essa tiara traz as cores vibrantes da nossa bandeira em um design exclusivo feito em alta qualidade. Leve e super confortável para você usar o dia inteiro sem incômodo.",
       "imagem": "img/personalizados/tiara-brasil.jpg",
-      "data": "2026-06-23"
+      "imagensExtras": [],
+      "data": "2026-06-23",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF035",
@@ -374,7 +598,14 @@
       "categoria": "personalizados",
       "descricao": "Se você quer demonstrar seu amor pelo Brasil de forma estilosa, mas prefere uma composição mais clean, a Tiara Brasil Monocromática é a escolha ideal. Com a palavra Brasil em destaque na cor amarela, ela combina perfeitamente com qualquer look de torcedor.",
       "imagem": "img/personalizados/tiara-cor-unica.jpg",
-      "data": "2026-06-23"
+      "imagensExtras": [],
+      "data": "2026-06-23",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF036",
@@ -388,7 +619,13 @@
         "img/personalizados/totem2.jpg",
         "img/personalizados/totem3.jpg"
       ],
-      "data": "2026-06-29"
+      "data": "2026-06-29",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF037",
@@ -400,7 +637,13 @@
       "imagensExtras": [
         "img/personalizados/totem-gigante1.jpg"
       ],
-      "data": "2026-06-30"
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF038",
@@ -414,7 +657,13 @@
       "imagensExtras": [
         "img/brinquedos-sensoriais/polvo-trico1.jpg"
       ],
-      "data": "2026-06-30"
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF039",
@@ -429,7 +678,13 @@
         "img/chaveiros/chaveiro-minigun2.jpg",
         "img/chaveiros/chaveiro-minigun3.jpg"
       ],
-      "data": "2026-06-30"
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF040",
@@ -440,7 +695,14 @@
       "categoria": "chaveiros",
       "descricao": "Chaveiro em formato de anilha, ideal para quem ama musculação e academia. Compacto, resistente e com acabamento de qualidade, é perfeito para decorar chaves, mochilas ou presentear amantes do mundo fitness.",
       "imagem": "img/chaveiros/anilha.jpg",
-      "data": "2026-06-30"
+      "imagensExtras": [],
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF041",
@@ -454,7 +716,13 @@
       "imagensExtras": [
         "img/personalizados/suporte-banguela1.jpg"
       ],
-      "data": "2026-06-30"
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF042",
@@ -468,7 +736,13 @@
         "img/brinquedos/jogo-equilibrio1.jpg",
         "img/brinquedos/jogo-equilibrio2.jpg"
       ],
-      "data": "2026-06-30"
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF043",
@@ -479,7 +753,14 @@
       "categoria": "personalizados",
       "descricao": "Urso decorativo com design moderno e textura em formato de rosas, perfeito para decorar ambientes ou presentear em ocasiões especiais. Produzido com ótimo acabamento, é uma peça charmosa que combina delicadeza e elegância.",
       "imagem": "img/personalizados/urso.jpg",
-      "data": "2026-06-30"
+      "imagensExtras": [],
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     },
     {
       "id": "KF044",
@@ -490,7 +771,14 @@
       "categoria": "brinquedos",
       "descricao": "Spinner compacto com design moderno e acabamento de qualidade, ideal para aliviar o estresse, melhorar a concentração ou simplesmente se divertir. Leve, resistente e fácil de transportar, é perfeito para o dia a dia e também para presentear.",
       "imagem": "img/brinquedos/spiner.jpg",
-      "data": "2026-06-30"
+      "imagensExtras": [],
+      "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     }
   ],
   "categorias": [
@@ -520,60 +808,60 @@
     }
   ],
   "configuracoes": {
+    "email": "kvt3d.contato@gmail.com",
+    "endereco": "Maceió - AL",
     "nomeLoja": "Loja KVT",
     "whatsapp": "5582998343617",
-    "email": "kvt3d.contato@gmail.com",
     "socialLinks": {
-      "instagram": "https://www.instagram.com/kvt3d/",
+      "tiktok": "",
       "facebook": "",
-      "tiktok": ""
+      "instagram": "https://www.instagram.com/kvt3d/"
     },
-    "endereco": "Maceió - AL",
-    "horarioAtendimento": "Segunda a Sexta - 8h às 18h",
     "textoRodape": "© 2026 Loja KVT. Todos os direitos reservados. Maceió - AL",
+    "horarioAtendimento": "Segunda a Sexta - 8h às 18h",
     "mensagemWhatsAppPadrao": "Olá! Tenho interesse no produto:\n*[NOME_PRODUTO]* (Cód: #[ID_PRODUTO])\n\n*Preços disponíveis:*\n[PRECOS_PRODUTO]\n\nPoderia me informar a disponibilidade de cores e o prazo de entrega?"
   },
   "hero": {
     "titulo": "Transforme Ideias em Realidade",
     "subtitulo": "Produtos exclusivos, miniaturas detalhadas e presentes personalizados com a mais alta tecnologia de impressão.",
-    "imagemDesktop": "",
     "imagemCelular": "",
+    "imagemDesktop": "",
     "botaoPrincipal": {
-      "texto": "Ver Produtos",
-      "link": "#produtos"
+      "link": "#produtos",
+      "texto": "Ver Produtos"
     },
     "botaoSecundario": {
-      "texto": "Encomenda Especial",
-      "link": "https://wa.me/5582998343617?text=Olá! Gostaria de fazer uma encomenda especial personalizada."
+      "link": "https://wa.me/5582998343617?text=Olá! Gostaria de fazer uma encomenda especial personalizada.",
+      "texto": "Encomenda Especial"
     }
   },
   "seo": {
-    "siteTitle": "Loja KVT - Impressão 3D e Presentes Personalizados",
-    "metaDescription": "Encontre produtos exclusivos, miniaturas detalhadas e presentes personalizados em Maceió - AL com a mais alta qualidade de impressão 3D.",
     "keywords": "impressão 3d, miniaturas, chaveiros, brinquedos sensoriais, presentes personalizados, maceió, kvt 3d",
-    "googleAnalytics": "G-BC1K1WMMCG",
-    "googleSearchConsole": "",
     "metaPixel": "",
-    "customScripts": ""
+    "siteTitle": "Loja KVT - Impressão 3D e Presentes Personalizados",
+    "customScripts": "",
+    "googleAnalytics": "G-BC1K1WMMCG",
+    "metaDescription": "Encontre produtos exclusivos, miniaturas detalhadas e presentes personalizados em Maceió - AL com a mais alta qualidade de impressão 3D.",
+    "googleSearchConsole": ""
   },
   "tema": {
     "dark": {
-      "primary": "#8333e3",
-      "secondary": "#6f42c1",
       "accent": "#25d366",
-      "bgDark": "#0f0f0f",
       "bgCard": "#1a1a1a",
-      "textWhite": "#ffffff",
-      "textGray": "#b0b0b0"
+      "bgDark": "#0f0f0f",
+      "primary": "#8333e3",
+      "textGray": "#b0b0b0",
+      "secondary": "#6f42c1",
+      "textWhite": "#ffffff"
     },
     "light": {
-      "primary": "#8333e3",
-      "secondary": "#6f42c1",
       "accent": "#25d366",
-      "bgDark": "#f8f9fa",
       "bgCard": "#ffffff",
-      "textWhite": "#1a1a1a",
-      "textGray": "#555555"
+      "bgDark": "#f8f9fa",
+      "primary": "#8333e3",
+      "textGray": "#555555",
+      "secondary": "#6f42c1",
+      "textWhite": "#1a1a1a"
     }
   }
 }
