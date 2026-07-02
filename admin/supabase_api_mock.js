@@ -349,62 +349,30 @@
                 }
             }
 
-            // 10. MEDIA GET & DELETE
-            if (pathname.endsWith('/api/media')) {
-                if (method === 'GET') {
-                    const { data: files, error } = await window.supabaseClient.storage.from('media').list('', {
-                        limit: 100,
-                        sortBy: { column: 'created_at', order: 'desc' }
-                    });
-                    if (error) return makeResponse([], 200);
-                    const mapped = (files || [])
-                        .filter(f => f.name !== '.emptyFolderPlaceholder')
-                        .map(f => {
-                            const { data } = window.supabaseClient.storage.from('media').getPublicUrl(f.name);
-                            return {
-                                name: f.name,
-                                path: data.publicUrl,
-                                size: f.metadata ? f.metadata.size : 0
-                            };
-                        });
-                    return makeResponse(mapped);
-                }
-                if (method === 'DELETE') {
-                    const filePath = parsedUrl.searchParams.get('filePath');
-                    if (!filePath) return makeResponse({ error: 'Caminho do arquivo é obrigatório.' }, 400);
-                    const filename = filePath.split('/').pop();
-                    const { error } = await window.supabaseClient.storage.from('media').remove([filename]);
-                    if (error) return makeResponse({ error: error.message }, 400);
-                    return makeResponse({ success: true });
-                }
-            }
-
-            // 11. MEDIA UPLOAD
-            if (pathname.endsWith('/api/media/upload')) {
-                const formData = options.body;
-                const files = formData.getAll('files');
-                const uploadedFiles = [];
+            // 10. MEDIA GET, DELETE & UPLOAD (FORWARD TO BACKEND TO BYPASS RLS)
+            if (pathname.includes('/api/media')) {
+                const backendUrl = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.syncBackendUrl) || 'http://localhost:3001';
+                const code = getAuthCode();
                 
-                for (const file of files) {
-                    const ext = file.name.split('.').pop();
-                    const nameOnly = file.name.substring(0, file.name.lastIndexOf('.'))
-                        .toLowerCase()
-                        .replace(/[^a-z0-9_-]/g, '_');
-                    const fileName = `${Date.now()}_${nameOnly}.${ext}`;
-                    
-                    const { data, error } = await window.supabaseClient.storage
-                        .from('media')
-                        .upload(fileName, file);
-                    
-                    if (error) return makeResponse({ error: error.message }, 400);
-                    
-                    const { data: urlData } = window.supabaseClient.storage.from('media').getPublicUrl(fileName);
-                    uploadedFiles.push({
-                        name: fileName,
-                        path: urlData.publicUrl
-                    });
+                const fetchOptions = {
+                    method: method,
+                    headers: {
+                        'Authorization': `Bearer ${code}`
+                    }
+                };
+                
+                if (method === 'POST') {
+                    fetchOptions.body = options.body; // Forward FormData
                 }
-                return makeResponse({ success: true, files: uploadedFiles });
+                
+                try {
+                    const response = await nativeFetch(backendUrl + pathname + (parsedUrl.search || ''), fetchOptions);
+                    const resData = await response.json();
+                    return makeResponse(resData, response.status);
+                } catch (e) {
+                    console.error('Failed to forward media request to backend:', e);
+                    return makeResponse({ error: 'Erro ao conectar ao servidor de mídias.' }, 500);
+                }
             }
 
             // 12. BACKUPS

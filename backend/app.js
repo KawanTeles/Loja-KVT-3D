@@ -3,6 +3,7 @@ import cors from 'cors';
 import productsRoutes from './routes/products.routes.js';
 import categoriesRoutes from './routes/categories.routes.js';
 import configRoutes from './routes/banners.routes.js';
+import mediaRoutes from './routes/media.routes.js';
 import syncRoutes from './routes/sync.routes.js';
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/produtos', productsRoutes);
 app.use('/api/categorias', categoriesRoutes);
 app.use('/api/config', configRoutes); // Mount banners/configs here to match client fetch endpoints
+app.use('/api/media', mediaRoutes);
 app.use('/api/sync', syncRoutes);
 
 // Health check endpoint
