@@ -2,3 +2,7 @@ node_modules/
 .vscode/
 temp_debug_text.png
 backups/
+backend/.env
+backend/node_modules/
+backend/logs/
+

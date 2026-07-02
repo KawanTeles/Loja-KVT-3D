@@ -42,6 +42,23 @@
             return '';
         };
 
+        const triggerBackendSync = (message) => {
+            const backendUrl = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.syncBackendUrl) || 'http://localhost:3001';
+            const code = getAuthCode();
+            nativeFetch(backendUrl + '/api/sync', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${code}`,
+                    'X-Admin-Name': 'Administrador KVT-3D'
+                },
+                body: JSON.stringify({
+                    commitMessage: message || 'Atualização automática pelo painel administrativo',
+                    adminName: 'Administrador KVT-3D'
+                })
+            }).catch(err => console.warn('Falha ao acionar sincronização no backend:', err));
+        };
+
         try {
             if (!window.supabaseClient) {
                 console.error('Supabase client não carregado!');
@@ -165,6 +182,7 @@
                     };
                     const { data, error } = await window.supabaseClient.from('produtos').insert([payload]).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Produto KF${data.id} adicionado automaticamente: ${body.nome}`);
                     return makeResponse({
                         ...body,
                         id: data.id,
@@ -198,7 +216,7 @@
                 
                 const { data, error } = await window.supabaseClient.from('produtos').insert([duplicated]).select().single();
                 if (error) return makeResponse({ error: error.message }, 400);
-                
+                triggerBackendSync(`Produto duplicado automaticamente: de ${id} para ${nextId}`);
                 return makeResponse({
                     id: data.id,
                     nome: data.nome,
@@ -242,6 +260,7 @@
 
                     const { data, error } = await window.supabaseClient.from('produtos').update(payload).eq('id', id).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Produto ${id} atualizado: ${body.nome || data.nome}`);
                     return makeResponse({
                         ...body,
                         id: data.id,
@@ -256,6 +275,7 @@
                 if (method === 'DELETE') {
                     const { error } = await window.supabaseClient.from('produtos').delete().eq('id', id);
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Produto ${id} excluído automaticamente`);
                     return makeResponse({ success: true });
                 }
             }
@@ -276,6 +296,7 @@
                     };
                     const { data, error } = await window.supabaseClient.from('categorias').insert([payload]).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Categoria '${payload.slug}' criada automaticamente: ${body.nome}`);
                     return makeResponse(data, 201);
                 }
             }
@@ -293,11 +314,13 @@
                     };
                     const { data, error } = await window.supabaseClient.from('categorias').update(payload).eq('slug', slug).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Categoria '${slug}' atualizada automaticamente: ${body.nome || data.nome}`);
                     return makeResponse(data);
                 }
                 if (method === 'DELETE') {
                     const { error } = await window.supabaseClient.from('categorias').delete().eq('slug', slug);
                     if (error) return makeResponse({ error: error.message }, 400);
+                    triggerBackendSync(`Categoria '${slug}' excluída automaticamente`);
                     return makeResponse({ success: true });
                 }
             }
@@ -314,11 +337,14 @@
                 }
                 if (method === 'PUT') {
                     const body = JSON.parse(options.body);
+                    let keysChanged = [];
                     for (const key of ['hero', 'configuracoes', 'tema', 'seo']) {
                         if (body[key] !== undefined) {
                             await window.supabaseClient.from('configuracoes').upsert({ key: key, value: body[key] });
+                            keysChanged.push(key);
                         }
                     }
+                    triggerBackendSync(`Configurações/Banners (${keysChanged.join(', ')}) atualizadas`);
                     return makeResponse({ success: true });
                 }
             }

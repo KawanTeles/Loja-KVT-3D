@@ -1,7 +1,9 @@
 // CONFIGURAÇÃO DO SUPABASE PARA A LOJA KVT-3D
 window.SUPABASE_CONFIG = {
     url: 'https://qusbhrvyergymhgoqsng.supabase.co',
-    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1c2JocnZ5ZXJneW1oZ29xc25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MjYyNzIsImV4cCI6MjA5ODUwMjI3Mn0.pCi1_QjOusAUSkQBkeonodGzTdWewY8YsFQmlB84n10'
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1c2JocnZ5ZXJneW1oZ29xc25nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MjYyNzIsImV4cCI6MjA5ODUwMjI3Mn0.pCi1_QjOusAUSkQBkeonodGzTdWewY8YsFQmlB84n10',
+    // URL do backend de sincronização automática com o GitHub (ex: http://localhost:3001 ou URL de produção no Render/Heroku)
+    syncBackendUrl: 'http://localhost:3001'
 };
 
 // Inicialização do cliente Supabase globalmente
