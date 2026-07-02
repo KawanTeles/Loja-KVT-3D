@@ -798,6 +798,24 @@ const PRODUTOS = [
         "novo": false,
         "maisVendido": false,
         "mensagemCustomizada": null
+    },
+    {
+        "id": "KF045",
+        "nome": "Totem de Pix Personalizado com QR Code e Nome - Cópia",
+        "precoUnidade": 45,
+        "categoria": "personalizados",
+        "descricao": "Facilite os pagamentos com uma placa Pix moderna e personalizada! Produzida em alta qualidade, acompanha base de apoio e pode ser personalizada com seu QR Code e nome. Ideal para lojas, comércios, salões, restaurantes, igrejas e profissionais autônomos. Resistente, elegante e pronta para deixar seu atendimento mais profissional.",
+        "imagem": "img/personalizados/totem-gigante.jpg",
+        "imagensExtras": [
+            "img/personalizados/totem-gigante1.jpg"
+        ],
+        "data": "2026-07-02",
+        "ativo": true,
+        "destaque": false,
+        "promocao": false,
+        "novo": false,
+        "maisVendido": false,
+        "mensagemCustomizada": null
     }
 ];
 
