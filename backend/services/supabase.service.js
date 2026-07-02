@@ -92,6 +92,13 @@ export async function getFullDbSnapshot() {
 
   const mappedProducts = (prods || []).map(mapProductFromDb);
 
+  // Sort products by ID ascending in natural sequence (KF001, KF002, KF003...)
+  mappedProducts.sort((a, b) => {
+    if (!a.id) return 1;
+    if (!b.id) return -1;
+    return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
+  });
+
   const mappedConfigs = {};
   (configs || []).forEach(c => {
     if (c.key !== 'auth') {
