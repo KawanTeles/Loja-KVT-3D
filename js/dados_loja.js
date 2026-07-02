@@ -2,22 +2,6 @@
 window.DADOS_LOJA = {
   "produtos": [
     {
-      "id": "KF045",
-      "nome": "oi",
-      "precoUnidade": 15,
-      "categoria": "chaveiros",
-      "descricao": "rgrtg",
-      "imagem": "",
-      "imagensExtras": [],
-      "data": "2026-07-02",
-      "ativo": true,
-      "destaque": false,
-      "promocao": false,
-      "novo": false,
-      "maisVendido": false,
-      "mensagemCustomizada": null
-    },
-    {
       "id": "KF001",
       "nome": "Chaveiro Largato articulado Multicolor",
       "precoUnidade": 13,
@@ -790,6 +774,22 @@ window.DADOS_LOJA = {
       "imagem": "img/brinquedos/spiner.jpg",
       "imagensExtras": [],
       "data": "2026-06-30",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
+    },
+    {
+      "id": "KF045",
+      "nome": "oi",
+      "precoUnidade": 15,
+      "categoria": "chaveiros",
+      "descricao": "rgrtg",
+      "imagem": "",
+      "imagensExtras": [],
+      "data": "2026-07-02",
       "ativo": true,
       "destaque": false,
       "promocao": false,
