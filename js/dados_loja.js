@@ -798,24 +798,6 @@ window.DADOS_LOJA = {
       "novo": false,
       "maisVendido": false,
       "mensagemCustomizada": null
-    },
-    {
-      "id": "KF046",
-      "nome": "Spiner pequeno - Cópia",
-      "precoUnidade": 16,
-      "precoUnidade5": 14,
-      "precoUnidade50": 12,
-      "categoria": "brinquedos",
-      "descricao": "Spinner compacto com design moderno e acabamento de qualidade, ideal para aliviar o estresse, melhorar a concentração ou simplesmente se divertir. Leve, resistente e fácil de transportar, é perfeito para o dia a dia e também para presentear.",
-      "imagem": "img/brinquedos/spiner.jpg",
-      "imagensExtras": [],
-      "data": "2026-07-02",
-      "ativo": true,
-      "destaque": false,
-      "promocao": false,
-      "novo": false,
-      "maisVendido": false,
-      "mensagemCustomizada": null
     }
   ],
   "categorias": [
