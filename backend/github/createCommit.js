@@ -43,10 +43,13 @@ export async function createCommit(files, message) {
   // 3. Create blobs and format tree items
   const treeItems = [];
   for (const file of files) {
+    const isBase64 = file.encoding === 'base64';
+    const blobContent = isBase64 ? file.content : Buffer.from(file.content, 'utf8').toString('base64');
+    
     const { data: blobData } = await octokit.rest.git.createBlob({
       owner,
       repo,
-      content: Buffer.from(file.content, 'utf8').toString('base64'),
+      content: blobContent,
       encoding: 'base64'
     });
     
