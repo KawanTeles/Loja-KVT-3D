@@ -12,7 +12,7 @@ const requireAuth = (req, res, next) => {
     }
     
     const token = authHeader.split(' ')[1];
-    if (token !== SESSION_TOKEN) {
+    if (token !== SESSION_TOKEN && token !== ACCESS_CODE) {
         return res.status(401).json({ error: 'Sessão inválida ou expirada.' });
     }
     

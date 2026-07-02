@@ -45,12 +45,15 @@ function initAuth() {
             if (res.ok) {
                 showAdminPanel();
             } else {
+                // Token inválido ou expirado — força novo login
                 logout();
             }
         })
         .catch(() => {
-            // Em caso de falha de conexão, confia no token local
-            showAdminPanel();
+            // Servidor inacessível — limpa token e pede login
+            logout();
+            loginError.textContent = 'Servidor inacessível. Certifique-se de acessar via http://localhost:3000/admin';
+            loginError.style.display = 'block';
         });
     }
 
@@ -1023,6 +1026,18 @@ async function openMediaSelector(targetFieldName) {
     
     try {
         const res = await fetch(API_URL + '/api/media', { headers: getHeaders() });
+        
+        if (!res.ok) {
+            if (res.status === 401 || res.status === 403) {
+                alert('Sessão expirada. Faça login novamente.');
+                logout();
+                return;
+            }
+            const errData = await res.json().catch(() => ({}));
+            alert(`Erro ao carregar imagens: ${errData.error || res.statusText}`);
+            return;
+        }
+        
         state.media = await res.json();
         
         renderMediaSelector();
@@ -1041,7 +1056,12 @@ async function openMediaSelector(targetFieldName) {
         
         document.getElementById('media-selector-modal').classList.add('active');
     } catch (err) {
-        alert('Erro ao abrir seletor.');
+        console.error('Erro ao abrir seletor de mídia:', err);
+        if (err.message && err.message.includes('fetch')) {
+            alert('Não foi possível conectar ao servidor. Verifique se o servidor está rodando em http://localhost:3000');
+        } else {
+            alert(`Erro ao abrir seletor: ${err.message}`);
+        }
     }
 }
 

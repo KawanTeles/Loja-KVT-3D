@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createCommit } from '../github/createCommit.js';
 import logger from '../services/logger.service.js';
+import { supabase } from '../services/supabase.service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,6 +93,17 @@ export async function deleteMedia(req, res) {
     fs.unlinkSync(absolutePath);
     logger.info(`Deleted media file locally: ${filePath}`);
 
+    // Delete from Supabase Storage
+    const fileName = path.basename(filePath);
+    const { error: deleteErr } = await supabase.storage
+      .from('media')
+      .remove([fileName]);
+    if (deleteErr) {
+      logger.error(`Failed to delete file ${fileName} from Supabase Storage:`, deleteErr);
+    } else {
+      logger.info(`Deleted media file from Supabase Storage: ${fileName}`);
+    }
+
     // Optional: We could commit the file deletion to GitHub as well, but typical local workflows only need it deleted locally.
     res.json({ success: true, message: 'Imagem excluída com sucesso.' });
   } catch (err) {
@@ -125,6 +137,20 @@ export async function uploadMedia(req, res) {
       // 1. Save file locally on developer machine disk
       fs.writeFileSync(localFilePath, file.buffer);
       logger.info(`Saved media file locally to: ${localFilePath}`);
+
+      // 1.1 Upload to Supabase Storage "media" bucket
+      const { data: uploadData, error: uploadErr } = await supabase.storage
+        .from('media')
+        .upload(fileName, file.buffer, {
+          contentType: file.mimetype,
+          upsert: true
+        });
+
+      if (uploadErr) {
+        logger.error(`Failed to upload file ${fileName} to Supabase Storage:`, uploadErr);
+        return res.status(500).json({ error: `Erro ao fazer upload para o Supabase Storage: ${uploadErr.message}` });
+      }
+      logger.info(`Uploaded file ${fileName} successfully to Supabase Storage.`);
 
       // 2. Prepare file to commit to GitHub
       gitFilesToCommit.push({
