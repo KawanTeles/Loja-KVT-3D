@@ -797,7 +797,7 @@ window.DADOS_LOJA = {
       "promocao": false,
       "novo": false,
       "maisVendido": false,
-      "mensagemCustomizada": null
+      "mensagemCustomizada": "opi"
     }
   ],
   "categorias": [
