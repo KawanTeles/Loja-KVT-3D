@@ -780,6 +780,26 @@ window.DADOS_LOJA = {
       "novo": false,
       "maisVendido": false,
       "mensagemCustomizada": null
+    },
+    {
+      "id": "KF045",
+      "nome": "Brinquedo Forca",
+      "precoUnidade": 19,
+      "precoUnidade5": 16,
+      "categoria": "brinquedos",
+      "descricao": "Ideal para clínicas, consultórios e ambientes terapêuticos, este boneco articulado é perfeito para entreter crianças durante o atendimento. Suas articulações móveis estimulam a criatividade, a coordenação motora e a imaginação, proporcionando momentos de diversão e interação. Produzido com material resistente e disponível em diversas cores.\n\nObservação: A combinação de duas cores tem um acréscimo de R$ 1,50 no valor do produto.",
+      "imagem": "img/uploads/1783558517310_whatsapp_image_2026-07-08_at_18_17_49.jpeg",
+      "imagensExtras": [
+        "img/uploads/1783558516859_whatsapp_image_2026-07-08_at_18_17_50.jpeg",
+        "img/uploads/1783558516014_whatsapp_image_2026-07-08_at_18_17_50__1_.jpeg"
+      ],
+      "data": "2026-07-09",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null
     }
   ],
   "categorias": [
