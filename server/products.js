@@ -61,9 +61,12 @@ router.post('/', async (req, res) => {
             ativo: p.ativo !== false, // default true
             destaque: !!p.destaque,
             promocao: !!p.promocao,
-            novo: !!p.novo,
             maisVendido: !!p.maisVendido,
-            mensagemCustomizada: p.mensagemCustomizada || ""
+            mensagemCustomizada: p.mensagemCustomizada || "",
+            custoProduto: p.custoProduto !== undefined && p.custoProduto !== "" ? parseFloat(p.custoProduto) : null,
+            custoImpressao: p.custoImpressao !== undefined && p.custoImpressao !== "" ? parseFloat(p.custoImpressao) : null,
+            outrosCustos: p.outrosCustos !== undefined && p.outrosCustos !== "" ? parseFloat(p.outrosCustos) : null,
+            margemLucro: p.margemLucro !== undefined && p.margemLucro !== "" ? parseFloat(p.margemLucro) : null
         };
 
         data.produtos.push(novoProduto);
@@ -107,12 +110,20 @@ router.put('/:id', async (req, res) => {
             promocao: p.promocao !== undefined ? !!p.promocao : originalProduct.promocao,
             novo: p.novo !== undefined ? !!p.novo : originalProduct.novo,
             maisVendido: p.maisVendido !== undefined ? !!p.maisVendido : originalProduct.maisVendido,
-            mensagemCustomizada: p.mensagemCustomizada !== undefined ? p.mensagemCustomizada : originalProduct.mensagemCustomizada
+            mensagemCustomizada: p.mensagemCustomizada !== undefined ? p.mensagemCustomizada : originalProduct.mensagemCustomizada,
+            custoProduto: p.custoProduto !== undefined ? (p.custoProduto === "" ? null : parseFloat(p.custoProduto)) : originalProduct.custoProduto,
+            custoImpressao: p.custoImpressao !== undefined ? (p.custoImpressao === "" ? null : parseFloat(p.custoImpressao)) : originalProduct.custoImpressao,
+            outrosCustos: p.outrosCustos !== undefined ? (p.outrosCustos === "" ? null : parseFloat(p.outrosCustos)) : originalProduct.outrosCustos,
+            margemLucro: p.margemLucro !== undefined ? (p.margemLucro === "" ? null : parseFloat(p.margemLucro)) : originalProduct.margemLucro
         };
 
         // Tratamento para remover chaves undefined de atacado se vazias
         if (p.precoUnidade5 === "") delete produtoAtualizado.precoUnidade5;
         if (p.precoUnidade50 === "") delete produtoAtualizado.precoUnidade50;
+        if (p.custoProduto === "") delete produtoAtualizado.custoProduto;
+        if (p.custoImpressao === "") delete produtoAtualizado.custoImpressao;
+        if (p.outrosCustos === "") delete produtoAtualizado.outrosCustos;
+        if (p.margemLucro === "") delete produtoAtualizado.margemLucro;
 
         data.produtos[prodIndex] = produtoAtualizado;
         await db.writeDb(data);

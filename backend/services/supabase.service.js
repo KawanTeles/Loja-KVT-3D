@@ -35,7 +35,11 @@ export function mapProductFromDb(p) {
     promocao: !!p.promocao,
     novo: !!p.novo,
     maisVendido: !!p.mais_vendido,
-    mensagemCustomizada: p.mensagem_customizada
+    mensagemCustomizada: p.mensagem_customizada,
+    custoProduto: p.custo_produto !== null && p.custo_produto !== undefined ? Number(p.custo_produto) : undefined,
+    custoImpressao: p.custo_impressao !== null && p.custo_impressao !== undefined ? Number(p.custo_impressao) : undefined,
+    outrosCustos: p.outros_custos !== null && p.outros_custos !== undefined ? Number(p.outros_custos) : undefined,
+    margemLucro: p.margem_lucro !== null && p.margem_lucro !== undefined ? Number(p.margem_lucro) : undefined
   };
 }
 
@@ -63,6 +67,10 @@ export function mapProductToDb(p) {
   if (p.novo !== undefined) dbProd.novo = !!p.novo;
   if (p.maisVendido !== undefined) dbProd.mais_vendido = !!p.maisVendido;
   if (p.mensagemCustomizada !== undefined) dbProd.mensagem_customizada = p.mensagemCustomizada;
+  if (p.custoProduto !== undefined) dbProd.custo_produto = p.custoProduto === "" || p.custoProduto === null ? null : Number(p.custoProduto);
+  if (p.custoImpressao !== undefined) dbProd.custo_impressao = p.custoImpressao === "" || p.custoImpressao === null ? null : Number(p.custoImpressao);
+  if (p.outrosCustos !== undefined) dbProd.outros_custos = p.outrosCustos === "" || p.outrosCustos === null ? null : Number(p.outrosCustos);
+  if (p.margemLucro !== undefined) dbProd.margem_lucro = p.margemLucro === "" || p.margemLucro === null ? null : Number(p.margemLucro);
   return dbProd;
 }
 

@@ -1602,3 +1602,11 @@ select,
 textarea {
     max-width: 100%;
 }
+
+/* Responsividade da Calculadora de Custos */
+@media (max-width: 576px) {
+    .calc-results-box {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+    }
+}

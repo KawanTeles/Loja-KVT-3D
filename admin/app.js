@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     setupNavigation();
     setupForms();
+    setupCalculator();
 });
 
 // ==========================================
@@ -463,6 +464,28 @@ function openProductModal(id = null) {
         if (p.imagensExtras && p.imagensExtras.length > 0) {
             p.imagensExtras.forEach(img => addImageToGalleryList(img));
         }
+        
+        // Carregar calculadora
+        document.getElementById('calc-cost-product').value = p.custoProduto !== undefined && p.custoProduto !== null ? p.custoProduto : '';
+        document.getElementById('calc-cost-print').value = p.custoImpressao !== undefined && p.custoImpressao !== null ? p.custoImpressao : '';
+        document.getElementById('calc-cost-others').value = p.outrosCustos !== undefined && p.outrosCustos !== null ? p.outrosCustos : '';
+        document.getElementById('calc-margin-custom').value = p.margemLucro !== undefined && p.margemLucro !== null ? p.margemLucro : '';
+
+        if (window.calculateProfit) {
+            window.calculateProfit();
+            const currentMargin = parseFloat(p.margemLucro);
+            const quickPctButtons = document.querySelectorAll('.calc-pct-btn');
+            quickPctButtons.forEach(btn => {
+                const btnPct = parseFloat(btn.getAttribute('data-pct'));
+                if (!isNaN(currentMargin) && currentMargin === btnPct) {
+                    btn.classList.remove('btn-outline');
+                    btn.classList.add('btn-primary');
+                } else {
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-outline');
+                }
+            });
+        }
     } else {
         // ADICIONAR
         title.textContent = 'Novo Produto';
@@ -472,6 +495,21 @@ function openProductModal(id = null) {
         customIdInput.disabled = false;
         
         document.getElementById('product-status-active').checked = true;
+
+        // Resetar calculadora
+        document.getElementById('calc-cost-product').value = '';
+        document.getElementById('calc-cost-print').value = '';
+        document.getElementById('calc-cost-others').value = '';
+        document.getElementById('calc-margin-custom').value = '';
+
+        if (window.calculateProfit) {
+            window.calculateProfit();
+            const quickPctButtons = document.querySelectorAll('.calc-pct-btn');
+            quickPctButtons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline');
+            });
+        }
     }
     
     modal.classList.add('active');
@@ -520,7 +558,11 @@ document.getElementById('product-form').addEventListener('submit', async (e) => 
         destaque: document.getElementById('product-mark-featured').checked,
         maisVendido: document.getElementById('product-mark-bestseller').checked,
         ativo: document.getElementById('product-status-active').checked,
-        mensagemCustomizada: document.getElementById('product-whatsapp-message').value
+        mensagemCustomizada: document.getElementById('product-whatsapp-message').value,
+        custoProduto: document.getElementById('calc-cost-product').value !== "" ? parseFloat(document.getElementById('calc-cost-product').value) : null,
+        custoImpressao: document.getElementById('calc-cost-print').value !== "" ? parseFloat(document.getElementById('calc-cost-print').value) : null,
+        outrosCustos: document.getElementById('calc-cost-others').value !== "" ? parseFloat(document.getElementById('calc-cost-others').value) : null,
+        margemLucro: document.getElementById('calc-margin-custom').value !== "" ? parseFloat(document.getElementById('calc-margin-custom').value) : null
     };
     
     if (action === 'add') {
@@ -1171,4 +1213,87 @@ function formatDate(dateStr) {
     if (!dateStr) return 'N/A';
     const date = new Date(dateStr);
     return date.toLocaleString('pt-BR');
+}
+
+// ==========================================
+// CALCULATOR FUNCTIONALITY
+// ==========================================
+function setupCalculator() {
+    const costProductInput = document.getElementById('calc-cost-product');
+    const costPrintInput = document.getElementById('calc-cost-print');
+    const costOthersInput = document.getElementById('calc-cost-others');
+    const marginCustomInput = document.getElementById('calc-margin-custom');
+    const applyPriceBtn = document.getElementById('btn-apply-calc-price');
+    const productPriceInput = document.getElementById('product-price');
+    const quickPctButtons = document.querySelectorAll('.calc-pct-btn');
+
+    function calculateProfit() {
+        const costProduct = parseFloat(costProductInput.value) || 0;
+        const costPrint = parseFloat(costPrintInput.value) || 0;
+        const costOthers = parseFloat(costOthersInput.value) || 0;
+        const margin = parseFloat(marginCustomInput.value) || 0;
+
+        const totalCost = costProduct + costPrint + costOthers;
+        const profit = totalCost * (margin / 100);
+        const finalPrice = totalCost + profit;
+
+        document.getElementById('calc-result-total-cost').textContent = formatCurrencyBRL(totalCost);
+        document.getElementById('calc-result-margin').textContent = `${margin}%`;
+        document.getElementById('calc-result-profit-val').textContent = formatCurrencyBRL(profit);
+        document.getElementById('calc-result-final-price').textContent = formatCurrencyBRL(finalPrice);
+
+        // Store calculated price on apply button
+        applyPriceBtn.dataset.calculatedPrice = finalPrice.toFixed(2);
+    }
+
+    function formatCurrencyBRL(value) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+    }
+
+    // Input listeners
+    [costProductInput, costPrintInput, costOthersInput, marginCustomInput].forEach(input => {
+        if (input) {
+            input.addEventListener('input', calculateProfit);
+        }
+    });
+
+    // Reset quick buttons visual highlight when manual typing
+    if (marginCustomInput) {
+        marginCustomInput.addEventListener('input', () => {
+            quickPctButtons.forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-outline');
+            });
+        });
+    }
+
+    // Quick percentage buttons
+    quickPctButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pct = btn.getAttribute('data-pct');
+            marginCustomInput.value = pct;
+            calculateProfit();
+            
+            // Highlight active button
+            quickPctButtons.forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-outline');
+            });
+            btn.classList.remove('btn-outline');
+            btn.classList.add('btn-primary');
+        });
+    });
+
+    // Apply button
+    if (applyPriceBtn && productPriceInput) {
+        applyPriceBtn.addEventListener('click', () => {
+            const calcPrice = applyPriceBtn.dataset.calculatedPrice;
+            if (calcPrice && !isNaN(parseFloat(calcPrice))) {
+                productPriceInput.value = calcPrice;
+            }
+        });
+    }
+
+    // Expose calculateProfit globally
+    window.calculateProfit = calculateProfit;
 }

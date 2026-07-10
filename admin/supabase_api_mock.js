@@ -156,7 +156,11 @@
                         promocao: !!p.promocao,
                         novo: !!p.novo,
                         maisVendido: !!p.mais_vendido,
-                        mensagemCustomizada: p.mensagem_customizada
+                        mensagemCustomizada: p.mensagem_customizada,
+                        custoProduto: p.custo_produto !== null && p.custo_produto !== undefined ? Number(p.custo_produto) : undefined,
+                        custoImpressao: p.custo_impressao !== null && p.custo_impressao !== undefined ? Number(p.custo_impressao) : undefined,
+                        outrosCustos: p.outros_custos !== null && p.outros_custos !== undefined ? Number(p.outros_custos) : undefined,
+                        margemLucro: p.margem_lucro !== null && p.margem_lucro !== undefined ? Number(p.margem_lucro) : undefined
                     }));
                     return makeResponse(products);
                 }
@@ -178,7 +182,11 @@
                         promocao: !!body.promocao,
                         novo: !!body.novo,
                         mais_vendido: !!body.maisVendido,
-                        mensagem_customizada: body.mensagemCustomizada || null
+                        mensagem_customizada: body.mensagemCustomizada || null,
+                        custo_produto: body.custoProduto !== undefined && body.custoProduto !== "" ? Number(body.custoProduto) : null,
+                        custo_impressao: body.custoImpressao !== undefined && body.custoImpressao !== "" ? Number(body.custoImpressao) : null,
+                        outros_custos: body.outrosCustos !== undefined && body.outrosCustos !== "" ? Number(body.outrosCustos) : null,
+                        margem_lucro: body.margemLucro !== undefined && body.margemLucro !== "" ? Number(body.margemLucro) : null
                     };
                     const { data, error } = await window.supabaseClient.from('produtos').insert([payload]).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
@@ -233,7 +241,11 @@
                     promocao: !!data.promocao,
                     novo: !!data.novo,
                     maisVendido: !!data.mais_vendido,
-                    mensagemCustomizada: data.mensagem_customizada
+                    mensagemCustomizada: data.mensagem_customizada,
+                    custoProduto: data.custo_produto !== null && data.custo_produto !== undefined ? Number(data.custo_produto) : undefined,
+                    custoImpressao: data.custo_impressao !== null && data.custo_impressao !== undefined ? Number(data.custo_impressao) : undefined,
+                    outrosCustos: data.outros_custos !== null && data.outros_custos !== undefined ? Number(data.outros_custos) : undefined,
+                    margemLucro: data.margem_lucro !== null && data.margem_lucro !== undefined ? Number(data.margem_lucro) : undefined
                 }, 201);
             }
 
@@ -257,6 +269,10 @@
                     if (body.novo !== undefined) payload.novo = body.novo;
                     if (body.maisVendido !== undefined) payload.mais_vendido = body.maisVendido;
                     if (body.mensagemCustomizada !== undefined) payload.mensagem_customizada = body.mensagemCustomizada;
+                    if (body.custoProduto !== undefined) payload.custo_produto = body.custoProduto === "" ? null : Number(body.custoProduto);
+                    if (body.custoImpressao !== undefined) payload.custo_impressao = body.custoImpressao === "" ? null : Number(body.custoImpressao);
+                    if (body.outrosCustos !== undefined) payload.outros_custos = body.outrosCustos === "" ? null : Number(body.outrosCustos);
+                    if (body.margemLucro !== undefined) payload.margem_lucro = body.margemLucro === "" ? null : Number(body.margemLucro);
 
                     const { data, error } = await window.supabaseClient.from('produtos').update(payload).eq('id', id).select().single();
                     if (error) return makeResponse({ error: error.message }, 400);
