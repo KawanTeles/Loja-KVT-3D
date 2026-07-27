@@ -982,6 +982,27 @@
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF054",
+      "nome": "Gatinho Rosa",
+      "precoUnidade": 26,
+      "precoUnidade5": 21,
+      "categoria": "personalizados",
+      "descricao": "Encante-se com este arganel de gatinho articulado, um acessório delicado e cheio de personalidade. Com um design fofo em tons de rosa e branco, ele possui cauda flexível composta por partes articuladas, proporcionando um visual diferenciado e divertido. Ideal para organizar suas chaves ou decorar mochilas, bolsas e estojos, é perfeito para quem ama gatos e itens criativos. Compacto, leve e rico em detalhes, é uma excelente opção de presente para todas as idades, adicionando um toque de charme e originalidade ao dia a dia.",
+      "imagem": "img/uploads/1785155097605_gatinho_rosa_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
