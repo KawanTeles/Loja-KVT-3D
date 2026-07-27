@@ -872,6 +872,31 @@
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF049",
+      "nome": "DRAGÃO BATE ASAS ARTICULADO  ",
+      "precoUnidade": 50,
+      "categoria": "personalizados",
+      "descricao": "Desperte a imaginação com o Dragão Articulado Bate-Asas, uma peça incrível produzida em alta qualidade, desenvolvida para impressionar pelos seus detalhes e pela sua movimentação. Com corpo totalmente articulado e asas móveis, ele oferece uma experiência divertida ao ser manuseado, além de ser perfeito para decoração, coleção ou para presentear quem é apaixonado por dragões e pelo universo da fantasia. As cores podem variar conforme a disponibilidade e o lote do filamento. Um item exclusivo que une criatividade, qualidade e muito estilo para completar qualquer coleção.",
+      "imagem": "img/uploads/1785154314452_drag__o_bate_asas_articulado_1.jpg",
+      "imagensExtras": [
+        "img/uploads/1785154313921_drag__o_bate_asas_articulado_2.jpg",
+        "img/uploads/1785154313411_drag__o_bate_asas_articulado_3.jpg",
+        "img/uploads/1785154313032_drag__o_bate_asas_articulado_4.jpg",
+        "img/uploads/1785154312096_drag__o_bate_asas_articulado_5.jpg"
+      ],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
