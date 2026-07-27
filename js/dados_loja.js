@@ -941,6 +941,27 @@ window.DADOS_LOJA = {
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF052",
+      "nome": "ARGANEL TARTATRUGA",
+      "precoUnidade": 18,
+      "precoUnidade5": 15,
+      "categoria": "personalizados",
+      "descricao": "O Arganel Tartaruga é um acessório encantador que combina delicadeza, criatividade e funcionalidade. Inspirado na beleza das tartarugas marinhas, possui um design rico em detalhes, com casco em alto-relevo e acabamento de alta qualidade que torna cada peça especial. Leve, resistente e confortável para o uso diário, é ideal para prender os cabelos com charme ou complementar diferentes estilos. As cores podem variar conforme a disponibilidade do material, garantindo exclusividade e um visual delicado para quem ama a natureza e acessórios diferenciados.",
+      "imagem": "img/uploads/1785154836121_arganel_tartatruga_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
