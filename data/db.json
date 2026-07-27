@@ -897,6 +897,28 @@
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF050",
+      "nome": "Arganel de Borboleta",
+      "precoUnidade": 16.5,
+      "precoUnidade5": 12,
+      "precoUnidade50": 10,
+      "categoria": "personalizados",
+      "descricao": "O Arganel Borboleta é um acessório delicado e elegante, desenvolvido para unir beleza, criatividade e exclusividade. Com um design inspirado nas asas de uma borboleta, possui acabamento detalhado e cores vibrantes que tornam cada peça um verdadeiro destaque. Produzido em alta qualidade, é leve, resistente e confortável para o uso diário, sendo ideal para complementar diferentes estilos ou presentear alguém especial. As cores podem variar conforme a disponibilidade do filamento, garantindo um visual exclusivo e cheio de personalidade.",
+      "imagem": "img/uploads/1785154559351_arganel_de_borboleta__1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
