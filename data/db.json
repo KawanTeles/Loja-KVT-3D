@@ -1003,6 +1003,27 @@
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF055",
+      "nome": "ARGANEL CENOURA",
+      "precoUnidade": 21,
+      "precoUnidade5": 15,
+      "categoria": "chaveiros",
+      "descricao": "Este objeto é uma miniatura lúdica e articulada que representa uma cenoura com características antropomórficas, projetada para ser usada como um prendedor de lenço. Ele é composto por um corpo cilíndrico de cor laranja vibrante, terminando em duas pernas segmentadas e articuladas que conferem movimento ao pequeno boneco. No topo da peça principal, um detalhe em verde forma as folhas estilizadas da hortaliça. O arganel apresenta uma textura com ranhuras visíveis e é fabricado em um material plástico rígido e leve, permitindo que os tecidos deslizem suavemente através da abertura interna do corpo da cenoura.",
+      "imagem": "img/uploads/1785155187892_arganel_cenoura_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
