@@ -920,6 +920,27 @@ window.DADOS_LOJA = {
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF051",
+      "nome": "ARGANEL POLVO",
+      "precoUnidade": 19,
+      "precoUnidade5": 16,
+      "categoria": "personalizados",
+      "descricao": "O Arganel Polvo é um acessório criativo e divertido, perfeito para quem gosta de peças exclusivas e cheias de personalidade. Inspirado em um simpático polvo de tentáculos articulados, ele combina um design encantador com um acabamento detalhado e cores vibrantes que chamam a atenção. Produzido em alta qualidade, é leve, resistente e confortável para o uso diário, sendo ideal para prender cabelos com estilo ou complementar diferentes looks. As cores podem variar conforme a disponibilidade do filamento, garantindo exclusividade e um visual divertido para todas as idades.",
+      "imagem": "img/uploads/1785154684222_arganel_polvo_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
