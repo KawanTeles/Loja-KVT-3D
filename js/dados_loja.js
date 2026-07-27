@@ -1025,6 +1025,27 @@ window.DADOS_LOJA = {
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF056",
+      "nome": "ARGANEL RAPOSA",
+      "precoUnidade": 26,
+      "precoUnidade5": 21,
+      "categoria": "personalizados",
+      "descricao": "Este é um arganel multi-articulado e flexível no formato de uma raposa estilizada. A peça apresenta um design modular com múltiplos segmentos articulados, moldados em tons de laranja suave e branco texturizado, que conferem movimento e uma superfície rica em detalhes. A cabeça da raposa possui orelhas pontiagudas e focinho branco, enquanto o corpo é dividido em segmentos com padrões concêntricos visíveis e pequenas patas laterais. A cauda é composta por gomos laranjas interconectados e pontiagudos. A estrutura flexível permite que o arganel se ajuste e se fixe facilmente ao lenço ou pano.",
+      "imagem": "img/uploads/1785155294962_arganel_raposa_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
