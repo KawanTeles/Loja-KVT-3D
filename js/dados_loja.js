@@ -1068,6 +1068,32 @@ window.DADOS_LOJA = {
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF058",
+      "nome": "Esquelo DINO Grande",
+      "precoUnidade": 80,
+      "precoUnidade5": 74,
+      "categoria": "personalizados",
+      "descricao": "Este produto é uma figura colecionável e articulada de um esqueleto de dinossauro estilizado na cor branca, que combina uma estética pré-histórica com um design divertido no estilo chibi. A peça conta com um crânio grande e expressivo com órbitas oculares vazadas e dentes marcados, além de uma estrutura composta por vários segmentos articulados nas patas, costelas e cauda, permitindo movimentação e flexibilidade para compor diferentes posições de exibição.",
+      "imagem": "img/uploads/1785155639487_esquelo_dino_grande_1.jpg",
+      "imagensExtras": [
+        "img/uploads/1785155636942_esquelo_dino_grande_5.jpg",
+        "img/uploads/1785155637776_esquelo_dino_grande_4.jpg",
+        "img/uploads/1785155638367_esquelo_dino_grande_3.jpg",
+        "img/uploads/1785155638982_esquelo_dino_grande_2.jpg"
+      ],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
