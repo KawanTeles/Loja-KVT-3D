@@ -1112,6 +1112,28 @@ const PRODUTOS = [
         "custoImpressao": 0,
         "outrosCustos": 0,
         "margemLucro": 0
+    },
+    {
+        "id": "KF059",
+        "nome": "MARCADOR DE PÁGINA MEU LUGAR NO MUNDO",
+        "precoUnidade": 14,
+        "precoUnidade5": 10,
+        "precoUnidade50": 9,
+        "categoria": "personalizados",
+        "descricao": "Este marcador de página apresenta um design moderno e temático com a frase \"MEU LUGAR NO MUNDO\", trazendo a letra \"M\" inicial sobressaiada em azul e o restante da frase em branco sobre um contorno escuro. A composição é enriquecida por um ícone de globo terrestre substituindo a letra \"O\" e um pino de localização (pin de mapa) na cor azul posicionado no topo, além de uma haste central estilizada em formato de clipe que facilita a fixação e marcação das páginas do livro.",
+        "imagem": "img/uploads/1785155809478_marcador_de_p__gina_meu_lugar_no_mundo_1.jpg",
+        "imagensExtras": [],
+        "data": "2026-07-27",
+        "ativo": true,
+        "destaque": false,
+        "promocao": false,
+        "novo": false,
+        "maisVendido": false,
+        "mensagemCustomizada": null,
+        "custoProduto": 0,
+        "custoImpressao": 0,
+        "outrosCustos": 0,
+        "margemLucro": 0
     }
 ];
 
