@@ -980,6 +980,27 @@ const PRODUTOS = [
         "custoImpressao": 0,
         "outrosCustos": 0,
         "margemLucro": 0
+    },
+    {
+        "id": "KF053",
+        "nome": "ARGANEL Furia da noite",
+        "precoUnidade": 25,
+        "precoUnidade5": 21,
+        "categoria": "personalizados",
+        "descricao": "Inspirado em um dos dragões mais queridos do universo da fantasia, este arganel une charme, criatividade e riqueza de detalhes em um acessório perfeito para o dia a dia. Com grandes olhos verdes e acabamento detalhado, é ideal para organizar chaves, personalizar mochilas, bolsas ou estojos, além de ser um excelente item de coleção para fãs. Compacto, resistente e cheio de personalidade, também é uma ótima opção de presente para crianças, adolescentes e adultos que adoram dragões e itens colecionáveis.",
+        "imagem": "img/uploads/1785154949879_arganel_furia_da_noite_1.jpg",
+        "imagensExtras": [],
+        "data": "2026-07-27",
+        "ativo": true,
+        "destaque": false,
+        "promocao": false,
+        "novo": false,
+        "maisVendido": false,
+        "mensagemCustomizada": null,
+        "custoProduto": 0,
+        "custoImpressao": 0,
+        "outrosCustos": 0,
+        "margemLucro": 0
     }
 ];
 
