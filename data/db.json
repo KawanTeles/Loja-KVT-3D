@@ -1045,6 +1045,28 @@
       "custoImpressao": 0,
       "outrosCustos": 0,
       "margemLucro": 0
+    },
+    {
+      "id": "KF057",
+      "nome": "Chaveiro Nome personalizado",
+      "precoUnidade": 12,
+      "precoUnidade5": 10,
+      "precoUnidade50": 9,
+      "categoria": "chaveiros",
+      "descricao": "Este chaveiro personalizado pode trazer seu nome estilizado em uma elegante tipografia cursiva e fluida, destacando-se sobre uma base rígida recortada exatamente no contorno do texto. A peça apresenta um contraste marcante, com a escrita em tom claro sobre o fundo preto, e acompanha uma argola e corrente metálicas em dourado envelhecido para fixação em chaves ou bolsas.",
+      "imagem": "img/uploads/1785155440145_chaveiro_nome_personalizado_1.jpg",
+      "imagensExtras": [],
+      "data": "2026-07-27",
+      "ativo": true,
+      "destaque": false,
+      "promocao": false,
+      "novo": false,
+      "maisVendido": false,
+      "mensagemCustomizada": null,
+      "custoProduto": 0,
+      "custoImpressao": 0,
+      "outrosCustos": 0,
+      "margemLucro": 0
     }
   ],
   "categorias": [
